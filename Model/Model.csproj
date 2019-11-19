@@ -84,6 +84,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model2.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ModelDTO\Client\ClientDAO.cs" />
+    <Compile Include="ModelDTO\Client\RepositoryClient.cs" />
+    <Compile Include="ModelDTO\Empresa\empresaDTO.cs" />
+    <Compile Include="ModelDTO\Empresa\RepositoryEmpresa.cs" />
+    <Compile Include="ModelDTO\Factura\facturaDTO.cs" />
+    <Compile Include="ModelDTO\Factura\RepositoryFactura.cs" />
+    <Compile Include="ModelDTO\Habitacio\habitacioDTO.cs" />
+    <Compile Include="ModelDTO\Habitacio\RepositoryHabitacio.cs" />
+    <Compile Include="ModelDTO\Hoste\hosteDTO.cs" />
+    <Compile Include="ModelDTO\Hoste\RepositoryHoste.cs" />
+    <Compile Include="ModelDTO\LineaFactura\linia_facturaDTO.cs" />
+    <Compile Include="ModelDTO\LineaFactura\RepositoryLineaFactura.cs" />
+    <Compile Include="ModelDTO\Ocupacio\ocupacioDTO.cs" />
+    <Compile Include="ModelDTO\Ocupacio\RepositoryOcupacio.cs" />
+    <Compile Include="ModelDTO\Pensio\pensioDTO.cs" />
+    <Compile Include="ModelDTO\Pensio\RepositoryPensio.cs" />
+    <Compile Include="ModelDTO\Persona\personaDTO.cs" />
+    <Compile Include="ModelDTO\Persona\RepositoryPersona.cs" />
+    <Compile Include="ModelDTO\Preu\preuDTO.cs" />
+    <Compile Include="ModelDTO\Preu\RepositoryPreu.cs" />
+    <Compile Include="ModelDTO\Reserva\RepositoryReserva.cs" />
+    <Compile Include="ModelDTO\Reserva\reservaDTO.cs" />
+    <Compile Include="ModelDTO\ServeiOcupacio\RepositoryServeiOcupacio.cs" />
+    <Compile Include="ModelDTO\ServeiOcupacio\serveiocupacioDTO.cs" />
+    <Compile Include="ModelDTO\Servei\RepositoryServei.cs" />
+    <Compile Include="ModelDTO\Servei\serveiDAO.cs" />
+    <Compile Include="ModelDTO\Temporada\RepositoryTemporada.cs" />
+    <Compile Include="ModelDTO\Temporada\temporadaDTO.cs" />
+    <Compile Include="ModelDTO\TipusHabitacio\RepositoryTipusHabitacio.cs" />
+    <Compile Include="ModelDTO\TipusHabitacio\tipushabitacioDTO.cs" />
     <Compile Include="ocupacio.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
