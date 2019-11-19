@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "A3_CSharp_MVC\View.csproj", "{3F3853B4-8944-47B3-B57C-BB5FD368FCF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{90DE3580-5238-41EA-9877-B2DE5373C7C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{2B838877-168B-485B-9D28-81EAF13532CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F3853B4-8944-47B3-B57C-BB5FD368FCF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F3853B4-8944-47B3-B57C-BB5FD368FCF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F3853B4-8944-47B3-B57C-BB5FD368FCF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F3853B4-8944-47B3-B57C-BB5FD368FCF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90DE3580-5238-41EA-9877-B2DE5373C7C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90DE3580-5238-41EA-9877-B2DE5373C7C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90DE3580-5238-41EA-9877-B2DE5373C7C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90DE3580-5238-41EA-9877-B2DE5373C7C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B838877-168B-485B-9D28-81EAF13532CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B838877-168B-485B-9D28-81EAF13532CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B838877-168B-485B-9D28-81EAF13532CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B838877-168B-485B-9D28-81EAF13532CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DF29AA2-1EB9-46B5-ADC3-04A29D3CAA95}
+	EndGlobalSection
+EndGlobal
