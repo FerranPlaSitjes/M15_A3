@@ -13,10 +13,10 @@ namespace Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class hotelEntities : DbContext
+    public partial class hotelEntities1 : DbContext
     {
-        public hotelEntities()
-            : base("name=hotelEntities")
+        public hotelEntities1()
+            : base("name=hotelEntities1")
         {
         }
     
@@ -38,7 +38,6 @@ namespace Model
         public virtual DbSet<reserva> reservas { get; set; }
         public virtual DbSet<servei> serveis { get; set; }
         public virtual DbSet<servei_ocupacio> servei_ocupacio { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<temporada> temporadas { get; set; }
         public virtual DbSet<tipusHabitacio> tipusHabitacios { get; set; }
     }
