@@ -14,12 +14,22 @@ namespace Model
     
     public partial class factura
     {
+        private string dniHoste;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public factura()
         {
             this.linia_factura = new HashSet<linia_factura>();
         }
-    
+
+        public factura(int numero, DateTime data, decimal import, string dniHoste)
+        {
+            this.numero = numero;
+            this.data = data;
+            this.import = import;
+            this.dniHoste = dniHoste;
+        }
+
         public int numero { get; set; }
         public Nullable<System.DateTime> data { get; set; }
         public Nullable<decimal> import { get; set; }

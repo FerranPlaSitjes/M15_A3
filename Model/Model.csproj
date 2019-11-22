@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -84,7 +87,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model2.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ModelDTO\Client\ClientDAO.cs" />
+    <Compile Include="ModelDTO\Client\ClientDTO.cs" />
     <Compile Include="ModelDTO\Client\RepositoryClient.cs" />
     <Compile Include="ModelDTO\Empresa\empresaDTO.cs" />
     <Compile Include="ModelDTO\Empresa\RepositoryEmpresa.cs" />
@@ -95,7 +98,7 @@
     <Compile Include="ModelDTO\Hoste\hosteDTO.cs" />
     <Compile Include="ModelDTO\Hoste\RepositoryHoste.cs" />
     <Compile Include="ModelDTO\LineaFactura\linia_facturaDTO.cs" />
-    <Compile Include="ModelDTO\LineaFactura\RepositoryLineaFactura.cs" />
+    <Compile Include="ModelDTO\LineaFactura\RepositoryLiniaFactura.cs" />
     <Compile Include="ModelDTO\Ocupacio\ocupacioDTO.cs" />
     <Compile Include="ModelDTO\Ocupacio\RepositoryOcupacio.cs" />
     <Compile Include="ModelDTO\Pensio\pensioDTO.cs" />
@@ -109,7 +112,7 @@
     <Compile Include="ModelDTO\ServeiOcupacio\RepositoryServeiOcupacio.cs" />
     <Compile Include="ModelDTO\ServeiOcupacio\serveiocupacioDTO.cs" />
     <Compile Include="ModelDTO\Servei\RepositoryServei.cs" />
-    <Compile Include="ModelDTO\Servei\serveiDAO.cs" />
+    <Compile Include="ModelDTO\Servei\serveiDTO.cs" />
     <Compile Include="ModelDTO\Temporada\RepositoryTemporada.cs" />
     <Compile Include="ModelDTO\Temporada\temporadaDTO.cs" />
     <Compile Include="ModelDTO\TipusHabitacio\RepositoryTipusHabitacio.cs" />
@@ -173,4 +176,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
 </Project>

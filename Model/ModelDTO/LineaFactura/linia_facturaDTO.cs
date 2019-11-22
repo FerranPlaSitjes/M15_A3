@@ -8,7 +8,7 @@ namespace Model.ModelDTO.LineaFactura
 {
     public class linia_facturaDTO
     {
-        public linia_facturaDTO(int nFactura, int nLiniea, int quantitat, string descripcio, decimal import)
+        public linia_facturaDTO(int nFactura, int nLinia, int quantitat, string descripcio, decimal import)
         {
             this.nFactura = nFactura;
             this.nLinia = nLinia;
@@ -16,6 +16,7 @@ namespace Model.ModelDTO.LineaFactura
             this.descripcio = descripcio;
             this.import = import;
         }
+        
         public int nFactura { get; set; }
         public int nLinia { get; set; }
         public int? quantitat { get; set; }
