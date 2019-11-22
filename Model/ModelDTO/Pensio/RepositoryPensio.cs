@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model.ModelDTO.Pensio
 {
-    class RepositoryPensio
+    public class RepositoryPensio
     {
     }
 }
