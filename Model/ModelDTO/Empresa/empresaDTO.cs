@@ -12,8 +12,8 @@ namespace Model.ModelDTO.Empresa
         {
             this.cif = cif;
         }
+
         public int cif { get; set; }
 
-        
     }
 }

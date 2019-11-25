@@ -9,7 +9,7 @@ namespace Model.ModelDTO.Habitacio
     public class habitacioDTO
     {
         
-        public habitacioDTO(int numero, int metresQuadrats, bool terrassa, bool utilizable, string titol, string caracteristiques, int codiTipus)
+        public habitacioDTO(int numero, int metresQuadrats, bool terrassa, bool utilitzable, string titol, string caracteristiques, int codiTipus)
         {
             this.numero = numero;
             this.metresQuadrats = metresQuadrats;

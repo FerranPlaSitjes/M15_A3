@@ -87,7 +87,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model2.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ModelDTO\Client\ClientDAO.cs" />
+    <Compile Include="ModelDTO\Client\ClientDTO.cs" />
     <Compile Include="ModelDTO\Client\RepositoryClient.cs" />
     <Compile Include="ModelDTO\Empresa\empresaDTO.cs" />
     <Compile Include="ModelDTO\Empresa\RepositoryEmpresa.cs" />
@@ -98,7 +98,7 @@
     <Compile Include="ModelDTO\Hoste\hosteDTO.cs" />
     <Compile Include="ModelDTO\Hoste\RepositoryHoste.cs" />
     <Compile Include="ModelDTO\LineaFactura\linia_facturaDTO.cs" />
-    <Compile Include="ModelDTO\LineaFactura\RepositoryLineaFactura.cs" />
+    <Compile Include="ModelDTO\LineaFactura\RepositoryLiniaFactura.cs" />
     <Compile Include="ModelDTO\Ocupacio\ocupacioDTO.cs" />
     <Compile Include="ModelDTO\Ocupacio\RepositoryOcupacio.cs" />
     <Compile Include="ModelDTO\Pensio\pensioDTO.cs" />
@@ -112,7 +112,7 @@
     <Compile Include="ModelDTO\ServeiOcupacio\RepositoryServeiOcupacio.cs" />
     <Compile Include="ModelDTO\ServeiOcupacio\serveiocupacioDTO.cs" />
     <Compile Include="ModelDTO\Servei\RepositoryServei.cs" />
-    <Compile Include="ModelDTO\Servei\serveiDAO.cs" />
+    <Compile Include="ModelDTO\Servei\serveiDTO.cs" />
     <Compile Include="ModelDTO\Temporada\RepositoryTemporada.cs" />
     <Compile Include="ModelDTO\Temporada\temporadaDTO.cs" />
     <Compile Include="ModelDTO\TipusHabitacio\RepositoryTipusHabitacio.cs" />

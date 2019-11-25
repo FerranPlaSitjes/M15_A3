@@ -20,7 +20,18 @@ namespace Model
             this.ocupacios = new HashSet<ocupacio>();
             this.preus = new HashSet<preu>();
         }
-    
+
+        public habitacio(int numero, int metresQuadrats, bool terrassa, bool utilitzable, string titol, string caracteristiques, int codiTipus)
+        {
+            this.numero = numero;
+            this.metresQuadrats = metresQuadrats;
+            this.terrassa = terrassa;
+            this.utilitzable = utilitzable;
+            this.titol = titol;
+            this.caracteristiques = caracteristiques;
+            this.codiTipus = codiTipus;
+        }
+
         public int numero { get; set; }
         public Nullable<int> metresQuadrats { get; set; }
         public Nullable<bool> terrassa { get; set; }

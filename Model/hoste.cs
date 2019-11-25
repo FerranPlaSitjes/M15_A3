@@ -21,7 +21,19 @@ namespace Model
             this.personas = new HashSet<persona>();
             this.ocupacios = new HashSet<ocupacio>();
         }
-    
+
+        public hoste(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio, int idReservaFk)
+        {
+            this.dni = dni;
+            this.nom = nom;
+            this.cognom = cognom;
+            this.nacionalitat = nacionalitat;
+            this.telefon = telefon;
+            this.cp = cp;
+            this.poblacio = poblacio;
+            this.idReservaFk = idReservaFk;
+        }
+
         public string dni { get; set; }
         public string nom { get; set; }
         public string cognom { get; set; }

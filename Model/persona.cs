@@ -14,6 +14,12 @@ namespace Model
     
     public partial class persona
     {
+        public persona(int id, string dniHoste)
+        {
+            this.id = id;
+            this.dniHoste = dniHoste;
+        }
+
         public int id { get; set; }
         public string dniHoste { get; set; }
     
