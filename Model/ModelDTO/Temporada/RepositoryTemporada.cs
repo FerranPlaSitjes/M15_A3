@@ -8,5 +8,38 @@ namespace Model.ModelDTO.Temporada
 {
     class RepositoryTemporada
     {
+        hotelEntities context;
+        public RepositoryTemporada()
+        {
+            context = new hotelEntities();
+        }
+
+        public void afegirTemporada(int codi, string nom, DateTime dataInici, DateTime dataFinal)
+        {
+            temporada l = new temporada(codi, nom, dataInici, dataFinal);
+            context.temporadas.Add(l);
+            context.SaveChanges();
+        }
+
+        public void modificarTemporada(int codi, string nom, DateTime dataInici, DateTime dataFinal)
+        {
+            var result = context.temporadas.SingleOrDefault(l => l.codi == codi);
+            if (result != null)
+            {
+                result.codi = codi;
+                result.nom = nom;
+                result.dataInici = dataInici;
+                result.dataFinal = dataFinal;
+                context.SaveChanges();
+            }
+        }
+
+        public void eliminarTemporada(int id)
+        {
+            var temporada = context.temporadas.Single(c => c.codi == id);
+            context.temporadas.Remove(temporada);
+            context.SaveChanges();
+
+        }
     }
 }

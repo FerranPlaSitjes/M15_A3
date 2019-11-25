@@ -23,19 +23,22 @@ namespace Model.ModelDTO.LineaFactura
 
         public void modificarLiniaFactura(int nFactura, int nLinia, int quantitat, string descripcio, decimal import)
         {
-            //var result = context.linia_factura.SingleOrDefault(l => new { l.nFactura, l.nLinia });
-            //if (result != null)
-            //{
-            //    result.nom = nom;
-            //    result.tipus = tipus;
-            //    context.SaveChanges();
-            //}
+            var result = context.linia_factura.SingleOrDefault(x => (x.nLinia == nLinia) && (x.nFactura == nFactura));
+            if (result != null)
+            {
+                result.nFactura = nFactura;
+                result.nLinia = nLinia;
+                result.quantitat = quantitat;
+                result.descripcio = descripcio;
+                result.import = import;
+                context.SaveChanges();
+            }
         }
 
-        public void eliminarClient(int id)
+        public void eliminarLiniaFactura(int nFactura, int nLinia)
         {
-            var client = context.clients.Single(c => c.id == id);
-            context.clients.Remove(client);
+            var linia_factura = context.linia_factura.Single(x => (x.nLinia == nLinia) && (x.nFactura == nFactura));
+            context.linia_factura.Remove(linia_factura);
             context.SaveChanges();
         }
     }

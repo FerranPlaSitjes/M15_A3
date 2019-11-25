@@ -19,7 +19,14 @@ namespace Model
         {
             this.habitacios = new HashSet<habitacio>();
         }
-    
+
+        public tipusHabitacio(int codi, string tipus, int capacitat)
+        {
+            this.codi = codi;
+            this.tipus = tipus;
+            this.capacitat = capacitat;
+        }
+
         public int codi { get; set; }
         public string tipus { get; set; }
         public Nullable<int> capacitat { get; set; }
