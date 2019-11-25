@@ -34,38 +34,42 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.verticalMenuHostes = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.verticalMenuHab = new System.Windows.Forms.TabControl();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.verticalMenuRes = new System.Windows.Forms.TabControl();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.verticalMenuOcu = new System.Windows.Forms.TabControl();
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.verticalMenuSer = new System.Windows.Forms.TabControl();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.Clients.SuspendLayout();
             this.verticalMenuClients.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
             this.verticalMenuHostes.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.verticalMenuHab.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.verticalMenuRes.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.verticalMenuOcu.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.verticalMenuSer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -100,6 +104,7 @@
             this.verticalMenuClients.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.verticalMenuClients.Controls.Add(this.tabPage6);
             this.verticalMenuClients.Controls.Add(this.tabPage7);
+            this.verticalMenuClients.Controls.Add(this.tabPage18);
             this.verticalMenuClients.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.verticalMenuClients.ItemSize = new System.Drawing.Size(25, 100);
             this.verticalMenuClients.Location = new System.Drawing.Point(0, 0);
@@ -112,6 +117,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.dataGridView1);
             this.tabPage6.Location = new System.Drawing.Point(104, 4);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -140,50 +146,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Hostes";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.verticalMenuHab);
-            this.tabPage1.Location = new System.Drawing.Point(4, 46);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1272, 670);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Habitacions";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.verticalMenuRes);
-            this.tabPage3.Location = new System.Drawing.Point(4, 46);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1272, 670);
-            this.tabPage3.TabIndex = 3;
-            this.tabPage3.Text = "Reserves";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.verticalMenuOcu);
-            this.tabPage4.Location = new System.Drawing.Point(4, 46);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1272, 670);
-            this.tabPage4.TabIndex = 4;
-            this.tabPage4.Text = "Ocupacions";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.verticalMenuSer);
-            this.tabPage5.Location = new System.Drawing.Point(4, 46);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1272, 670);
-            this.tabPage5.TabIndex = 5;
-            this.tabPage5.Text = "Serveis";
-            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // verticalMenuHostes
             // 
@@ -220,6 +182,17 @@
             this.tabPage9.Text = "Modificar Client";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.verticalMenuHab);
+            this.tabPage1.Location = new System.Drawing.Point(4, 46);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1272, 670);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Habitacions";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // verticalMenuHab
             // 
             this.verticalMenuHab.Alignment = System.Windows.Forms.TabAlignment.Left;
@@ -254,6 +227,17 @@
             this.tabPage11.TabIndex = 1;
             this.tabPage11.Text = "Modificar Client";
             this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.verticalMenuRes);
+            this.tabPage3.Location = new System.Drawing.Point(4, 46);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1272, 670);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Reserves";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // verticalMenuRes
             // 
@@ -290,6 +274,17 @@
             this.tabPage13.Text = "Modificar Client";
             this.tabPage13.UseVisualStyleBackColor = true;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.verticalMenuOcu);
+            this.tabPage4.Location = new System.Drawing.Point(4, 46);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1272, 670);
+            this.tabPage4.TabIndex = 4;
+            this.tabPage4.Text = "Ocupacions";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // verticalMenuOcu
             // 
             this.verticalMenuOcu.Alignment = System.Windows.Forms.TabAlignment.Left;
@@ -324,6 +319,17 @@
             this.tabPage15.TabIndex = 1;
             this.tabPage15.Text = "Modificar Client";
             this.tabPage15.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.verticalMenuSer);
+            this.tabPage5.Location = new System.Drawing.Point(4, 46);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1272, 670);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Serveis";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // verticalMenuSer
             // 
@@ -360,6 +366,24 @@
             this.tabPage17.Text = "Modificar Client";
             this.tabPage17.UseVisualStyleBackColor = true;
             // 
+            // tabPage18
+            // 
+            this.tabPage18.Location = new System.Drawing.Point(104, 4);
+            this.tabPage18.Name = "tabPage18";
+            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage18.Size = new System.Drawing.Size(1164, 662);
+            this.tabPage18.TabIndex = 2;
+            this.tabPage18.Text = "Llistar Clients";
+            this.tabPage18.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(39, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(972, 364);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,16 +395,18 @@
             this.tabControl1.ResumeLayout(false);
             this.Clients.ResumeLayout(false);
             this.verticalMenuClients.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
             this.verticalMenuHostes.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.verticalMenuHab.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.verticalMenuRes.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.verticalMenuOcu.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
             this.verticalMenuSer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -412,6 +438,8 @@
         public System.Windows.Forms.TabControl verticalMenuSer;
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.TabPage tabPage17;
+        private System.Windows.Forms.TabPage tabPage18;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

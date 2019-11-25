@@ -21,7 +21,6 @@ namespace Controller
 
         private void Inicialitza()
         {
-
             InitListeners();
             Application.Run(f);
         }
