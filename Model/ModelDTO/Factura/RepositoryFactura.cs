@@ -10,9 +10,9 @@ namespace Model.ModelDTO.Factura
     {
         hotelEntities context;
 
-        public RepositoryFactura()
+        public RepositoryFactura(hotelEntities context)
         {
-            context = new hotelEntities();
+            this.context = context;
         }
 
         public void afegirFactura(int numero, DateTime data, decimal import, string dniHoste)

@@ -9,9 +9,9 @@ namespace Model.ModelDTO.TipusHabitacio
     class RepositoryTipusHabitacio
     {
         hotelEntities context;
-        public RepositoryTipusHabitacio()
+        public RepositoryTipusHabitacio(hotelEntities context)
         {
-            context = new hotelEntities();
+            this.context = context;
         }
 
         public void afegirTipusHabitacio(int codi, string tipus, int capacitat)

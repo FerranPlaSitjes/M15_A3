@@ -9,9 +9,9 @@ namespace Model.ModelDTO.Temporada
     class RepositoryTemporada
     {
         hotelEntities context;
-        public RepositoryTemporada()
+        public RepositoryTemporada(hotelEntities context)
         {
-            context = new hotelEntities();
+            this.context = context;
         }
 
         public void afegirTemporada(int codi, string nom, DateTime dataInici, DateTime dataFinal)

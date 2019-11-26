@@ -8,10 +8,11 @@ namespace Model.ModelDTO.Client
 {
     public class RepositoryClient
     {
+        hotelEntities context;
         
-        public RepositoryClient()
+        public RepositoryClient(hotelEntities context)
         {
-            context = new hotelEntities1();
+            this.context = context;
         }
 
         public void afegirClient(client client)

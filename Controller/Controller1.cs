@@ -1,4 +1,5 @@
 ﻿using A3_CSharp_MVC;
+using Model.ModelDTO.Reserva;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,16 +13,19 @@ namespace Controller
     public class Controller1
     {
         Form1 f;
+        RepositoryReserva rs;
 
         public Controller1()
         {
             f = new Form1();
+            rs = new RepositoryReserva(); 
             Inicialitza();
         }
 
         private void Inicialitza()
         {
             InitListeners();
+
             Application.Run(f);
         }
 
@@ -33,6 +37,11 @@ namespace Controller
             f.verticalMenuRes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
             f.verticalMenuOcu.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
             f.verticalMenuSer.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+        }
+
+        public void PopulateReserva()
+        {
+            f.dgvReserva.DataSource = rs.mostrarReserva();
         }
 
         private void verticalMenu_DrawItem(object sender, DrawItemEventArgs e)

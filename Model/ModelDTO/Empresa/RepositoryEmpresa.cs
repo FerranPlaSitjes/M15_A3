@@ -10,9 +10,9 @@ namespace Model.ModelDTO.Empresa
     {
         hotelEntities context;
         
-        public RepositoryEmpresa()
+        public RepositoryEmpresa(hotelEntities context)
         {
-            context = new hotelEntities();
+            this.context = context;
         }
 
         public void afegirEmpresa(int cif)

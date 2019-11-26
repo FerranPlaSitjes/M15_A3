@@ -9,9 +9,9 @@ namespace Model.ModelDTO.Reserva
     public class RepositoryReserva
     {
         hotelEntities context;
-        public RepositoryReserva()
+        public RepositoryReserva(hotelEntities context)
         {
-            context = new hotelEntities();
+            this.context = context;
         }
 
         public void afegirReserva(DateTime dataInici, DateTime dataFinal, decimal preuTotal, decimal bestreta, string pensioFk, int idClientFk)
@@ -41,6 +41,12 @@ namespace Model.ModelDTO.Reserva
             var reserva = context.reservas.Single(r => r.id == id);
             context.reservas.Remove(reserva);
             context.SaveChanges();
+        }
+
+        public List<reserva> mostrarReserva()
+        {
+            var reserva = context.reservas.OrderBy(r => r.id).ToList();      
+            return reserva;
         }
     }
 }

@@ -9,9 +9,9 @@ namespace Model.ModelDTO.Servei
     public class RepositoryServei
     {
         hotelEntities context;
-        public RepositoryServei()
+        public RepositoryServei(hotelEntities context)
         {
-            context = new hotelEntities();
+            this.context = context;
         }
 
         public void afegirServei(string nom)
