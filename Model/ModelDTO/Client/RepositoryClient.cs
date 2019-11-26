@@ -8,14 +8,24 @@ namespace Model.ModelDTO.Client
 {
     public class RepositoryClient
     {
-        
+        hotelEntities context;
+
         public RepositoryClient()
         {
-            context = new hotelEntities1();
+            context = new hotelEntities();
         }
 
-        public void afegirClient(client client)
-        {            
+        public List<client> llistar()
+        {
+            List<client> dades = context.clients.ToList();
+            return dades;
+        }
+
+        public void afegirClient(string nom, string tipus)
+        {
+            client c = new client(nom, tipus);
+            context.clients.Add(c);
+            context.SaveChanges();
         }
 
         public void modificarClient(int id, string nom, string tipus)

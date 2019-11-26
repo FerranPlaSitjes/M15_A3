@@ -1,4 +1,5 @@
 ﻿using A3_CSharp_MVC;
+using Model.ModelDTO.Client;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,17 +13,27 @@ namespace Controller
     public class Controller1
     {
         Form1 f;
+        RepositoryClient rc;
 
         public Controller1()
         {
             f = new Form1();
+            rc = new RepositoryClient();
             Inicialitza();
         }
 
         private void Inicialitza()
         {
             InitListeners();
+            populateClients();
             Application.Run(f);
+        }
+
+        private void populateClients()
+        {
+            f.dgvClients.DataSource = rc.llistar();
+            f.tipusCB.Items.Add("Empresa");
+            f.tipusCB.Items.Add("Particular");
         }
 
         private void InitListeners()
@@ -33,6 +44,18 @@ namespace Controller
             f.verticalMenuRes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
             f.verticalMenuOcu.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
             f.verticalMenuSer.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            f.addButton.Click += AddButton_Click;
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            String nom = f.nomTB.Text;
+            String tipus = f.tipusCB.SelectedItem.ToString();
+            if (!nom.Equals("") && !tipus.Equals(""))
+            {
+                rc.afegirClient(nom, tipus);
+                populateClients();
+            }
         }
 
         private void verticalMenu_DrawItem(object sender, DrawItemEventArgs e)

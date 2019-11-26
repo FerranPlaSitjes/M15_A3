@@ -32,7 +32,9 @@
             this.Clients = new System.Windows.Forms.TabPage();
             this.verticalMenuClients = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.dgvClients = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPage18 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.verticalMenuHostes = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -53,12 +55,16 @@
             this.verticalMenuSer = new System.Windows.Forms.TabControl();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.tabPage18 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nomTB = new System.Windows.Forms.TextBox();
+            this.tipusCB = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.addButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Clients.SuspendLayout();
             this.verticalMenuClients.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.verticalMenuHostes.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -69,7 +75,6 @@
             this.verticalMenuOcu.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.verticalMenuSer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -117,7 +122,12 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.dataGridView1);
+            this.tabPage6.Controls.Add(this.addButton);
+            this.tabPage6.Controls.Add(this.label2);
+            this.tabPage6.Controls.Add(this.tipusCB);
+            this.tabPage6.Controls.Add(this.nomTB);
+            this.tabPage6.Controls.Add(this.label1);
+            this.tabPage6.Controls.Add(this.dgvClients);
             this.tabPage6.Location = new System.Drawing.Point(104, 4);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -125,6 +135,14 @@
             this.tabPage6.TabIndex = 0;
             this.tabPage6.Text = "Afegir client";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // dgvClients
+            // 
+            this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClients.Location = new System.Drawing.Point(37, 26);
+            this.dgvClients.Name = "dgvClients";
+            this.dgvClients.Size = new System.Drawing.Size(687, 364);
+            this.dgvClients.TabIndex = 0;
             // 
             // tabPage7
             // 
@@ -135,6 +153,16 @@
             this.tabPage7.TabIndex = 1;
             this.tabPage7.Text = "Modificar Client";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // tabPage18
+            // 
+            this.tabPage18.Location = new System.Drawing.Point(104, 4);
+            this.tabPage18.Name = "tabPage18";
+            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage18.Size = new System.Drawing.Size(1164, 662);
+            this.tabPage18.TabIndex = 2;
+            this.tabPage18.Text = "Llistar Clients";
+            this.tabPage18.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -366,23 +394,47 @@
             this.tabPage17.Text = "Modificar Client";
             this.tabPage17.UseVisualStyleBackColor = true;
             // 
-            // tabPage18
+            // label1
             // 
-            this.tabPage18.Location = new System.Drawing.Point(104, 4);
-            this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage18.Size = new System.Drawing.Size(1164, 662);
-            this.tabPage18.TabIndex = 2;
-            this.tabPage18.Text = "Llistar Clients";
-            this.tabPage18.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(37, 408);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nom";
             // 
-            // dataGridView1
+            // nomTB
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(39, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(972, 364);
-            this.dataGridView1.TabIndex = 0;
+            this.nomTB.Location = new System.Drawing.Point(40, 425);
+            this.nomTB.Name = "nomTB";
+            this.nomTB.Size = new System.Drawing.Size(168, 20);
+            this.nomTB.TabIndex = 2;
+            // 
+            // tipusCB
+            // 
+            this.tipusCB.FormattingEnabled = true;
+            this.tipusCB.Location = new System.Drawing.Point(237, 425);
+            this.tipusCB.Name = "tipusCB";
+            this.tipusCB.Size = new System.Drawing.Size(121, 21);
+            this.tipusCB.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(237, 406);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Tipus";
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(40, 466);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 5;
+            this.addButton.Text = "Afegir";
+            this.addButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -396,6 +448,8 @@
             this.Clients.ResumeLayout(false);
             this.verticalMenuClients.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.verticalMenuHostes.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -406,7 +460,6 @@
             this.verticalMenuOcu.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.verticalMenuSer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -439,7 +492,12 @@
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.TabPage tabPage17;
         private System.Windows.Forms.TabPage tabPage18;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.ComboBox tipusCB;
+        public System.Windows.Forms.TextBox nomTB;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.DataGridView dgvClients;
     }
 }
 
