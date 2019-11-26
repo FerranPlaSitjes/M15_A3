@@ -9,9 +9,9 @@ namespace Model.ModelDTO.Persona
     public class RepositoryPersona
     {
         hotelEntities context;
-        public RepositoryPersona()
+        public RepositoryPersona(hotelEntities context)
         {
-            context = new hotelEntities();
+            this.context = context;
         }
 
         public void afegirPersona(int id, string dniHoste)

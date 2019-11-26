@@ -9,9 +9,10 @@ namespace Model.ModelDTO.Client
     public class RepositoryClient
     {
         hotelEntities context;
-
-        public RepositoryClient()
+        
+        public RepositoryClient(hotelEntities context)
         {
+            this.context = context;
             context = new hotelEntities();
         }
 

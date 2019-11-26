@@ -10,9 +10,9 @@ namespace Model.ModelDTO.Habitacio
     {
         hotelEntities context;
 
-        public RepositoryHabitacio()
+        public RepositoryHabitacio(hotelEntities context)
         {
-            context = new hotelEntities();
+            this.context = context;
         }
 
         public void afegirHabitacio(int numero, int metresQuadrats, bool terrassa, bool utilitzable, string titol, string caracteristiques, int codiTipus)

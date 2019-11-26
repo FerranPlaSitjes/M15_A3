@@ -9,9 +9,9 @@ namespace Model.ModelDTO.ServeiOcupacio
     class RepositoryServeiOcupacio
     {
         hotelEntities context;
-        public RepositoryServeiOcupacio()
+        public RepositoryServeiOcupacio(hotelEntities context)
         {
-            context = new hotelEntities();
+            this.context = context;
         }
 
         public void afegirServeiocupacio(int idOcupacio, int idServei, DateTime data, Decimal preu)

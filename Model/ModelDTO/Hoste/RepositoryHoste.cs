@@ -9,9 +9,9 @@ namespace Model.ModelDTO.Hoste
     public class RepositoryHoste
     {
         hotelEntities context;
-        public RepositoryHoste()
+        public RepositoryHoste(hotelEntities context)
         {
-            context = new hotelEntities();
+            this.context = context;
         }
 
         public void afegirHoste(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio, int idReservaFk)

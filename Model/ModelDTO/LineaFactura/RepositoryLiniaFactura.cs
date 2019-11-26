@@ -9,9 +9,9 @@ namespace Model.ModelDTO.LineaFactura
     public class RepositoryLiniaFactura
     {
         hotelEntities context;
-        public RepositoryLiniaFactura()
+        public RepositoryLiniaFactura(hotelEntities context)
         {
-            context = new hotelEntities();
+            this.context = context;
         }
 
         public void afegirLiniaFactura(int nFactura, int nLinia, int quantitat, string descripcio, decimal import)
