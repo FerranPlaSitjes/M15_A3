@@ -15,9 +15,15 @@ namespace Model
     public partial class servei
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public servei(string nom)
+        public servei()
         {
             this.servei_ocupacio = new HashSet<servei_ocupacio>();
+        }
+
+        public servei(string nom)
+        {
+            this.id = id;
+            this.nom = nom;
         }
     
         public int id { get; set; }

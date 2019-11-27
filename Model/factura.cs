@@ -14,8 +14,6 @@ namespace Model
     
     public partial class factura
     {
-        private string dniHoste;
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public factura()
         {
@@ -27,7 +25,7 @@ namespace Model
             this.numero = numero;
             this.data = data;
             this.import = import;
-            this.dniHoste = dniHoste;
+            this.dniHosteFk = dniHoste;
         }
 
         public int numero { get; set; }

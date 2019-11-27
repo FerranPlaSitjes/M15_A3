@@ -14,13 +14,13 @@ namespace Model
     
     public partial class empresa
     {
+        public int cif { get; set; }
+
         public empresa(int cif)
         {
             this.cif = cif;
         }
 
-        public int cif { get; set; }
-    
         public virtual client client { get; set; }
     }
 }

@@ -11,11 +11,17 @@ namespace Model
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class linia_factura
     {
+        public int nFactura { get; set; }
+        public int nLinia { get; set; }
+        public Nullable<int> quantitat { get; set; }
+        public string descripcio { get; set; }
+        public Nullable<decimal> import { get; set; }
+    
+        public virtual factura factura { get; set; }
+
         public linia_factura(int nFactura, int nLinia, int quantitat, string descripcio, decimal import)
         {
             this.nFactura = nFactura;
@@ -24,15 +30,5 @@ namespace Model
             this.descripcio = descripcio;
             this.import = import;
         }
-
-        [Key, Column(Order = 0)]
-        public int nFactura { get; set; }
-        [Key, Column(Order = 1)]
-        public int nLinia { get; set; }
-        public Nullable<int> quantitat { get; set; }
-        public string descripcio { get; set; }
-        public Nullable<decimal> import { get; set; }
-    
-        public virtual factura factura { get; set; }
     }
 }

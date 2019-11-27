@@ -13,7 +13,7 @@ using Model;
 namespace Controller
 {
     public class Controller1
-    {-
+    {
         Form1 f;
         RepositoryReserva rs;
         RepositoryClient rc;

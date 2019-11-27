@@ -87,7 +87,6 @@
             <PropertyRef Name="tipus" />
           </Key>
           <Property Name="tipus" Type="varchar" MaxLength="60" Nullable="false" />
-          <Property Name="preu" Type="decimal" Precision="6" Scale="2" />
         </EntityType>
         <EntityType Name="persona">
           <Key>
@@ -100,11 +99,12 @@
           <Key>
             <PropertyRef Name="codiTemporada" />
             <PropertyRef Name="tipusPensio" />
-            <PropertyRef Name="codiHabitacio" />
+            <PropertyRef Name="codiTipusHabitacio" />
           </Key>
           <Property Name="codiTemporada" Type="int" Nullable="false" />
           <Property Name="tipusPensio" Type="varchar" MaxLength="60" Nullable="false" />
-          <Property Name="codiHabitacio" Type="int" Nullable="false" />
+          <Property Name="codiTipusHabitacio" Type="int" Nullable="false" />
+          <Property Name="preu" Type="decimal" Precision="6" Scale="2" />
         </EntityType>
         <EntityType Name="reserva">
           <Key>
@@ -140,7 +140,7 @@
             <PropertyRef Name="codi" />
           </Key>
           <Property Name="codi" Type="int" Nullable="false" />
-          <Property Name="nom" Type="varchar" MaxLength="1" />
+          <Property Name="nom" Type="varchar" MaxLength="30" />
           <Property Name="dataInici" Type="date" />
           <Property Name="dataFinal" Type="date" />
         </EntityType>
@@ -284,18 +284,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__preu__codiHabita__412EB0B6">
-          <End Role="habitacio" Type="Self.habitacio" Multiplicity="1" />
-          <End Role="preu" Type="Self.preu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="habitacio">
-              <PropertyRef Name="numero" />
-            </Principal>
-            <Dependent Role="preu">
-              <PropertyRef Name="codiHabitacio" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__preu__codiTempor__3F466844">
           <End Role="temporada" Type="Self.temporada" Multiplicity="1" />
           <End Role="preu" Type="Self.preu" Multiplicity="*" />
@@ -305,6 +293,18 @@
             </Principal>
             <Dependent Role="preu">
               <PropertyRef Name="codiTemporada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__preu__codiTipusH__412EB0B6">
+          <End Role="tipusHabitacio" Type="Self.tipusHabitacio" Multiplicity="1" />
+          <End Role="preu" Type="Self.preu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipusHabitacio">
+              <PropertyRef Name="codi" />
+            </Principal>
+            <Dependent Role="preu">
+              <PropertyRef Name="codiTipusHabitacio" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -429,12 +429,12 @@
             <End Role="client" EntitySet="client" />
             <End Role="persona" EntitySet="persona" />
           </AssociationSet>
-          <AssociationSet Name="FK__preu__codiHabita__412EB0B6" Association="Self.FK__preu__codiHabita__412EB0B6">
-            <End Role="habitacio" EntitySet="habitacio" />
-            <End Role="preu" EntitySet="preu" />
-          </AssociationSet>
           <AssociationSet Name="FK__preu__codiTempor__3F466844" Association="Self.FK__preu__codiTempor__3F466844">
             <End Role="temporada" EntitySet="temporada" />
+            <End Role="preu" EntitySet="preu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__preu__codiTipusH__412EB0B6" Association="Self.FK__preu__codiTipusH__412EB0B6">
+            <End Role="tipusHabitacio" EntitySet="tipusHabitacio" />
             <End Role="preu" EntitySet="preu" />
           </AssociationSet>
           <AssociationSet Name="FK__preu__tipusPensi__403A8C7D" Association="Self.FK__preu__tipusPensi__403A8C7D">
@@ -505,7 +505,6 @@
           <Property Name="codiTipus" Type="Int32" />
           <NavigationProperty Name="tipusHabitacio" Relationship="Self.FK__habitacio__codiT__3C69FB99" FromRole="habitacio" ToRole="tipusHabitacio" />
           <NavigationProperty Name="ocupacios" Relationship="Self.FK__ocupacio__nHabit__5AEE82B9" FromRole="habitacio" ToRole="ocupacio" />
-          <NavigationProperty Name="preus" Relationship="Self.FK__preu__codiHabita__412EB0B6" FromRole="habitacio" ToRole="preu" />
         </EntityType>
         <EntityType Name="hoste">
           <Key>
@@ -555,7 +554,6 @@
             <PropertyRef Name="tipus" />
           </Key>
           <Property Name="tipus" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="preu" Type="Decimal" Precision="6" Scale="2" />
           <NavigationProperty Name="ocupacios" Relationship="Self.FK__ocupacio__tipusP__5BE2A6F2" FromRole="pensio" ToRole="ocupacio" />
           <NavigationProperty Name="preus" Relationship="Self.FK__preu__tipusPensi__403A8C7D" FromRole="pensio" ToRole="preu" />
           <NavigationProperty Name="reservas" Relationship="Self.FK__reserva__pensioF__48CFD27E" FromRole="pensio" ToRole="reserva" />
@@ -573,14 +571,15 @@
           <Key>
             <PropertyRef Name="codiTemporada" />
             <PropertyRef Name="tipusPensio" />
-            <PropertyRef Name="codiHabitacio" />
+            <PropertyRef Name="codiTipusHabitacio" />
           </Key>
           <Property Name="codiTemporada" Type="Int32" Nullable="false" />
           <Property Name="tipusPensio" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="codiHabitacio" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="habitacio" Relationship="Self.FK__preu__codiHabita__412EB0B6" FromRole="preu" ToRole="habitacio" />
+          <Property Name="codiTipusHabitacio" Type="Int32" Nullable="false" />
+          <Property Name="preu1" Type="Decimal" Precision="6" Scale="2" />
           <NavigationProperty Name="pensio" Relationship="Self.FK__preu__tipusPensi__403A8C7D" FromRole="preu" ToRole="pensio" />
           <NavigationProperty Name="temporada" Relationship="Self.FK__preu__codiTempor__3F466844" FromRole="preu" ToRole="temporada" />
+          <NavigationProperty Name="tipusHabitacio" Relationship="Self.FK__preu__codiTipusH__412EB0B6" FromRole="preu" ToRole="tipusHabitacio" />
         </EntityType>
         <EntityType Name="reserva">
           <Key>
@@ -622,7 +621,7 @@
             <PropertyRef Name="codi" />
           </Key>
           <Property Name="codi" Type="Int32" Nullable="false" />
-          <Property Name="nom" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="nom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="dataInici" Type="DateTime" Precision="0" />
           <Property Name="dataFinal" Type="DateTime" Precision="0" />
           <NavigationProperty Name="preus" Relationship="Self.FK__preu__codiTempor__3F466844" FromRole="temporada" ToRole="preu" />
@@ -635,6 +634,7 @@
           <Property Name="tipus" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="capacitat" Type="Int32" />
           <NavigationProperty Name="habitacios" Relationship="Self.FK__habitacio__codiT__3C69FB99" FromRole="tipusHabitacio" ToRole="habitacio" />
+          <NavigationProperty Name="preus" Relationship="Self.FK__preu__codiTipusH__412EB0B6" FromRole="tipusHabitacio" ToRole="preu" />
         </EntityType>
         <Association Name="FK__empresa__cif__45F365D3">
           <End Role="client" Type="Self.client" Multiplicity="1" />
@@ -717,18 +717,6 @@
             </Principal>
             <Dependent Role="ocupacio">
               <PropertyRef Name="nHabitacioFk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__preu__codiHabita__412EB0B6">
-          <End Role="habitacio" Type="Self.habitacio" Multiplicity="1" />
-          <End Role="preu" Type="Self.preu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="habitacio">
-              <PropertyRef Name="numero" />
-            </Principal>
-            <Dependent Role="preu">
-              <PropertyRef Name="codiHabitacio" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -816,6 +804,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__preu__codiTipusH__412EB0B6">
+          <End Role="tipusHabitacio" Type="Self.tipusHabitacio" Multiplicity="1" />
+          <End Role="preu" Type="Self.preu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipusHabitacio">
+              <PropertyRef Name="codi" />
+            </Principal>
+            <Dependent Role="preu">
+              <PropertyRef Name="codiTipusHabitacio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__servei_oc__idSer__5FB337D6">
           <End Role="servei" Type="Self.servei" Multiplicity="1" />
           <End Role="servei_ocupacio" Type="Self.servei_ocupacio" Multiplicity="*" />
@@ -832,7 +832,7 @@
           <End Role="hoste" Type="Self.hoste" Multiplicity="*" />
           <End Role="ocupacio" Type="Self.ocupacio" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="hotelEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="hotelEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="clients" EntityType="Self.client" />
           <EntitySet Name="empresas" EntityType="Self.empresa" />
           <EntitySet Name="facturas" EntityType="Self.factura" />
@@ -876,10 +876,6 @@
             <End Role="habitacio" EntitySet="habitacios" />
             <End Role="ocupacio" EntitySet="ocupacios" />
           </AssociationSet>
-          <AssociationSet Name="FK__preu__codiHabita__412EB0B6" Association="Self.FK__preu__codiHabita__412EB0B6">
-            <End Role="habitacio" EntitySet="habitacios" />
-            <End Role="preu" EntitySet="preus" />
-          </AssociationSet>
           <AssociationSet Name="FK__hoste__idReserva__4CA06362" Association="Self.FK__hoste__idReserva__4CA06362">
             <End Role="reserva" EntitySet="reservas" />
             <End Role="hoste" EntitySet="hostes" />
@@ -908,6 +904,10 @@
             <End Role="temporada" EntitySet="temporadas" />
             <End Role="preu" EntitySet="preus" />
           </AssociationSet>
+          <AssociationSet Name="FK__preu__codiTipusH__412EB0B6" Association="Self.FK__preu__codiTipusH__412EB0B6">
+            <End Role="tipusHabitacio" EntitySet="tipusHabitacios" />
+            <End Role="preu" EntitySet="preus" />
+          </AssociationSet>
           <AssociationSet Name="FK__servei_oc__idSer__5FB337D6" Association="Self.FK__servei_oc__idSer__5FB337D6">
             <End Role="servei" EntitySet="serveis" />
             <End Role="servei_ocupacio" EntitySet="servei_ocupacio" />
@@ -922,7 +922,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="hotelModelStoreContainer" CdmEntityContainer="hotelEntities1">
+        <EntityContainerMapping StorageEntityContainer="hotelModelStoreContainer" CdmEntityContainer="hotelEntities">
           <EntitySetMapping Name="clients">
             <EntityTypeMapping TypeName="hotelModel.client">
               <MappingFragment StoreEntitySet="client">
@@ -1002,7 +1002,6 @@
             <EntityTypeMapping TypeName="hotelModel.pensio">
               <MappingFragment StoreEntitySet="pensio">
                 <ScalarProperty Name="tipus" ColumnName="tipus" />
-                <ScalarProperty Name="preu" ColumnName="preu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1019,7 +1018,8 @@
               <MappingFragment StoreEntitySet="preu">
                 <ScalarProperty Name="codiTemporada" ColumnName="codiTemporada" />
                 <ScalarProperty Name="tipusPensio" ColumnName="tipusPensio" />
-                <ScalarProperty Name="codiHabitacio" ColumnName="codiHabitacio" />
+                <ScalarProperty Name="codiTipusHabitacio" ColumnName="codiTipusHabitacio" />
+                <ScalarProperty Name="preu1" ColumnName="preu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

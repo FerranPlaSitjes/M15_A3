@@ -31,8 +31,8 @@ namespace Model
             this.telefon = telefon;
             this.cp = cp;
             this.poblacio = poblacio;
-            this.idReservaFk = idReservaFk;
         }
+
 
         public string dni { get; set; }
         public string nom { get; set; }

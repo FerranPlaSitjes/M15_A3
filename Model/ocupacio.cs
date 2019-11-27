@@ -20,7 +20,6 @@ namespace Model
             this.servei_ocupacio = new HashSet<servei_ocupacio>();
             this.hostes = new HashSet<hoste>();
         }
-
         public ocupacio(int id, DateTime dataInici, DateTime dataFinal, int nHabitacioFk, string tipusPensioFk)
         {
             this.id = id;
@@ -29,7 +28,6 @@ namespace Model
             this.nHabitacioFk = nHabitacioFk;
             this.tipusPensioFk = tipusPensioFk;
         }
-
         public int id { get; set; }
         public Nullable<System.DateTime> dataInici { get; set; }
         public Nullable<System.DateTime> dataFinal { get; set; }

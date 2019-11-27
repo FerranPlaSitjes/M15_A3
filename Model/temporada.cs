@@ -14,22 +14,19 @@ namespace Model
     
     public partial class temporada
     {
-        private object tipus;
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public temporada()
         {
             this.preus = new HashSet<preu>();
         }
 
-        public temporada(int codi, string tipus, DateTime dataInici, DateTime dataFinal)
+        public temporada(int codi, string nom, DateTime dataInici, DateTime dataFinal)
         {
             this.codi = codi;
-            this.tipus = tipus;
+            this.nom = nom;
             this.dataInici = dataInici;
             this.dataFinal = dataFinal;
         }
-
         public int codi { get; set; }
         public string nom { get; set; }
         public Nullable<System.DateTime> dataInici { get; set; }
