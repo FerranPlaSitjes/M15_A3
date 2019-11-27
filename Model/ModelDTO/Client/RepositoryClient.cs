@@ -9,16 +9,15 @@ namespace Model.ModelDTO.Client
     public class RepositoryClient
     {
         hotelEntities context;
-        
-        public RepositoryClient(hotelEntities context)
+
+        public RepositoryClient()
         {
-            this.context = context;
-            context = new hotelEntities();
+            this.context = new hotelEntities();
         }
 
-        public List<client> llistar()
+        public List<clientDTO> llistar()
         {
-            List<client> dades = context.clients.ToList();
+            List<clientDTO> dades = context.clients.ToList().Select(c => new clientDTO(c)).ToList();
             return dades;
         }
 

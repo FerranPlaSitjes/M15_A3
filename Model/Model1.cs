@@ -23,7 +23,7 @@ namespace Model
 {
     public class Model1
     {
-        hotelEntities context;
+        hotelEntities context = new hotelEntities();
         RepositoryClient rclient;
         RepositoryEmpresa rempresa;
         RepositoryFactura rfactura;
@@ -41,21 +41,20 @@ namespace Model
 
         public Model1()
         {
-            context = new hotelEntities();
             rclient = new RepositoryClient();
-            rempresa = new RepositoryEmpresa();
-            rfactura = new RepositoryFactura();
-            rhabitacio = new RepositoryHabitacio();
-            rhoste = new RepositoryHoste();
-            rlinia = new RepositoryLiniaFactura();
-            rocupacio = new RepositoryOcupacio();
-            rpersona = new RepositoryPersona();
-            rpreu = new RepositoryPreu();
+            rempresa = new RepositoryEmpresa(context);
+            rfactura = new RepositoryFactura(context);
+            rhabitacio = new RepositoryHabitacio(context);
+            rhoste = new RepositoryHoste(context);
+            rlinia = new RepositoryLiniaFactura(context);
+            rocupacio = new RepositoryOcupacio(context);
+            rpersona = new RepositoryPersona(context);
+            rpreu = new RepositoryPreu(context);
             rreserva = new RepositoryReserva();
-            rservei = new RepositoryServei();
-            rserveiocupa = new RepositoryServeiOcupacio();
-            rtemporada = new RepositoryTemporada();
-            rtipushab = new RepositoryTipusHabitacio();
+            rservei = new RepositoryServei(context);
+            rserveiocupa = new RepositoryServeiOcupacio(context);
+            rtemporada = new RepositoryTemporada(context);
+            rtipushab = new RepositoryTipusHabitacio(context);
         }
         
     }

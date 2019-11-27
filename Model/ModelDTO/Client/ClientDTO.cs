@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 namespace Model.ModelDTO.Client
 {
     public class clientDTO
-    {        
-        public clientDTO(int id , string nom , string tipus)
+    {
+        private client c;
+
+        public clientDTO(client c)
         {
-            this.id = id;
-            this.nom = nom;
-            this.tipus = tipus;
+            this.id = c.id;
+            this.nom = c.nom;
+            this.tipus = c.tipus;
         }
 
         public int id { get; set; }

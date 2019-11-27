@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace Controller
 {
@@ -34,7 +35,8 @@ namespace Controller
 
         private void populateClients()
         {
-            f.dgvClients.DataSource = rc.llistar();
+            f.dataGridView2.DataSource = rc.llistar();
+            f.dgvReserva.DataSource = rs.mostrarReserva();
             f.tipusCB.Items.Add("Empresa");
             f.tipusCB.Items.Add("Particular");
         }
@@ -47,7 +49,8 @@ namespace Controller
             f.verticalMenuRes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
             f.verticalMenuOcu.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
             f.verticalMenuSer.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
-            f.addButton.Click += AddButton_Click;
+            f.AfegirClient.Click += AddButton_Click;
+            
         }
 
         private void AddButton_Click(object sender, EventArgs e)
