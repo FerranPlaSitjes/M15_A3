@@ -8,5 +8,10 @@ namespace Model.ModelDTO.Preu
 {
     public class RepositoryPreu
     {
+        hotelEntities context;
+        public RepositoryPreu(hotelEntities context)
+        {
+            this.context = context;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using A3_CSharp_MVC;
 using Model.ModelDTO.Reserva;
+using Model.ModelDTO.Client;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace Controller
 {
@@ -14,19 +16,29 @@ namespace Controller
     {-
         Form1 f;
         RepositoryReserva rs;
+        RepositoryClient rc;
 
         public Controller1()
         {
             f = new Form1();
             rs = new RepositoryReserva(); 
+            rc = new RepositoryClient();
             Inicialitza();
         }
 
         private void Inicialitza()
         {
             InitListeners();
-
+            populateClients();
             Application.Run(f);
+        }
+
+        private void populateClients()
+        {
+            f.dataGridView2.DataSource = rc.llistar();
+            f.dgvReserva.DataSource = rs.mostrarReserva();
+            f.tipusCB.Items.Add("Empresa");
+            f.tipusCB.Items.Add("Particular");
         }
 
         private void InitListeners()
@@ -37,6 +49,19 @@ namespace Controller
             f.verticalMenuRes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
             f.verticalMenuOcu.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
             f.verticalMenuSer.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            f.AfegirClient.Click += AddButton_Click;
+            
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            String nom = f.nomTB.Text;
+            String tipus = f.tipusCB.SelectedItem.ToString();
+            if (!nom.Equals("") && !tipus.Equals(""))
+            {
+                rc.afegirClient(nom, tipus);
+                populateClients();
+            }
         }
 
         public void PopulateReserva()

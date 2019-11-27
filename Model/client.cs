@@ -19,7 +19,13 @@ namespace Model
         {
             this.reservas = new HashSet<reserva>();
         }
-    
+
+        public client(string nom, string tipus)
+        {
+            this.nom = nom;
+            this.tipus = tipus;
+        }
+
         public int id { get; set; }
         public string nom { get; set; }
         public string tipus { get; set; }

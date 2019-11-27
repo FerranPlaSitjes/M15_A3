@@ -9,9 +9,9 @@ namespace Model.ModelDTO.Reserva
     public class RepositoryReserva
     {
         hotelEntities context;
-        public RepositoryReserva(hotelEntities context)
+        public RepositoryReserva()
         {
-            this.context = context;
+            this.context = new hotelEntities();
         }
 
         public void afegirReserva(DateTime dataInici, DateTime dataFinal, decimal preuTotal, decimal bestreta, string pensioFk, int idClientFk)
