@@ -19,6 +19,7 @@ namespace Model.ModelDTO.Client
         public List<clientDTO> llistar()
         {
             List<clientDTO> dades = context.clients.ToList().Select(c => new clientDTO(c)).ToList();
+            Console.WriteLine(dades[0].nom);
             return dades;
         }
 

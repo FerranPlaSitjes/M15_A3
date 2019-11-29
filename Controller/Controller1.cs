@@ -15,7 +15,7 @@ namespace Controller
     public class Controller1
     {
         public hotelEntities context;
-        Form1 f;
+        public Form1 f;
         RepositoryClient rc;
         ControllerClient ccl;
 
@@ -23,7 +23,7 @@ namespace Controller
         {
             f = new Form1();
             rc = new RepositoryClient();
-            ccl = new ControllerClient();
+            ccl = new ControllerClient(f);
             Application.Run(f);
         }
     }

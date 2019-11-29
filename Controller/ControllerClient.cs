@@ -14,10 +14,11 @@ namespace Controller
     {
         Form1 f;
         RepositoryClient rc;
+        Controller1 c1;
 
-        public ControllerClient()
+        public ControllerClient(Form1 f)
         {
-            f = new Form1();
+            this.f = f;
             rc = new RepositoryClient();
             InitListeners();
             populateClients();
