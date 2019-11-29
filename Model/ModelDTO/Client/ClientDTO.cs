@@ -17,6 +17,13 @@ namespace Model.ModelDTO.Client
             this.tipus = c.tipus;
         }
 
+        public clientDTO(int id, string nom, string tipus)
+        {
+            this.id = id;
+            this.nom = nom;
+            this.tipus = tipus;
+        }
+
         public int id { get; set; }
         public string nom { get; set; }
         public string tipus { get; set; }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Model.ModelDTO.Client
 {
     public class RepositoryClient
     {
-        hotelEntities context;
+        public hotelEntities context;
 
         public RepositoryClient()
         {
@@ -44,6 +45,11 @@ namespace Model.ModelDTO.Client
             var client = context.clients.Single(c => c.id == id);
             context.clients.Remove(client);
             context.SaveChanges();
+        }
+
+        public clientDTO clientDTOFromRow(DataGridViewCellCollection row)
+        {
+            return new clientDTO((int)row["Id"].Value, (string)row["Nom"].Value, (string)row["Tipus"].Value);
         }
     }
 }

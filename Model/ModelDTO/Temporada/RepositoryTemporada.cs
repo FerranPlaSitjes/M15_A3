@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.ModelDTO.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,10 @@ namespace Model.ModelDTO.Temporada
     class RepositoryTemporada
     {
         hotelEntities context;
-        public RepositoryTemporada(hotelEntities context)
+        RepositoryClient rc;
+        public RepositoryTemporada()
         {
-            this.context = context;
+            this.context = rc.context;
         }
 
         public void afegirTemporada(int codi, string nom, DateTime dataInici, DateTime dataFinal)

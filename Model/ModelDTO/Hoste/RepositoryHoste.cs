@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.ModelDTO.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,10 @@ namespace Model.ModelDTO.Hoste
     public class RepositoryHoste
     {
         hotelEntities context;
-        public RepositoryHoste(hotelEntities context)
+        RepositoryClient rc;
+        public RepositoryHoste()
         {
-            this.context = context;
+            this.context = rc.context;
         }
 
         public void afegirHoste(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio, int idReservaFk)

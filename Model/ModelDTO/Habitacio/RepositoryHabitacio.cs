@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.ModelDTO.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,10 @@ namespace Model.ModelDTO.Habitacio
     public class RepositoryHabitacio
     {
         hotelEntities context;
-
-        public RepositoryHabitacio(hotelEntities context)
+        RepositoryClient rc;
+        public RepositoryHabitacio()
         {
-            this.context = context;
+            this.context = rc.context;
         }
 
         public void afegirHabitacio(int numero, int metresQuadrats, bool terrassa, bool utilitzable, string titol, string caracteristiques, int codiTipus)
