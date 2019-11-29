@@ -9,6 +9,7 @@ namespace Model.ModelDTO.Empresa
 {
     public class RepositoryEmpresa
     {
+
         hotelEntities context;
         RepositoryClient rc;
         

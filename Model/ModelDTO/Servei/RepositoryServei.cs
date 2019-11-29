@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.ModelDTO.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,11 @@ namespace Model.ModelDTO.Servei
     public class RepositoryServei
     {
         hotelEntities context;
-        public RepositoryServei(hotelEntities context)
+        RepositoryClient rc;
+
+        public RepositoryServei()
         {
-            this.context = context;
+            this.context = rc.context;
         }
 
         public void afegirServei(string nom)

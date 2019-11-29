@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.ModelDTO.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,10 @@ namespace Model.ModelDTO.LineaFactura
     public class RepositoryLiniaFactura
     {
         hotelEntities context;
-        public RepositoryLiniaFactura(hotelEntities context)
+        RepositoryClient rc;
+        public RepositoryLiniaFactura()
         {
-            this.context = context;
+            this.context = rc.context;
         }
 
         public void afegirLiniaFactura(int nFactura, int nLinia, int quantitat, string descripcio, decimal import)

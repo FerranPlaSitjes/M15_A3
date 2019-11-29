@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.ModelDTO.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,11 @@ namespace Model.ModelDTO.TipusHabitacio
     class RepositoryTipusHabitacio
     {
         hotelEntities context;
-        public RepositoryTipusHabitacio(hotelEntities context)
+        RepositoryClient rc;
+
+        public RepositoryTipusHabitacio()
         {
-            this.context = context;
+            this.context = rc.context;
         }
 
         public void afegirTipusHabitacio(int codi, string tipus, int capacitat)

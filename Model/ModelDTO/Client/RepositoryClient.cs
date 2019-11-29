@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Model.ModelDTO.Client
 {
@@ -46,10 +47,9 @@ namespace Model.ModelDTO.Client
             context.SaveChanges();
         }
 
-        public client returnClient(string nom)
+        public clientDTO clientDTOFromRow(DataGridViewCellCollection row)
         {
-            var client = context.clients.Single(c => c.nom == nom);
-            return client;
+            return new clientDTO((int)row["Id"].Value, (string)row["Nom"].Value, (string)row["Tipus"].Value);
         }
     }
 }

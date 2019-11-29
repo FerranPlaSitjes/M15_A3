@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.ModelDTO.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,11 @@ namespace Model.ModelDTO.Reserva
     public class RepositoryReserva
     {
         hotelEntities context;
+        RepositoryClient rc;
+
         public RepositoryReserva()
         {
-            this.context = new hotelEntities();
+            this.context = rc.context;
         }
 
         public void afegirReserva(DateTime dataInici, DateTime dataFinal, decimal preuTotal, decimal bestreta, string pensioFk, int idClientFk)
