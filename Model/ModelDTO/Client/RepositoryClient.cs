@@ -8,7 +8,7 @@ namespace Model.ModelDTO.Client
 {
     public class RepositoryClient
     {
-        hotelEntities context;
+        public hotelEntities context;
 
         public RepositoryClient()
         {
@@ -44,6 +44,12 @@ namespace Model.ModelDTO.Client
             var client = context.clients.Single(c => c.id == id);
             context.clients.Remove(client);
             context.SaveChanges();
+        }
+
+        public client returnClient(string nom)
+        {
+            var client = context.clients.Single(c => c.nom == nom);
+            return client;
         }
     }
 }

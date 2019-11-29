@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.ModelDTO.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,11 @@ namespace Model.ModelDTO.Empresa
     public class RepositoryEmpresa
     {
         hotelEntities context;
+        RepositoryClient rc;
         
-        public RepositoryEmpresa(hotelEntities context)
+        public RepositoryEmpresa()
         {
-            this.context = context;
+            this.context = rc.context;
         }
 
         public void afegirEmpresa(int cif)

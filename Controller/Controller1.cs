@@ -15,13 +15,13 @@ namespace Controller
     public class Controller1
     {
         Form1 f;
-        RepositoryReserva rs;
+        ControllerReserva rs;
         RepositoryClient rc;
 
         public Controller1()
         {
             f = new Form1();
-            rs = new RepositoryReserva(); 
+            rs = new ControllerReserva();
             rc = new RepositoryClient();
             Inicialitza();
         }
@@ -30,13 +30,13 @@ namespace Controller
         {
             InitListeners();
             populateClients();
+            rs.PopulateReserva();
             Application.Run(f);
         }
 
         private void populateClients()
         {
-            f.dataGridView2.DataSource = rc.llistar();
-            f.dgvReserva.DataSource = rs.mostrarReserva();
+            f.dataGridView2.DataSource = rc.llistar();            
             f.tipusCB.Items.Add("Empresa");
             f.tipusCB.Items.Add("Particular");
         }
@@ -62,11 +62,6 @@ namespace Controller
                 rc.afegirClient(nom, tipus);
                 populateClients();
             }
-        }
-
-        public void PopulateReserva()
-        {
-            f.dgvReserva.DataSource = rs.mostrarReserva();
         }
 
         private void verticalMenu_DrawItem(object sender, DrawItemEventArgs e)

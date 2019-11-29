@@ -42,7 +42,7 @@ namespace Model
         public Model1()
         {
             rclient = new RepositoryClient();
-            rempresa = new RepositoryEmpresa(context);
+            rempresa = new RepositoryEmpresa();
             rfactura = new RepositoryFactura(context);
             rhabitacio = new RepositoryHabitacio(context);
             rhoste = new RepositoryHoste(context);
