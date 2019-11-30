@@ -12,14 +12,14 @@
         <EntityTypeShape EntityType="hotelModel.hoste" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="hotelModel.linia_factura" Width="1.5" PointX="9.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="hotelModel.ocupacio" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="hotelModel.pensio" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelModel.pensio" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="hotelModel.persona" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="hotelModel.preu" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelModel.preu" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="hotelModel.reserva" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="hotelModel.servei" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="hotelModel.servei_ocupacio" Width="1.5" PointX="9.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="hotelModel.temporada" Width="1.5" PointX="6" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="hotelModel.tipusHabitacio" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelModel.temporada" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hotelModel.tipusHabitacio" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
         <AssociationConnector Association="hotelModel.FK__empresa__cif__45F365D3" ManuallyRouted="false" />
         <AssociationConnector Association="hotelModel.FK__persona__id__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="hotelModel.FK__reserva__idClien__49C3F6B7" ManuallyRouted="false" />
