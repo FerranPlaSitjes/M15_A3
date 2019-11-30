@@ -19,6 +19,7 @@ namespace Controller
         RepositoryClient rc;
         ControllerClient ccl;
         ControllerReserva cr;
+        ControllerHabitacio ch;
 
         public Controller1()
         {
@@ -26,6 +27,7 @@ namespace Controller
             rc = new RepositoryClient();
             ccl = new ControllerClient(f);
             cr = new ControllerReserva(f,rc);
+            ch = new ControllerHabitacio(f,rc);
             Application.Run(f);
         }
     }
