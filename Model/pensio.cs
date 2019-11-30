@@ -21,7 +21,7 @@ namespace Model
             this.preus = new HashSet<preu>();
             this.reservas = new HashSet<reserva>();
         }
-        
+    
         public string tipus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

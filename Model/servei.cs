@@ -22,10 +22,9 @@ namespace Model
 
         public servei(string nom)
         {
-            this.id = id;
             this.nom = nom;
         }
-    
+
         public int id { get; set; }
         public string nom { get; set; }
     

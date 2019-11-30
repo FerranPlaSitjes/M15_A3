@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Model.ModelDTO.Reserva
 {
@@ -11,10 +12,16 @@ namespace Model.ModelDTO.Reserva
     {
         hotelEntities context;
         RepositoryClient rc;
+       
 
-        public RepositoryReserva()
+        public RepositoryReserva(hotelEntities context)
         {
-            this.context = rc.context;
+            this.context = context;
+        }
+
+        public reservaDTO clientDTOFromRow(DataGridViewCellCollection row)
+        {
+            return new reservaDTO((int)row["Id"].Value, (DateTime)row["dataInici"].Value, (DateTime)row["dataFinal"].Value, (decimal)row["preuTotal"].Value, (decimal)row["bestreta"].Value, (string)row["pensioFk"].Value, (int)row["idClientFk"].Value);
         }
 
         public void afegirReserva(DateTime dataInici, DateTime dataFinal, decimal preuTotal, decimal bestreta, string pensioFk, int idClientFk)
@@ -46,10 +53,10 @@ namespace Model.ModelDTO.Reserva
             context.SaveChanges();
         }
 
-        public List<reserva> mostrarReserva()
+        public List<reservaDTO> mostrarReserva()
         {
-            var reserva = context.reservas.OrderBy(r => r.id).ToList();      
-            return reserva;
+            List<reservaDTO> dades = context.reservas.ToList().Select(c => new reservaDTO(c)).ToList();
+            return dades;
         }
 
     }

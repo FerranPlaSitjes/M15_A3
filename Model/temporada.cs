@@ -27,6 +27,7 @@ namespace Model
             this.dataInici = dataInici;
             this.dataFinal = dataFinal;
         }
+
         public int codi { get; set; }
         public string nom { get; set; }
         public Nullable<System.DateTime> dataInici { get; set; }

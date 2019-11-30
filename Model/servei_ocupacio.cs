@@ -14,11 +14,6 @@ namespace Model
     
     public partial class servei_ocupacio
     {
-        public int idOcupacio { get; set; }
-        public int idServei { get; set; }
-        public Nullable<System.DateTime> data { get; set; }
-        public Nullable<decimal> preu { get; set; }
-
         public servei_ocupacio(int idOcupacio, int idServei, DateTime data, decimal preu)
         {
             this.idOcupacio = idOcupacio;
@@ -26,6 +21,12 @@ namespace Model
             this.data = data;
             this.preu = preu;
         }
+
+        public int idOcupacio { get; set; }
+        public int idServei { get; set; }
+        public Nullable<System.DateTime> data { get; set; }
+        public Nullable<decimal> preu { get; set; }
+    
         public virtual ocupacio ocupacio { get; set; }
         public virtual servei servei { get; set; }
     }

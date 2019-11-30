@@ -102,6 +102,7 @@
     <Compile Include="ModelDTO\Ocupacio\ocupacioDTO.cs" />
     <Compile Include="ModelDTO\Ocupacio\RepositoryOcupacio.cs" />
     <Compile Include="ModelDTO\Pensio\pensioDTO.cs" />
+    <Compile Include="ModelDTO\Pensio\RepositoryPensio.cs" />
     <Compile Include="ModelDTO\Persona\personaDTO.cs" />
     <Compile Include="ModelDTO\Persona\RepositoryPersona.cs" />
     <Compile Include="ModelDTO\Preu\preuDTO.cs" />

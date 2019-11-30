@@ -18,6 +18,18 @@ namespace Model.ModelDTO.Reserva
             this.pensioFk = pensioFk;
             this.idClientFk = idClientFk;
         }
+
+        public reservaDTO(reserva r)
+        {
+            this.id = r.id;
+            this.dataInici = r.dataInici;
+            this.dataFinal = r.dataFinal;
+            this.preuTotal = r.preuTotal;
+            this.bestreta = r.bestreta;
+            this.pensioFk = r.pensioFk;
+            this.idClientFk = r.idClientFk;
+        }
+
         public int id { get; set; }
         public DateTime? dataInici { get; set; }
         public DateTime? dataFinal { get; set; }

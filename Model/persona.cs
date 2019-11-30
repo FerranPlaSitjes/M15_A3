@@ -14,13 +14,15 @@ namespace Model
     
     public partial class persona
     {
-        public int id { get; set; }
-        public string dniHoste { get; set; }
         public persona(int id, string dniHoste)
         {
             this.id = id;
             this.dniHoste = dniHoste;
         }
+
+        public int id { get; set; }
+        public string dniHoste { get; set; }
+    
         public virtual client client { get; set; }
         public virtual hoste hoste { get; set; }
     }
