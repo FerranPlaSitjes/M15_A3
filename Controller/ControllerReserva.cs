@@ -71,8 +71,8 @@ namespace Controller
 
         public void AfegirReserva(object sender, EventArgs e)
         {
-            DateTime dataInici = Convert.ToDateTime(f.dataIniciReserva.ToString());
-            DateTime dataFinal = Convert.ToDateTime(f.dataFinalReserva.ToString());
+            DateTime dataInici = Convert.ToDateTime(f.dataIniciReserva.Value.ToShortDateString());
+            DateTime dataFinal = Convert.ToDateTime(f.dataFinalReserva.Value.ToShortDateString());
             decimal preuTotal = Decimal.Parse(f.preuTotalReserva.Text);
             decimal bestreta = Decimal.Parse(f.Bestreta.Text);
             string pensioFk = f.pensioReserva.SelectedItem.ToString();
