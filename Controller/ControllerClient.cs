@@ -14,7 +14,6 @@ namespace Controller
     {
         Form1 f;
         RepositoryClient rc;
-        Controller1 c1;
 
         public ControllerClient(Form1 f)
         {
@@ -93,6 +92,8 @@ namespace Controller
             {
                 rc.afegirClient(nom, tipus);
                 populateClients();
+                int rowsN = f.dgvClients.Rows.Count;
+                f.dgvClients.Rows[rowsN - 1].Selected = true;
             }
         }
 

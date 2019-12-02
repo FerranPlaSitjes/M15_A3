@@ -32,6 +32,7 @@
             this.Clients = new System.Windows.Forms.TabPage();
             this.verticalMenuClients = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.EliminarClient = new System.Windows.Forms.Button();
             this.ModificarClient = new System.Windows.Forms.Button();
             this.AfegirClient = new System.Windows.Forms.Button();
@@ -143,6 +144,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label3);
             this.tabPage6.Controls.Add(this.EliminarClient);
             this.tabPage6.Controls.Add(this.ModificarClient);
             this.tabPage6.Controls.Add(this.AfegirClient);
@@ -159,9 +161,18 @@
             this.tabPage6.Text = "Afegir client";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(542, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Gestió de clients";
+            // 
             // EliminarClient
             // 
-            this.EliminarClient.Location = new System.Drawing.Point(267, 420);
+            this.EliminarClient.Location = new System.Drawing.Point(851, 518);
             this.EliminarClient.Name = "EliminarClient";
             this.EliminarClient.Size = new System.Drawing.Size(75, 23);
             this.EliminarClient.TabIndex = 7;
@@ -170,7 +181,7 @@
             // 
             // ModificarClient
             // 
-            this.ModificarClient.Location = new System.Drawing.Point(161, 420);
+            this.ModificarClient.Location = new System.Drawing.Point(562, 518);
             this.ModificarClient.Name = "ModificarClient";
             this.ModificarClient.Size = new System.Drawing.Size(75, 23);
             this.ModificarClient.TabIndex = 6;
@@ -179,7 +190,7 @@
             // 
             // AfegirClient
             // 
-            this.AfegirClient.Location = new System.Drawing.Point(52, 420);
+            this.AfegirClient.Location = new System.Drawing.Point(231, 518);
             this.AfegirClient.Name = "AfegirClient";
             this.AfegirClient.Size = new System.Drawing.Size(75, 23);
             this.AfegirClient.TabIndex = 5;
@@ -189,7 +200,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(203, 365);
+            this.label2.Location = new System.Drawing.Point(448, 427);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 4;
@@ -198,22 +209,22 @@
             // tipusCB
             // 
             this.tipusCB.FormattingEnabled = true;
-            this.tipusCB.Location = new System.Drawing.Point(203, 384);
+            this.tipusCB.Location = new System.Drawing.Point(448, 446);
             this.tipusCB.Name = "tipusCB";
             this.tipusCB.Size = new System.Drawing.Size(121, 21);
             this.tipusCB.TabIndex = 3;
             // 
             // nomTB
             // 
-            this.nomTB.Location = new System.Drawing.Point(52, 384);
+            this.nomTB.Location = new System.Drawing.Point(231, 446);
             this.nomTB.Name = "nomTB";
-            this.nomTB.Size = new System.Drawing.Size(129, 20);
+            this.nomTB.Size = new System.Drawing.Size(188, 20);
             this.nomTB.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 367);
+            this.label1.Location = new System.Drawing.Point(228, 429);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 1;
@@ -222,7 +233,7 @@
             // dgvClients
             // 
             this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClients.Location = new System.Drawing.Point(52, 36);
+            this.dgvClients.Location = new System.Drawing.Point(231, 98);
             this.dgvClients.MultiSelect = false;
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.ReadOnly = true;
@@ -256,7 +267,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 46);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1272, 670);
+            this.tabPage2.Size = new System.Drawing.Size(1358, 718);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Reserves";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -467,7 +478,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 46);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1272, 670);
+            this.tabPage1.Size = new System.Drawing.Size(1358, 718);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Habitacions";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -513,7 +524,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 46);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1272, 670);
+            this.tabPage3.Size = new System.Drawing.Size(1358, 718);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Hostes";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -559,7 +570,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 46);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1272, 670);
+            this.tabPage4.Size = new System.Drawing.Size(1358, 718);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Ocupacions";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -605,7 +616,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 46);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1272, 670);
+            this.tabPage5.Size = new System.Drawing.Size(1358, 718);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "Serveis";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -729,6 +740,7 @@
         public System.Windows.Forms.DataGridView dgvClients;
         public System.Windows.Forms.Button ModificarClient;
         public System.Windows.Forms.Button EliminarClient;
+        private System.Windows.Forms.Label label3;
     }
 }
 
