@@ -19,10 +19,12 @@ namespace Model
         {
             this.facturas = new HashSet<factura>();
             this.personas = new HashSet<persona>();
+            this.reservas = new HashSet<reserva>();
+            this.servei_hoste = new HashSet<servei_hoste>();
             this.ocupacios = new HashSet<ocupacio>();
         }
 
-        public hoste(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio, int idReservaFk)
+        public hoste(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio)
         {
             this.dni = dni;
             this.nom = nom;
@@ -31,7 +33,6 @@ namespace Model
             this.telefon = telefon;
             this.cp = cp;
             this.poblacio = poblacio;
-            this.idReservaFk = idReservaFk;
         }
 
         public string dni { get; set; }
@@ -41,13 +42,15 @@ namespace Model
         public string telefon { get; set; }
         public string cp { get; set; }
         public string poblacio { get; set; }
-        public Nullable<int> idReservaFk { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<factura> facturas { get; set; }
-        public virtual reserva reserva { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<persona> personas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<reserva> reservas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<servei_hoste> servei_hoste { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ocupacio> ocupacios { get; set; }
     }

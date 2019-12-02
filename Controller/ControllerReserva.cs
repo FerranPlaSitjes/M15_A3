@@ -47,16 +47,16 @@ namespace Controller
             {
                 DataGridViewCellCollection rows = f.dgvReserva.SelectedRows[0].Cells;
 
-                reservaDTO c = rs.clientDTOFromRow(rows);
+                reservaDTO c = rs.reservaDTOFromRow(rows);
                 f.idReserva.Text = c.id.ToString();
-                f.dataIniciReserva.Value = (DateTime) c.dataInici;
-                f.dataFinalReserva.Value = (DateTime) c.dataFinal;
+                f.dataIniciReserva.Value = (DateTime)c.dataInici;
+                f.dataFinalReserva.Value = (DateTime)c.dataFinal;
                 f.preuTotalReserva.Text = c.preuTotal.ToString();
                 f.Bestreta.Text = c.bestreta.ToString();
                 f.pensioReserva.SelectedIndex = f.pensioReserva.FindString(c.pensioFk);
-                client c1 = rC.returnClientId(c.idClientFk);                
+                client c1 = rC.returnClientId(c.idClientFk);
                 f.clientReserva.SelectedIndex = f.clientReserva.FindString(c1.nom);
-                
+
             }
         }
 

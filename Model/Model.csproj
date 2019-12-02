@@ -55,37 +55,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="client.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="empresa.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="factura.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="habitacio.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="hoste.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="linia_factura.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model2.Context.cs">
+    <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.Context.tt</DependentUpon>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model2.cs">
+    <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model2.Designer.cs">
+    <Compile Include="Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.edmx</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="ModelDTO\Client\ClientDTO.cs" />
     <Compile Include="ModelDTO\Client\RepositoryClient.cs" />
@@ -109,8 +109,8 @@
     <Compile Include="ModelDTO\Preu\RepositoryPreu.cs" />
     <Compile Include="ModelDTO\Reserva\RepositoryReserva.cs" />
     <Compile Include="ModelDTO\Reserva\reservaDTO.cs" />
-    <Compile Include="ModelDTO\ServeiOcupacio\RepositoryServeiOcupacio.cs" />
-    <Compile Include="ModelDTO\ServeiOcupacio\serveiocupacioDTO.cs" />
+    <Compile Include="ModelDTO\ServeiHoste\RepositoryServeiHoste.cs" />
+    <Compile Include="ModelDTO\ServeiHoste\serveiocupacioDTO.cs" />
     <Compile Include="ModelDTO\Servei\RepositoryServei.cs" />
     <Compile Include="ModelDTO\Servei\serveiDTO.cs" />
     <Compile Include="ModelDTO\Temporada\RepositoryTemporada.cs" />
@@ -118,42 +118,42 @@
     <Compile Include="ModelDTO\TipusHabitacio\RepositoryTipusHabitacio.cs" />
     <Compile Include="ModelDTO\TipusHabitacio\tipushabitacioDTO.cs" />
     <Compile Include="ocupacio.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="pensio.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="persona.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="preu.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reserva.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="servei.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="servei_ocupacio.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+    <Compile Include="servei_hoste.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="temporada.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="tipusHabitacio.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <EntityDeploy Include="Model2.edmx">
+    <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model2.edmx.diagram">
-      <DependentUpon>Model2.edmx</DependentUpon>
+    <None Include="App.Config" />
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -161,15 +161,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model2.Context.tt">
+    <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model2.tt">
+    <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

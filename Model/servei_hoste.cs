@@ -12,22 +12,25 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
-    public partial class servei_ocupacio
+    public partial class servei_hoste
     {
-        public servei_ocupacio(int idOcupacio, int idServei, DateTime data, decimal preu)
+        private int idOcupacio;
+       
+
+        public servei_hoste(string dnihoste, int idServei, DateTime data, decimal preu)
         {
-            this.idOcupacio = idOcupacio;
+            dniHoste = dnihoste;
             this.idServei = idServei;
             this.data = data;
             this.preu = preu;
         }
 
-        public int idOcupacio { get; set; }
+        public string dniHoste { get; set; }
         public int idServei { get; set; }
         public Nullable<System.DateTime> data { get; set; }
         public Nullable<decimal> preu { get; set; }
     
-        public virtual ocupacio ocupacio { get; set; }
+        public virtual hoste hoste { get; set; }
         public virtual servei servei { get; set; }
     }
 }

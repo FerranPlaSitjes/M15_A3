@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Controller
+namespace Model
 {
     using System;
     using System.Data.Entity;
@@ -37,8 +37,7 @@ namespace Controller
         public virtual DbSet<preu> preus { get; set; }
         public virtual DbSet<reserva> reservas { get; set; }
         public virtual DbSet<servei> serveis { get; set; }
-        public virtual DbSet<servei_ocupacio> servei_ocupacio { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<servei_hoste> servei_hoste { get; set; }
         public virtual DbSet<temporada> temporadas { get; set; }
         public virtual DbSet<tipusHabitacio> tipusHabitacios { get; set; }
     }

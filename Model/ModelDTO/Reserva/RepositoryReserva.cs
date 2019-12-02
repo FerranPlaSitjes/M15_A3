@@ -19,14 +19,16 @@ namespace Model.ModelDTO.Reserva
             this.context = context;
         }
 
-        public reservaDTO clientDTOFromRow(DataGridViewCellCollection row)
+        public reservaDTO reservaDTOFromRow(DataGridViewCellCollection row)
         {
-            return new reservaDTO((int)row["Id"].Value, (DateTime)row["dataInici"].Value, (DateTime)row["dataFinal"].Value, (decimal)row["preuTotal"].Value, (decimal)row["bestreta"].Value, (string)row["pensioFk"].Value, (int)row["idClientFk"].Value);
+            return new reservaDTO((int)row["Id"].Value, (DateTime)row["dataInici"].Value, (DateTime)row["dataFinal"].Value, (decimal)row["preuTotal"].Value, (decimal)row["bestreta"].Value, (string)row["pensioFk"].Value, (int)row["idClientFk"].Value, (string)row["dniHosteFk"].Value, (int)row["idTipusHabitacio"].Value);
         }
 
         public void afegirReserva(DateTime dataInici, DateTime dataFinal, decimal preuTotal, decimal bestreta, string pensioFk, int idClientFk)
         {
             reserva r = new reserva(dataInici, dataFinal, preuTotal, bestreta, pensioFk, idClientFk);
+            r.idTipusHabitacio = 1;
+            r.dniHosteFk = "";
             context.reservas.Add(r);
             context.SaveChanges();
         }

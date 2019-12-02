@@ -19,6 +19,7 @@ namespace Model
         {
             this.habitacios = new HashSet<habitacio>();
             this.preus = new HashSet<preu>();
+            this.reservas = new HashSet<reserva>();
         }
 
         public tipusHabitacio(int codi, string tipus, int capacitat)
@@ -36,5 +37,7 @@ namespace Model
         public virtual ICollection<habitacio> habitacios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<preu> preus { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<reserva> reservas { get; set; }
     }
 }

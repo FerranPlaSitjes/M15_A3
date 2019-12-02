@@ -16,14 +16,14 @@ namespace Model.ModelDTO.Hoste
             this.context = rc.context;
         }
 
-        public void afegirHoste(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio, int idReservaFk)
+        public void afegirHoste(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio)
         {
-            hoste h = new hoste(dni, nom, cognom, nacionalitat, telefon, cp, poblacio, idReservaFk);
+            hoste h = new hoste(dni, nom, cognom, nacionalitat, telefon, cp, poblacio);
             context.hostes.Add(h);
             context.SaveChanges();
         }
 
-        public void modificarHoste(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio, int idReservaFk)
+        public void modificarHoste(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio)
         {
             var result = context.hostes.SingleOrDefault(h => h.dni == dni);
             if (result != null)
@@ -33,8 +33,7 @@ namespace Model.ModelDTO.Hoste
                 result.nacionalitat = nacionalitat;
                 result.telefon = telefon;
                 result.cp = cp;
-                result.poblacio = poblacio;
-                result.idReservaFk = idReservaFk;
+                result.poblacio = poblacio;                
                 context.SaveChanges();
             }
         }
