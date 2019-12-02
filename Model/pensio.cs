@@ -23,7 +23,6 @@ namespace Model
         }
     
         public string tipus { get; set; }
-        public Nullable<decimal> preu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ocupacio> ocupacios { get; set; }

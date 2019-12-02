@@ -8,7 +8,17 @@ namespace Model.ModelDTO.Habitacio
 {
     public class habitacioDTO
     {
-        
+        public habitacioDTO(habitacio c)
+        {
+            this.numero = c.numero;
+            this.metresQuadrats = c.metresQuadrats;
+            this.terrassa = c.terrassa;
+            this.utilitzable = c.utilitzable;
+            this.titol = c.titol;
+            this.caracteristiques = c.caracteristiques;
+            this.codiTipus = c.codiTipus;
+        }
+
         public habitacioDTO(int numero, int metresQuadrats, bool terrassa, bool utilitzable, string titol, string caracteristiques, int codiTipus)
         {
             this.numero = numero;

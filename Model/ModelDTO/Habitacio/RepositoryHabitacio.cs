@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Model.ModelDTO.Habitacio
 {
@@ -11,9 +12,14 @@ namespace Model.ModelDTO.Habitacio
     {
         hotelEntities context;
         RepositoryClient rc;
-        public RepositoryHabitacio()
+        public RepositoryHabitacio(hotelEntities context)
         {
-            this.context = rc.context;
+            this.context = context;
+        }
+
+        public habitacioDTO habitacioDTOFromRow(DataGridViewCellCollection row)
+        {
+            return new habitacioDTO((int)row["numero"].Value, (int)row["metresQuadrats"].Value, (bool)row["terrasa"].Value, (bool)row["utilitzable"].Value,(string)row["titol"].Value, (string)row["caractqristiques"].Value, (int)row["codiTipus"].Value);
         }
 
         public void afegirHabitacio(int numero, int metresQuadrats, bool terrassa, bool utilitzable, string titol, string caracteristiques, int codiTipus)
@@ -43,6 +49,13 @@ namespace Model.ModelDTO.Habitacio
             var hab = context.habitacios.Single(h => h.numero == num);
             context.habitacios.Remove(hab);
             context.SaveChanges();
+        }
+
+
+        public List<habitacioDTO> mostrarHabitacio()
+        {
+            List<habitacioDTO> dades = context.habitacios.ToList().Select(c => new habitacioDTO(c)).ToList();
+            return dades;
         }
     }
 }

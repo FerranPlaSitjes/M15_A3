@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Model.ModelDTO.Reserva
 {
@@ -11,15 +12,23 @@ namespace Model.ModelDTO.Reserva
     {
         hotelEntities context;
         RepositoryClient rc;
+       
 
-        public RepositoryReserva()
+        public RepositoryReserva(hotelEntities context)
         {
-            this.context = rc.context;
+            this.context = context;
+        }
+
+        public reservaDTO reservaDTOFromRow(DataGridViewCellCollection row)
+        {
+            return new reservaDTO((int)row["Id"].Value, (DateTime)row["dataInici"].Value, (DateTime)row["dataFinal"].Value, (decimal)row["preuTotal"].Value, (decimal)row["bestreta"].Value, (string)row["pensioFk"].Value, (int)row["idClientFk"].Value, (string)row["dniHosteFk"].Value, (int)row["idTipusHabitacio"].Value);
         }
 
         public void afegirReserva(DateTime dataInici, DateTime dataFinal, decimal preuTotal, decimal bestreta, string pensioFk, int idClientFk)
         {
             reserva r = new reserva(dataInici, dataFinal, preuTotal, bestreta, pensioFk, idClientFk);
+            r.idTipusHabitacio = 1;
+            r.dniHosteFk = "";
             context.reservas.Add(r);
             context.SaveChanges();
         }
@@ -46,10 +55,11 @@ namespace Model.ModelDTO.Reserva
             context.SaveChanges();
         }
 
-        public List<reserva> mostrarReserva()
+        public List<reservaDTO> mostrarReserva()
         {
-            var reserva = context.reservas.OrderBy(r => r.id).ToList();      
-            return reserva;
+            List<reservaDTO> dades = context.reservas.ToList().Select(c => new reservaDTO(c)).ToList();
+            return dades;
         }
+
     }
 }

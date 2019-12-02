@@ -16,10 +16,11 @@ namespace Model
     {
         public int codiTemporada { get; set; }
         public string tipusPensio { get; set; }
-        public int codiHabitacio { get; set; }
+        public int codiTipusHabitacio { get; set; }
+        public Nullable<decimal> preu1 { get; set; }
     
-        public virtual habitacio habitacio { get; set; }
         public virtual pensio pensio { get; set; }
         public virtual temporada temporada { get; set; }
+        public virtual tipusHabitacio tipusHabitacio { get; set; }
     }
 }

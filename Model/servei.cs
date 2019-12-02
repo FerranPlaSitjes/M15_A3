@@ -15,15 +15,20 @@ namespace Model
     public partial class servei
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public servei()
+        {
+            this.servei_hoste = new HashSet<servei_hoste>();
+        }
+
         public servei(string nom)
         {
-            this.servei_ocupacio = new HashSet<servei_ocupacio>();
+            this.nom = nom;
         }
-    
+
         public int id { get; set; }
         public string nom { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<servei_ocupacio> servei_ocupacio { get; set; }
+        public virtual ICollection<servei_hoste> servei_hoste { get; set; }
     }
 }

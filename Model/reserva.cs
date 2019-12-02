@@ -14,12 +14,6 @@ namespace Model
     
     public partial class reserva
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public reserva()
-        {
-            this.hostes = new HashSet<hoste>();
-        }
-
         public reserva(DateTime dataInici, DateTime dataFinal, decimal preuTotal, decimal bestreta, string pensioFk, int idClientFk)
         {
             this.dataInici = dataInici;
@@ -30,6 +24,10 @@ namespace Model
             this.idClientFk = idClientFk;
         }
 
+        public reserva()
+        {
+            
+        }
         public int id { get; set; }
         public Nullable<System.DateTime> dataInici { get; set; }
         public Nullable<System.DateTime> dataFinal { get; set; }
@@ -37,10 +35,12 @@ namespace Model
         public Nullable<decimal> bestreta { get; set; }
         public string pensioFk { get; set; }
         public Nullable<int> idClientFk { get; set; }
+        public string dniHosteFk { get; set; }
+        public Nullable<int> idTipusHabitacio { get; set; }
     
         public virtual client client { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<hoste> hostes { get; set; }
+        public virtual hoste hoste { get; set; }
         public virtual pensio pensio { get; set; }
+        public virtual tipusHabitacio tipusHabitacio { get; set; }
     }
 }

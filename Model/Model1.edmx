@@ -51,7 +51,6 @@
           <Property Name="telefon" Type="varchar" MaxLength="60" />
           <Property Name="cp" Type="varchar" MaxLength="60" />
           <Property Name="poblacio" Type="varchar" MaxLength="60" />
-          <Property Name="idReservaFk" Type="int" />
         </EntityType>
         <EntityType Name="hoste_ocupacio">
           <Key>
@@ -87,7 +86,6 @@
             <PropertyRef Name="tipus" />
           </Key>
           <Property Name="tipus" Type="varchar" MaxLength="60" Nullable="false" />
-          <Property Name="preu" Type="decimal" Precision="6" Scale="2" />
         </EntityType>
         <EntityType Name="persona">
           <Key>
@@ -100,11 +98,12 @@
           <Key>
             <PropertyRef Name="codiTemporada" />
             <PropertyRef Name="tipusPensio" />
-            <PropertyRef Name="codiHabitacio" />
+            <PropertyRef Name="codiTipusHabitacio" />
           </Key>
           <Property Name="codiTemporada" Type="int" Nullable="false" />
           <Property Name="tipusPensio" Type="varchar" MaxLength="60" Nullable="false" />
-          <Property Name="codiHabitacio" Type="int" Nullable="false" />
+          <Property Name="codiTipusHabitacio" Type="int" Nullable="false" />
+          <Property Name="preu" Type="decimal" Precision="6" Scale="2" />
         </EntityType>
         <EntityType Name="reserva">
           <Key>
@@ -117,6 +116,8 @@
           <Property Name="bestreta" Type="decimal" Precision="6" Scale="2" />
           <Property Name="pensioFk" Type="varchar" MaxLength="60" />
           <Property Name="idClientFk" Type="int" />
+          <Property Name="dniHosteFk" Type="varchar" MaxLength="20" />
+          <Property Name="idTipusHabitacio" Type="int" />
         </EntityType>
         <EntityType Name="servei">
           <Key>
@@ -125,32 +126,22 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nom" Type="varchar" MaxLength="60" />
         </EntityType>
-        <EntityType Name="servei_ocupacio">
+        <EntityType Name="servei_hoste">
           <Key>
-            <PropertyRef Name="idOcupacio" />
+            <PropertyRef Name="dniHoste" />
             <PropertyRef Name="idServei" />
           </Key>
-          <Property Name="idOcupacio" Type="int" Nullable="false" />
+          <Property Name="dniHoste" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="idServei" Type="int" Nullable="false" />
           <Property Name="data" Type="date" />
           <Property Name="preu" Type="decimal" Precision="6" Scale="2" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="temporada">
           <Key>
             <PropertyRef Name="codi" />
           </Key>
           <Property Name="codi" Type="int" Nullable="false" />
-          <Property Name="nom" Type="varchar" MaxLength="1" />
+          <Property Name="nom" Type="varchar" MaxLength="30" />
           <Property Name="dataInici" Type="date" />
           <Property Name="dataFinal" Type="date" />
         </EntityType>
@@ -174,7 +165,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__factura__dniHost__534D60F1">
+        <Association Name="FK__factura__dniHost__5441852A">
           <End Role="hoste" Type="Self.hoste" Multiplicity="0..1" />
           <End Role="factura" Type="Self.factura" Multiplicity="*" />
           <ReferentialConstraint>
@@ -198,19 +189,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoste__idReserva__4CA06362">
-          <End Role="reserva" Type="Self.reserva" Multiplicity="0..1" />
-          <End Role="hoste" Type="Self.hoste" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="reserva">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="hoste">
-              <PropertyRef Name="idReservaFk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__hoste_ocu__dniHo__6383C8BA">
+        <Association Name="FK__hoste_ocu__dniHo__6477ECF3">
           <End Role="hoste" Type="Self.hoste" Multiplicity="1" />
           <End Role="hoste_ocupacio" Type="Self.hoste_ocupacio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -222,7 +201,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoste_ocu__idOcu__628FA481">
+        <Association Name="FK__hoste_ocu__idOcu__6383C8BA">
           <End Role="ocupacio" Type="Self.ocupacio" Multiplicity="1" />
           <End Role="hoste_ocupacio" Type="Self.hoste_ocupacio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -234,7 +213,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__linia_fac__nFact__5629CD9C">
+        <Association Name="FK__linia_fac__nFact__571DF1D5">
           <End Role="factura" Type="Self.factura" Multiplicity="1" />
           <End Role="linia_factura" Type="Self.linia_factura" Multiplicity="*" />
           <ReferentialConstraint>
@@ -246,7 +225,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ocupacio__nHabit__5AEE82B9">
+        <Association Name="FK__ocupacio__nHabit__5BE2A6F2">
           <End Role="habitacio" Type="Self.habitacio" Multiplicity="0..1" />
           <End Role="ocupacio" Type="Self.ocupacio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -258,7 +237,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ocupacio__tipusP__5BE2A6F2">
+        <Association Name="FK__ocupacio__tipusP__5CD6CB2B">
           <End Role="pensio" Type="Self.pensio" Multiplicity="0..1" />
           <End Role="ocupacio" Type="Self.ocupacio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -270,7 +249,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__persona__dniHost__5070F446">
+        <Association Name="FK__persona__dniHost__5165187F">
           <End Role="hoste" Type="Self.hoste" Multiplicity="0..1" />
           <End Role="persona" Type="Self.persona" Multiplicity="*" />
           <ReferentialConstraint>
@@ -282,7 +261,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__persona__id__4F7CD00D">
+        <Association Name="FK__persona__id__5070F446">
           <End Role="client" Type="Self.client" Multiplicity="1" />
           <End Role="persona" Type="Self.persona" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -291,18 +270,6 @@
             </Principal>
             <Dependent Role="persona">
               <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__preu__codiHabita__412EB0B6">
-          <End Role="habitacio" Type="Self.habitacio" Multiplicity="1" />
-          <End Role="preu" Type="Self.preu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="habitacio">
-              <PropertyRef Name="numero" />
-            </Principal>
-            <Dependent Role="preu">
-              <PropertyRef Name="codiHabitacio" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -318,6 +285,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__preu__codiTipusH__412EB0B6">
+          <End Role="tipusHabitacio" Type="Self.tipusHabitacio" Multiplicity="1" />
+          <End Role="preu" Type="Self.preu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipusHabitacio">
+              <PropertyRef Name="codi" />
+            </Principal>
+            <Dependent Role="preu">
+              <PropertyRef Name="codiTipusHabitacio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__preu__tipusPensi__403A8C7D">
           <End Role="pensio" Type="Self.pensio" Multiplicity="1" />
           <End Role="preu" Type="Self.preu" Multiplicity="*" />
@@ -330,7 +309,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserva__idClien__49C3F6B7">
+        <Association Name="FK__reserva__dniHost__4AB81AF0">
+          <End Role="hoste" Type="Self.hoste" Multiplicity="0..1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hoste">
+              <PropertyRef Name="dni" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="dniHosteFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__idClien__4D94879B">
           <End Role="client" Type="Self.client" Multiplicity="0..1" />
           <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
           <ReferentialConstraint>
@@ -342,7 +333,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserva__pensioF__48CFD27E">
+        <Association Name="FK__reserva__idTipus__4BAC3F29">
+          <End Role="tipusHabitacio" Type="Self.tipusHabitacio" Multiplicity="0..1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipusHabitacio">
+              <PropertyRef Name="codi" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="idTipusHabitacio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__pensioF__4CA06362">
           <End Role="pensio" Type="Self.pensio" Multiplicity="0..1" />
           <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
           <ReferentialConstraint>
@@ -354,26 +357,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__servei_oc__idOcu__5EBF139D">
-          <End Role="ocupacio" Type="Self.ocupacio" Multiplicity="1" />
-          <End Role="servei_ocupacio" Type="Self.servei_ocupacio" Multiplicity="*" />
+        <Association Name="FK__servei_ho__dniHo__5FB337D6">
+          <End Role="hoste" Type="Self.hoste" Multiplicity="1" />
+          <End Role="servei_hoste" Type="Self.servei_hoste" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ocupacio">
-              <PropertyRef Name="id" />
+            <Principal Role="hoste">
+              <PropertyRef Name="dni" />
             </Principal>
-            <Dependent Role="servei_ocupacio">
-              <PropertyRef Name="idOcupacio" />
+            <Dependent Role="servei_hoste">
+              <PropertyRef Name="dniHoste" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__servei_oc__idSer__5FB337D6">
+        <Association Name="FK__servei_ho__idSer__60A75C0F">
           <End Role="servei" Type="Self.servei" Multiplicity="1" />
-          <End Role="servei_ocupacio" Type="Self.servei_ocupacio" Multiplicity="*" />
+          <End Role="servei_hoste" Type="Self.servei_hoste" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="servei">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="servei_ocupacio">
+            <Dependent Role="servei_hoste">
               <PropertyRef Name="idServei" />
             </Dependent>
           </ReferentialConstraint>
@@ -392,15 +395,14 @@
           <EntitySet Name="preu" EntityType="Self.preu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="reserva" EntityType="Self.reserva" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="servei" EntityType="Self.servei" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="servei_ocupacio" EntityType="Self.servei_ocupacio" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="servei_hoste" EntityType="Self.servei_hoste" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="temporada" EntityType="Self.temporada" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tipusHabitacio" EntityType="Self.tipusHabitacio" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__empresa__cif__45F365D3" Association="Self.FK__empresa__cif__45F365D3">
             <End Role="client" EntitySet="client" />
             <End Role="empresa" EntitySet="empresa" />
           </AssociationSet>
-          <AssociationSet Name="FK__factura__dniHost__534D60F1" Association="Self.FK__factura__dniHost__534D60F1">
+          <AssociationSet Name="FK__factura__dniHost__5441852A" Association="Self.FK__factura__dniHost__5441852A">
             <End Role="hoste" EntitySet="hoste" />
             <End Role="factura" EntitySet="factura" />
           </AssociationSet>
@@ -408,65 +410,69 @@
             <End Role="tipusHabitacio" EntitySet="tipusHabitacio" />
             <End Role="habitacio" EntitySet="habitacio" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoste__idReserva__4CA06362" Association="Self.FK__hoste__idReserva__4CA06362">
-            <End Role="reserva" EntitySet="reserva" />
-            <End Role="hoste" EntitySet="hoste" />
-          </AssociationSet>
-          <AssociationSet Name="FK__hoste_ocu__dniHo__6383C8BA" Association="Self.FK__hoste_ocu__dniHo__6383C8BA">
+          <AssociationSet Name="FK__hoste_ocu__dniHo__6477ECF3" Association="Self.FK__hoste_ocu__dniHo__6477ECF3">
             <End Role="hoste" EntitySet="hoste" />
             <End Role="hoste_ocupacio" EntitySet="hoste_ocupacio" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoste_ocu__idOcu__628FA481" Association="Self.FK__hoste_ocu__idOcu__628FA481">
+          <AssociationSet Name="FK__hoste_ocu__idOcu__6383C8BA" Association="Self.FK__hoste_ocu__idOcu__6383C8BA">
             <End Role="ocupacio" EntitySet="ocupacio" />
             <End Role="hoste_ocupacio" EntitySet="hoste_ocupacio" />
           </AssociationSet>
-          <AssociationSet Name="FK__linia_fac__nFact__5629CD9C" Association="Self.FK__linia_fac__nFact__5629CD9C">
+          <AssociationSet Name="FK__linia_fac__nFact__571DF1D5" Association="Self.FK__linia_fac__nFact__571DF1D5">
             <End Role="factura" EntitySet="factura" />
             <End Role="linia_factura" EntitySet="linia_factura" />
           </AssociationSet>
-          <AssociationSet Name="FK__ocupacio__nHabit__5AEE82B9" Association="Self.FK__ocupacio__nHabit__5AEE82B9">
+          <AssociationSet Name="FK__ocupacio__nHabit__5BE2A6F2" Association="Self.FK__ocupacio__nHabit__5BE2A6F2">
             <End Role="habitacio" EntitySet="habitacio" />
             <End Role="ocupacio" EntitySet="ocupacio" />
           </AssociationSet>
-          <AssociationSet Name="FK__ocupacio__tipusP__5BE2A6F2" Association="Self.FK__ocupacio__tipusP__5BE2A6F2">
+          <AssociationSet Name="FK__ocupacio__tipusP__5CD6CB2B" Association="Self.FK__ocupacio__tipusP__5CD6CB2B">
             <End Role="pensio" EntitySet="pensio" />
             <End Role="ocupacio" EntitySet="ocupacio" />
           </AssociationSet>
-          <AssociationSet Name="FK__persona__dniHost__5070F446" Association="Self.FK__persona__dniHost__5070F446">
+          <AssociationSet Name="FK__persona__dniHost__5165187F" Association="Self.FK__persona__dniHost__5165187F">
             <End Role="hoste" EntitySet="hoste" />
             <End Role="persona" EntitySet="persona" />
           </AssociationSet>
-          <AssociationSet Name="FK__persona__id__4F7CD00D" Association="Self.FK__persona__id__4F7CD00D">
+          <AssociationSet Name="FK__persona__id__5070F446" Association="Self.FK__persona__id__5070F446">
             <End Role="client" EntitySet="client" />
             <End Role="persona" EntitySet="persona" />
           </AssociationSet>
-          <AssociationSet Name="FK__preu__codiHabita__412EB0B6" Association="Self.FK__preu__codiHabita__412EB0B6">
-            <End Role="habitacio" EntitySet="habitacio" />
-            <End Role="preu" EntitySet="preu" />
-          </AssociationSet>
           <AssociationSet Name="FK__preu__codiTempor__3F466844" Association="Self.FK__preu__codiTempor__3F466844">
             <End Role="temporada" EntitySet="temporada" />
+            <End Role="preu" EntitySet="preu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__preu__codiTipusH__412EB0B6" Association="Self.FK__preu__codiTipusH__412EB0B6">
+            <End Role="tipusHabitacio" EntitySet="tipusHabitacio" />
             <End Role="preu" EntitySet="preu" />
           </AssociationSet>
           <AssociationSet Name="FK__preu__tipusPensi__403A8C7D" Association="Self.FK__preu__tipusPensi__403A8C7D">
             <End Role="pensio" EntitySet="pensio" />
             <End Role="preu" EntitySet="preu" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserva__idClien__49C3F6B7" Association="Self.FK__reserva__idClien__49C3F6B7">
+          <AssociationSet Name="FK__reserva__dniHost__4AB81AF0" Association="Self.FK__reserva__dniHost__4AB81AF0">
+            <End Role="hoste" EntitySet="hoste" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__idClien__4D94879B" Association="Self.FK__reserva__idClien__4D94879B">
             <End Role="client" EntitySet="client" />
             <End Role="reserva" EntitySet="reserva" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserva__pensioF__48CFD27E" Association="Self.FK__reserva__pensioF__48CFD27E">
+          <AssociationSet Name="FK__reserva__idTipus__4BAC3F29" Association="Self.FK__reserva__idTipus__4BAC3F29">
+            <End Role="tipusHabitacio" EntitySet="tipusHabitacio" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__pensioF__4CA06362" Association="Self.FK__reserva__pensioF__4CA06362">
             <End Role="pensio" EntitySet="pensio" />
             <End Role="reserva" EntitySet="reserva" />
           </AssociationSet>
-          <AssociationSet Name="FK__servei_oc__idOcu__5EBF139D" Association="Self.FK__servei_oc__idOcu__5EBF139D">
-            <End Role="ocupacio" EntitySet="ocupacio" />
-            <End Role="servei_ocupacio" EntitySet="servei_ocupacio" />
+          <AssociationSet Name="FK__servei_ho__dniHo__5FB337D6" Association="Self.FK__servei_ho__dniHo__5FB337D6">
+            <End Role="hoste" EntitySet="hoste" />
+            <End Role="servei_hoste" EntitySet="servei_hoste" />
           </AssociationSet>
-          <AssociationSet Name="FK__servei_oc__idSer__5FB337D6" Association="Self.FK__servei_oc__idSer__5FB337D6">
+          <AssociationSet Name="FK__servei_ho__idSer__60A75C0F" Association="Self.FK__servei_ho__idSer__60A75C0F">
             <End Role="servei" EntitySet="servei" />
-            <End Role="servei_ocupacio" EntitySet="servei_ocupacio" />
+            <End Role="servei_hoste" EntitySet="servei_hoste" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -482,8 +488,8 @@
           <Property Name="nom" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="tipus" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="empresa" Relationship="Self.FK__empresa__cif__45F365D3" FromRole="client" ToRole="empresa" />
-          <NavigationProperty Name="persona" Relationship="Self.FK__persona__id__4F7CD00D" FromRole="client" ToRole="persona" />
-          <NavigationProperty Name="reservas" Relationship="Self.FK__reserva__idClien__49C3F6B7" FromRole="client" ToRole="reserva" />
+          <NavigationProperty Name="persona" Relationship="Self.FK__persona__id__5070F446" FromRole="client" ToRole="persona" />
+          <NavigationProperty Name="reservas" Relationship="Self.FK__reserva__idClien__4D94879B" FromRole="client" ToRole="reserva" />
         </EntityType>
         <EntityType Name="empresa">
           <Key>
@@ -500,8 +506,8 @@
           <Property Name="data" Type="DateTime" Precision="0" />
           <Property Name="import" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="dniHosteFk" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="hoste" Relationship="Self.FK__factura__dniHost__534D60F1" FromRole="factura" ToRole="hoste" />
-          <NavigationProperty Name="linia_factura" Relationship="Self.FK__linia_fac__nFact__5629CD9C" FromRole="factura" ToRole="linia_factura" />
+          <NavigationProperty Name="hoste" Relationship="Self.FK__factura__dniHost__5441852A" FromRole="factura" ToRole="hoste" />
+          <NavigationProperty Name="linia_factura" Relationship="Self.FK__linia_fac__nFact__571DF1D5" FromRole="factura" ToRole="linia_factura" />
         </EntityType>
         <EntityType Name="habitacio">
           <Key>
@@ -515,8 +521,7 @@
           <Property Name="caracteristiques" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="codiTipus" Type="Int32" />
           <NavigationProperty Name="tipusHabitacio" Relationship="Self.FK__habitacio__codiT__3C69FB99" FromRole="habitacio" ToRole="tipusHabitacio" />
-          <NavigationProperty Name="ocupacios" Relationship="Self.FK__ocupacio__nHabit__5AEE82B9" FromRole="habitacio" ToRole="ocupacio" />
-          <NavigationProperty Name="preus" Relationship="Self.FK__preu__codiHabita__412EB0B6" FromRole="habitacio" ToRole="preu" />
+          <NavigationProperty Name="ocupacios" Relationship="Self.FK__ocupacio__nHabit__5BE2A6F2" FromRole="habitacio" ToRole="ocupacio" />
         </EntityType>
         <EntityType Name="hoste">
           <Key>
@@ -529,10 +534,10 @@
           <Property Name="telefon" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="cp" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="poblacio" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="idReservaFk" Type="Int32" />
-          <NavigationProperty Name="facturas" Relationship="Self.FK__factura__dniHost__534D60F1" FromRole="hoste" ToRole="factura" />
-          <NavigationProperty Name="reserva" Relationship="Self.FK__hoste__idReserva__4CA06362" FromRole="hoste" ToRole="reserva" />
-          <NavigationProperty Name="personas" Relationship="Self.FK__persona__dniHost__5070F446" FromRole="hoste" ToRole="persona" />
+          <NavigationProperty Name="facturas" Relationship="Self.FK__factura__dniHost__5441852A" FromRole="hoste" ToRole="factura" />
+          <NavigationProperty Name="personas" Relationship="Self.FK__persona__dniHost__5165187F" FromRole="hoste" ToRole="persona" />
+          <NavigationProperty Name="reservas" Relationship="Self.FK__reserva__dniHost__4AB81AF0" FromRole="hoste" ToRole="reserva" />
+          <NavigationProperty Name="servei_hoste" Relationship="Self.FK__servei_ho__dniHo__5FB337D6" FromRole="hoste" ToRole="servei_hoste" />
           <NavigationProperty Name="ocupacios" Relationship="Self.hoste_ocupacio" FromRole="hoste" ToRole="ocupacio" />
         </EntityType>
         <EntityType Name="linia_factura">
@@ -545,7 +550,7 @@
           <Property Name="quantitat" Type="Int32" />
           <Property Name="descripcio" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="import" Type="Decimal" Precision="6" Scale="2" />
-          <NavigationProperty Name="factura" Relationship="Self.FK__linia_fac__nFact__5629CD9C" FromRole="linia_factura" ToRole="factura" />
+          <NavigationProperty Name="factura" Relationship="Self.FK__linia_fac__nFact__571DF1D5" FromRole="linia_factura" ToRole="factura" />
         </EntityType>
         <EntityType Name="ocupacio">
           <Key>
@@ -556,9 +561,8 @@
           <Property Name="dataFinal" Type="DateTime" Precision="0" />
           <Property Name="nHabitacioFk" Type="Int32" />
           <Property Name="tipusPensioFk" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="habitacio" Relationship="Self.FK__ocupacio__nHabit__5AEE82B9" FromRole="ocupacio" ToRole="habitacio" />
-          <NavigationProperty Name="pensio" Relationship="Self.FK__ocupacio__tipusP__5BE2A6F2" FromRole="ocupacio" ToRole="pensio" />
-          <NavigationProperty Name="servei_ocupacio" Relationship="Self.FK__servei_oc__idOcu__5EBF139D" FromRole="ocupacio" ToRole="servei_ocupacio" />
+          <NavigationProperty Name="habitacio" Relationship="Self.FK__ocupacio__nHabit__5BE2A6F2" FromRole="ocupacio" ToRole="habitacio" />
+          <NavigationProperty Name="pensio" Relationship="Self.FK__ocupacio__tipusP__5CD6CB2B" FromRole="ocupacio" ToRole="pensio" />
           <NavigationProperty Name="hostes" Relationship="Self.hoste_ocupacio" FromRole="ocupacio" ToRole="hoste" />
         </EntityType>
         <EntityType Name="pensio">
@@ -566,10 +570,9 @@
             <PropertyRef Name="tipus" />
           </Key>
           <Property Name="tipus" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="preu" Type="Decimal" Precision="6" Scale="2" />
-          <NavigationProperty Name="ocupacios" Relationship="Self.FK__ocupacio__tipusP__5BE2A6F2" FromRole="pensio" ToRole="ocupacio" />
+          <NavigationProperty Name="ocupacios" Relationship="Self.FK__ocupacio__tipusP__5CD6CB2B" FromRole="pensio" ToRole="ocupacio" />
           <NavigationProperty Name="preus" Relationship="Self.FK__preu__tipusPensi__403A8C7D" FromRole="pensio" ToRole="preu" />
-          <NavigationProperty Name="reservas" Relationship="Self.FK__reserva__pensioF__48CFD27E" FromRole="pensio" ToRole="reserva" />
+          <NavigationProperty Name="reservas" Relationship="Self.FK__reserva__pensioF__4CA06362" FromRole="pensio" ToRole="reserva" />
         </EntityType>
         <EntityType Name="persona">
           <Key>
@@ -577,21 +580,22 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="dniHoste" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="client" Relationship="Self.FK__persona__id__4F7CD00D" FromRole="persona" ToRole="client" />
-          <NavigationProperty Name="hoste" Relationship="Self.FK__persona__dniHost__5070F446" FromRole="persona" ToRole="hoste" />
+          <NavigationProperty Name="client" Relationship="Self.FK__persona__id__5070F446" FromRole="persona" ToRole="client" />
+          <NavigationProperty Name="hoste" Relationship="Self.FK__persona__dniHost__5165187F" FromRole="persona" ToRole="hoste" />
         </EntityType>
         <EntityType Name="preu">
           <Key>
             <PropertyRef Name="codiTemporada" />
             <PropertyRef Name="tipusPensio" />
-            <PropertyRef Name="codiHabitacio" />
+            <PropertyRef Name="codiTipusHabitacio" />
           </Key>
           <Property Name="codiTemporada" Type="Int32" Nullable="false" />
           <Property Name="tipusPensio" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="codiHabitacio" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="habitacio" Relationship="Self.FK__preu__codiHabita__412EB0B6" FromRole="preu" ToRole="habitacio" />
+          <Property Name="codiTipusHabitacio" Type="Int32" Nullable="false" />
+          <Property Name="preu1" Type="Decimal" Precision="6" Scale="2" />
           <NavigationProperty Name="pensio" Relationship="Self.FK__preu__tipusPensi__403A8C7D" FromRole="preu" ToRole="pensio" />
           <NavigationProperty Name="temporada" Relationship="Self.FK__preu__codiTempor__3F466844" FromRole="preu" ToRole="temporada" />
+          <NavigationProperty Name="tipusHabitacio" Relationship="Self.FK__preu__codiTipusH__412EB0B6" FromRole="preu" ToRole="tipusHabitacio" />
         </EntityType>
         <EntityType Name="reserva">
           <Key>
@@ -604,9 +608,12 @@
           <Property Name="bestreta" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="pensioFk" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="idClientFk" Type="Int32" />
-          <NavigationProperty Name="client" Relationship="Self.FK__reserva__idClien__49C3F6B7" FromRole="reserva" ToRole="client" />
-          <NavigationProperty Name="hostes" Relationship="Self.FK__hoste__idReserva__4CA06362" FromRole="reserva" ToRole="hoste" />
-          <NavigationProperty Name="pensio" Relationship="Self.FK__reserva__pensioF__48CFD27E" FromRole="reserva" ToRole="pensio" />
+          <Property Name="dniHosteFk" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idTipusHabitacio" Type="Int32" />
+          <NavigationProperty Name="client" Relationship="Self.FK__reserva__idClien__4D94879B" FromRole="reserva" ToRole="client" />
+          <NavigationProperty Name="hoste" Relationship="Self.FK__reserva__dniHost__4AB81AF0" FromRole="reserva" ToRole="hoste" />
+          <NavigationProperty Name="pensio" Relationship="Self.FK__reserva__pensioF__4CA06362" FromRole="reserva" ToRole="pensio" />
+          <NavigationProperty Name="tipusHabitacio" Relationship="Self.FK__reserva__idTipus__4BAC3F29" FromRole="reserva" ToRole="tipusHabitacio" />
         </EntityType>
         <EntityType Name="servei">
           <Key>
@@ -614,36 +621,26 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nom" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="servei_ocupacio" Relationship="Self.FK__servei_oc__idSer__5FB337D6" FromRole="servei" ToRole="servei_ocupacio" />
+          <NavigationProperty Name="servei_hoste" Relationship="Self.FK__servei_ho__idSer__60A75C0F" FromRole="servei" ToRole="servei_hoste" />
         </EntityType>
-        <EntityType Name="servei_ocupacio">
+        <EntityType Name="servei_hoste">
           <Key>
-            <PropertyRef Name="idOcupacio" />
+            <PropertyRef Name="dniHoste" />
             <PropertyRef Name="idServei" />
           </Key>
-          <Property Name="idOcupacio" Type="Int32" Nullable="false" />
+          <Property Name="dniHoste" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idServei" Type="Int32" Nullable="false" />
           <Property Name="data" Type="DateTime" Precision="0" />
           <Property Name="preu" Type="Decimal" Precision="6" Scale="2" />
-          <NavigationProperty Name="ocupacio" Relationship="Self.FK__servei_oc__idOcu__5EBF139D" FromRole="servei_ocupacio" ToRole="ocupacio" />
-          <NavigationProperty Name="servei" Relationship="Self.FK__servei_oc__idSer__5FB337D6" FromRole="servei_ocupacio" ToRole="servei" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="hoste" Relationship="Self.FK__servei_ho__dniHo__5FB337D6" FromRole="servei_hoste" ToRole="hoste" />
+          <NavigationProperty Name="servei" Relationship="Self.FK__servei_ho__idSer__60A75C0F" FromRole="servei_hoste" ToRole="servei" />
         </EntityType>
         <EntityType Name="temporada">
           <Key>
             <PropertyRef Name="codi" />
           </Key>
           <Property Name="codi" Type="Int32" Nullable="false" />
-          <Property Name="nom" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="nom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="dataInici" Type="DateTime" Precision="0" />
           <Property Name="dataFinal" Type="DateTime" Precision="0" />
           <NavigationProperty Name="preus" Relationship="Self.FK__preu__codiTempor__3F466844" FromRole="temporada" ToRole="preu" />
@@ -656,6 +653,8 @@
           <Property Name="tipus" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="capacitat" Type="Int32" />
           <NavigationProperty Name="habitacios" Relationship="Self.FK__habitacio__codiT__3C69FB99" FromRole="tipusHabitacio" ToRole="habitacio" />
+          <NavigationProperty Name="preus" Relationship="Self.FK__preu__codiTipusH__412EB0B6" FromRole="tipusHabitacio" ToRole="preu" />
+          <NavigationProperty Name="reservas" Relationship="Self.FK__reserva__idTipus__4BAC3F29" FromRole="tipusHabitacio" ToRole="reserva" />
         </EntityType>
         <Association Name="FK__empresa__cif__45F365D3">
           <End Role="client" Type="Self.client" Multiplicity="1" />
@@ -669,7 +668,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__persona__id__4F7CD00D">
+        <Association Name="FK__persona__id__5070F446">
           <End Role="client" Type="Self.client" Multiplicity="1" />
           <End Role="persona" Type="Self.persona" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -681,7 +680,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserva__idClien__49C3F6B7">
+        <Association Name="FK__reserva__idClien__4D94879B">
           <End Role="client" Type="Self.client" Multiplicity="0..1" />
           <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
           <ReferentialConstraint>
@@ -693,7 +692,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__factura__dniHost__534D60F1">
+        <Association Name="FK__factura__dniHost__5441852A">
           <End Role="hoste" Type="Self.hoste" Multiplicity="0..1" />
           <End Role="factura" Type="Self.factura" Multiplicity="*" />
           <ReferentialConstraint>
@@ -705,7 +704,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__linia_fac__nFact__5629CD9C">
+        <Association Name="FK__linia_fac__nFact__571DF1D5">
           <End Role="factura" Type="Self.factura" Multiplicity="1" />
           <End Role="linia_factura" Type="Self.linia_factura" Multiplicity="*" />
           <ReferentialConstraint>
@@ -729,7 +728,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ocupacio__nHabit__5AEE82B9">
+        <Association Name="FK__ocupacio__nHabit__5BE2A6F2">
           <End Role="habitacio" Type="Self.habitacio" Multiplicity="0..1" />
           <End Role="ocupacio" Type="Self.ocupacio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -741,31 +740,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__preu__codiHabita__412EB0B6">
-          <End Role="habitacio" Type="Self.habitacio" Multiplicity="1" />
-          <End Role="preu" Type="Self.preu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="habitacio">
-              <PropertyRef Name="numero" />
-            </Principal>
-            <Dependent Role="preu">
-              <PropertyRef Name="codiHabitacio" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__hoste__idReserva__4CA06362">
-          <End Role="reserva" Type="Self.reserva" Multiplicity="0..1" />
-          <End Role="hoste" Type="Self.hoste" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="reserva">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="hoste">
-              <PropertyRef Name="idReservaFk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__persona__dniHost__5070F446">
+        <Association Name="FK__persona__dniHost__5165187F">
           <End Role="hoste" Type="Self.hoste" Multiplicity="0..1" />
           <End Role="persona" Type="Self.persona" Multiplicity="*" />
           <ReferentialConstraint>
@@ -777,7 +752,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ocupacio__tipusP__5BE2A6F2">
+        <Association Name="FK__reserva__dniHost__4AB81AF0">
+          <End Role="hoste" Type="Self.hoste" Multiplicity="0..1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hoste">
+              <PropertyRef Name="dni" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="dniHosteFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__servei_ho__dniHo__5FB337D6">
+          <End Role="hoste" Type="Self.hoste" Multiplicity="1" />
+          <End Role="servei_hoste" Type="Self.servei_hoste" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hoste">
+              <PropertyRef Name="dni" />
+            </Principal>
+            <Dependent Role="servei_hoste">
+              <PropertyRef Name="dniHoste" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ocupacio__tipusP__5CD6CB2B">
           <End Role="pensio" Type="Self.pensio" Multiplicity="0..1" />
           <End Role="ocupacio" Type="Self.ocupacio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -786,18 +785,6 @@
             </Principal>
             <Dependent Role="ocupacio">
               <PropertyRef Name="tipusPensioFk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__servei_oc__idOcu__5EBF139D">
-          <End Role="ocupacio" Type="Self.ocupacio" Multiplicity="1" />
-          <End Role="servei_ocupacio" Type="Self.servei_ocupacio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ocupacio">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="servei_ocupacio">
-              <PropertyRef Name="idOcupacio" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -813,7 +800,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reserva__pensioF__48CFD27E">
+        <Association Name="FK__reserva__pensioF__4CA06362">
           <End Role="pensio" Type="Self.pensio" Multiplicity="0..1" />
           <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
           <ReferentialConstraint>
@@ -837,14 +824,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__servei_oc__idSer__5FB337D6">
+        <Association Name="FK__preu__codiTipusH__412EB0B6">
+          <End Role="tipusHabitacio" Type="Self.tipusHabitacio" Multiplicity="1" />
+          <End Role="preu" Type="Self.preu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipusHabitacio">
+              <PropertyRef Name="codi" />
+            </Principal>
+            <Dependent Role="preu">
+              <PropertyRef Name="codiTipusHabitacio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reserva__idTipus__4BAC3F29">
+          <End Role="tipusHabitacio" Type="Self.tipusHabitacio" Multiplicity="0..1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipusHabitacio">
+              <PropertyRef Name="codi" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="idTipusHabitacio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__servei_ho__idSer__60A75C0F">
           <End Role="servei" Type="Self.servei" Multiplicity="1" />
-          <End Role="servei_ocupacio" Type="Self.servei_ocupacio" Multiplicity="*" />
+          <End Role="servei_hoste" Type="Self.servei_hoste" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="servei">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="servei_ocupacio">
+            <Dependent Role="servei_hoste">
               <PropertyRef Name="idServei" />
             </Dependent>
           </ReferentialConstraint>
@@ -866,27 +877,26 @@
           <EntitySet Name="preus" EntityType="Self.preu" />
           <EntitySet Name="reservas" EntityType="Self.reserva" />
           <EntitySet Name="serveis" EntityType="Self.servei" />
-          <EntitySet Name="servei_ocupacio" EntityType="Self.servei_ocupacio" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="servei_hoste" EntityType="Self.servei_hoste" />
           <EntitySet Name="temporadas" EntityType="Self.temporada" />
           <EntitySet Name="tipusHabitacios" EntityType="Self.tipusHabitacio" />
           <AssociationSet Name="FK__empresa__cif__45F365D3" Association="Self.FK__empresa__cif__45F365D3">
             <End Role="client" EntitySet="clients" />
             <End Role="empresa" EntitySet="empresas" />
           </AssociationSet>
-          <AssociationSet Name="FK__persona__id__4F7CD00D" Association="Self.FK__persona__id__4F7CD00D">
+          <AssociationSet Name="FK__persona__id__5070F446" Association="Self.FK__persona__id__5070F446">
             <End Role="client" EntitySet="clients" />
             <End Role="persona" EntitySet="personas" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserva__idClien__49C3F6B7" Association="Self.FK__reserva__idClien__49C3F6B7">
+          <AssociationSet Name="FK__reserva__idClien__4D94879B" Association="Self.FK__reserva__idClien__4D94879B">
             <End Role="client" EntitySet="clients" />
             <End Role="reserva" EntitySet="reservas" />
           </AssociationSet>
-          <AssociationSet Name="FK__factura__dniHost__534D60F1" Association="Self.FK__factura__dniHost__534D60F1">
+          <AssociationSet Name="FK__factura__dniHost__5441852A" Association="Self.FK__factura__dniHost__5441852A">
             <End Role="hoste" EntitySet="hostes" />
             <End Role="factura" EntitySet="facturas" />
           </AssociationSet>
-          <AssociationSet Name="FK__linia_fac__nFact__5629CD9C" Association="Self.FK__linia_fac__nFact__5629CD9C">
+          <AssociationSet Name="FK__linia_fac__nFact__571DF1D5" Association="Self.FK__linia_fac__nFact__571DF1D5">
             <End Role="factura" EntitySet="facturas" />
             <End Role="linia_factura" EntitySet="linia_factura" />
           </AssociationSet>
@@ -894,35 +904,31 @@
             <End Role="tipusHabitacio" EntitySet="tipusHabitacios" />
             <End Role="habitacio" EntitySet="habitacios" />
           </AssociationSet>
-          <AssociationSet Name="FK__ocupacio__nHabit__5AEE82B9" Association="Self.FK__ocupacio__nHabit__5AEE82B9">
+          <AssociationSet Name="FK__ocupacio__nHabit__5BE2A6F2" Association="Self.FK__ocupacio__nHabit__5BE2A6F2">
             <End Role="habitacio" EntitySet="habitacios" />
             <End Role="ocupacio" EntitySet="ocupacios" />
           </AssociationSet>
-          <AssociationSet Name="FK__preu__codiHabita__412EB0B6" Association="Self.FK__preu__codiHabita__412EB0B6">
-            <End Role="habitacio" EntitySet="habitacios" />
-            <End Role="preu" EntitySet="preus" />
-          </AssociationSet>
-          <AssociationSet Name="FK__hoste__idReserva__4CA06362" Association="Self.FK__hoste__idReserva__4CA06362">
-            <End Role="reserva" EntitySet="reservas" />
-            <End Role="hoste" EntitySet="hostes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__persona__dniHost__5070F446" Association="Self.FK__persona__dniHost__5070F446">
+          <AssociationSet Name="FK__persona__dniHost__5165187F" Association="Self.FK__persona__dniHost__5165187F">
             <End Role="hoste" EntitySet="hostes" />
             <End Role="persona" EntitySet="personas" />
           </AssociationSet>
-          <AssociationSet Name="FK__ocupacio__tipusP__5BE2A6F2" Association="Self.FK__ocupacio__tipusP__5BE2A6F2">
+          <AssociationSet Name="FK__reserva__dniHost__4AB81AF0" Association="Self.FK__reserva__dniHost__4AB81AF0">
+            <End Role="hoste" EntitySet="hostes" />
+            <End Role="reserva" EntitySet="reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__servei_ho__dniHo__5FB337D6" Association="Self.FK__servei_ho__dniHo__5FB337D6">
+            <End Role="hoste" EntitySet="hostes" />
+            <End Role="servei_hoste" EntitySet="servei_hoste" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ocupacio__tipusP__5CD6CB2B" Association="Self.FK__ocupacio__tipusP__5CD6CB2B">
             <End Role="pensio" EntitySet="pensios" />
             <End Role="ocupacio" EntitySet="ocupacios" />
-          </AssociationSet>
-          <AssociationSet Name="FK__servei_oc__idOcu__5EBF139D" Association="Self.FK__servei_oc__idOcu__5EBF139D">
-            <End Role="ocupacio" EntitySet="ocupacios" />
-            <End Role="servei_ocupacio" EntitySet="servei_ocupacio" />
           </AssociationSet>
           <AssociationSet Name="FK__preu__tipusPensi__403A8C7D" Association="Self.FK__preu__tipusPensi__403A8C7D">
             <End Role="pensio" EntitySet="pensios" />
             <End Role="preu" EntitySet="preus" />
           </AssociationSet>
-          <AssociationSet Name="FK__reserva__pensioF__48CFD27E" Association="Self.FK__reserva__pensioF__48CFD27E">
+          <AssociationSet Name="FK__reserva__pensioF__4CA06362" Association="Self.FK__reserva__pensioF__4CA06362">
             <End Role="pensio" EntitySet="pensios" />
             <End Role="reserva" EntitySet="reservas" />
           </AssociationSet>
@@ -930,9 +936,17 @@
             <End Role="temporada" EntitySet="temporadas" />
             <End Role="preu" EntitySet="preus" />
           </AssociationSet>
-          <AssociationSet Name="FK__servei_oc__idSer__5FB337D6" Association="Self.FK__servei_oc__idSer__5FB337D6">
+          <AssociationSet Name="FK__preu__codiTipusH__412EB0B6" Association="Self.FK__preu__codiTipusH__412EB0B6">
+            <End Role="tipusHabitacio" EntitySet="tipusHabitacios" />
+            <End Role="preu" EntitySet="preus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reserva__idTipus__4BAC3F29" Association="Self.FK__reserva__idTipus__4BAC3F29">
+            <End Role="tipusHabitacio" EntitySet="tipusHabitacios" />
+            <End Role="reserva" EntitySet="reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__servei_ho__idSer__60A75C0F" Association="Self.FK__servei_ho__idSer__60A75C0F">
             <End Role="servei" EntitySet="serveis" />
-            <End Role="servei_ocupacio" EntitySet="servei_ocupacio" />
+            <End Role="servei_hoste" EntitySet="servei_hoste" />
           </AssociationSet>
           <AssociationSet Name="hoste_ocupacio" Association="Self.hoste_ocupacio">
             <End Role="hoste" EntitySet="hostes" />
@@ -994,7 +1008,6 @@
                 <ScalarProperty Name="telefon" ColumnName="telefon" />
                 <ScalarProperty Name="cp" ColumnName="cp" />
                 <ScalarProperty Name="poblacio" ColumnName="poblacio" />
-                <ScalarProperty Name="idReservaFk" ColumnName="idReservaFk" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1024,7 +1037,6 @@
             <EntityTypeMapping TypeName="hotelModel.pensio">
               <MappingFragment StoreEntitySet="pensio">
                 <ScalarProperty Name="tipus" ColumnName="tipus" />
-                <ScalarProperty Name="preu" ColumnName="preu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1041,7 +1053,8 @@
               <MappingFragment StoreEntitySet="preu">
                 <ScalarProperty Name="codiTemporada" ColumnName="codiTemporada" />
                 <ScalarProperty Name="tipusPensio" ColumnName="tipusPensio" />
-                <ScalarProperty Name="codiHabitacio" ColumnName="codiHabitacio" />
+                <ScalarProperty Name="codiTipusHabitacio" ColumnName="codiTipusHabitacio" />
+                <ScalarProperty Name="preu1" ColumnName="preu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1055,6 +1068,8 @@
                 <ScalarProperty Name="bestreta" ColumnName="bestreta" />
                 <ScalarProperty Name="pensioFk" ColumnName="pensioFk" />
                 <ScalarProperty Name="idClientFk" ColumnName="idClientFk" />
+                <ScalarProperty Name="dniHosteFk" ColumnName="dniHosteFk" />
+                <ScalarProperty Name="idTipusHabitacio" ColumnName="idTipusHabitacio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1066,24 +1081,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="servei_ocupacio">
-            <EntityTypeMapping TypeName="hotelModel.servei_ocupacio">
-              <MappingFragment StoreEntitySet="servei_ocupacio">
-                <ScalarProperty Name="idOcupacio" ColumnName="idOcupacio" />
+          <EntitySetMapping Name="servei_hoste">
+            <EntityTypeMapping TypeName="hotelModel.servei_hoste">
+              <MappingFragment StoreEntitySet="servei_hoste">
+                <ScalarProperty Name="dniHoste" ColumnName="dniHoste" />
                 <ScalarProperty Name="idServei" ColumnName="idServei" />
                 <ScalarProperty Name="data" ColumnName="data" />
                 <ScalarProperty Name="preu" ColumnName="preu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="hotelModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

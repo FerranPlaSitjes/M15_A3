@@ -17,7 +17,6 @@ namespace Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ocupacio()
         {
-            this.servei_ocupacio = new HashSet<servei_ocupacio>();
             this.hostes = new HashSet<hoste>();
         }
 
@@ -38,8 +37,6 @@ namespace Model
     
         public virtual habitacio habitacio { get; set; }
         public virtual pensio pensio { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<servei_ocupacio> servei_ocupacio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<hoste> hostes { get; set; }
     }

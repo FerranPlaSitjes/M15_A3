@@ -18,12 +18,16 @@ namespace Controller
         public Form1 f;
         RepositoryClient rc;
         ControllerClient ccl;
+        ControllerReserva cr;
+        ControllerHabitacio ch;
 
         public Controller1()
         {
             f = new Form1();
             rc = new RepositoryClient();
             ccl = new ControllerClient(f);
+            cr = new ControllerReserva(f,rc);
+            ch = new ControllerHabitacio(f,rc);
             Application.Run(f);
         }
     }

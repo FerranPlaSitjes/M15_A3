@@ -18,8 +18,7 @@ namespace Model.ModelDTO.Client
 
         public List<clientDTO> llistar()
         {
-            List<clientDTO> dades = context.clients.ToList().Select(c => new clientDTO(c)).ToList();
-            Console.WriteLine(dades[0].nom);
+            List<clientDTO> dades = context.clients.ToList().Select(c => new clientDTO(c)).ToList();            
             return dades;
         }
 
@@ -51,6 +50,20 @@ namespace Model.ModelDTO.Client
         public clientDTO clientDTOFromRow(DataGridViewCellCollection row)
         {
             return new clientDTO((int)row["Id"].Value, (string)row["Nom"].Value, (string)row["Tipus"].Value);
+        }
+
+        public client returnClient(string nomClient)
+        {
+            var result = context.clients.Where(a => a.nom == nomClient).Single();
+
+            return result;
+        }
+
+        public client returnClientId(int? id)
+        {
+            var result = context.clients.Where(a => a.id == id).Single();
+
+            return result;
         }
     }
 }

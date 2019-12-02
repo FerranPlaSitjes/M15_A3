@@ -59,8 +59,6 @@
             this.clientReserva = new System.Windows.Forms.ComboBox();
             this.pensioReserva = new System.Windows.Forms.ComboBox();
             this.Bestreta = new System.Windows.Forms.TextBox();
-            this.dataFinalReserva = new System.Windows.Forms.TextBox();
-            this.dataIniciReserva = new System.Windows.Forms.TextBox();
             this.idReserva = new System.Windows.Forms.TextBox();
             this.dgvReserva = new System.Windows.Forms.DataGridView();
             this.tabPage9 = new System.Windows.Forms.TabPage();
@@ -80,6 +78,10 @@
             this.verticalMenuSer = new System.Windows.Forms.TabControl();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.labelpreuTotalReserva = new System.Windows.Forms.Label();
+            this.preuTotalReserva = new System.Windows.Forms.TextBox();
+            this.dataIniciReserva = new System.Windows.Forms.DateTimePicker();
+            this.dataFinalReserva = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.Clients.SuspendLayout();
             this.verticalMenuClients.SuspendLayout();
@@ -289,6 +291,10 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.dataFinalReserva);
+            this.tabPage8.Controls.Add(this.dataIniciReserva);
+            this.tabPage8.Controls.Add(this.labelpreuTotalReserva);
+            this.tabPage8.Controls.Add(this.preuTotalReserva);
             this.tabPage8.Controls.Add(this.ModificarReserva);
             this.tabPage8.Controls.Add(this.EliminarReserva);
             this.tabPage8.Controls.Add(this.AfegirReserva);
@@ -302,8 +308,6 @@
             this.tabPage8.Controls.Add(this.clientReserva);
             this.tabPage8.Controls.Add(this.pensioReserva);
             this.tabPage8.Controls.Add(this.Bestreta);
-            this.tabPage8.Controls.Add(this.dataFinalReserva);
-            this.tabPage8.Controls.Add(this.dataIniciReserva);
             this.tabPage8.Controls.Add(this.idReserva);
             this.tabPage8.Controls.Add(this.dgvReserva);
             this.tabPage8.Location = new System.Drawing.Point(104, 4);
@@ -365,7 +369,7 @@
             // 
             this.labelBestretaReserva.AutoSize = true;
             this.labelBestretaReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBestretaReserva.Location = new System.Drawing.Point(646, 444);
+            this.labelBestretaReserva.Location = new System.Drawing.Point(659, 444);
             this.labelBestretaReserva.Name = "labelBestretaReserva";
             this.labelBestretaReserva.Size = new System.Drawing.Size(58, 13);
             this.labelBestretaReserva.TabIndex = 11;
@@ -375,7 +379,7 @@
             // 
             this.labelDataFinalReserva.AutoSize = true;
             this.labelDataFinalReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDataFinalReserva.Location = new System.Drawing.Point(472, 443);
+            this.labelDataFinalReserva.Location = new System.Drawing.Point(503, 443);
             this.labelDataFinalReserva.Name = "labelDataFinalReserva";
             this.labelDataFinalReserva.Size = new System.Drawing.Size(69, 13);
             this.labelDataFinalReserva.TabIndex = 10;
@@ -385,7 +389,7 @@
             // 
             this.labelDataIniciReserva.AutoSize = true;
             this.labelDataIniciReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDataIniciReserva.Location = new System.Drawing.Point(294, 444);
+            this.labelDataIniciReserva.Location = new System.Drawing.Point(372, 444);
             this.labelDataIniciReserva.Name = "labelDataIniciReserva";
             this.labelDataIniciReserva.Size = new System.Drawing.Size(66, 13);
             this.labelDataIniciReserva.TabIndex = 9;
@@ -395,7 +399,7 @@
             // 
             this.labelIdReserva.AutoSize = true;
             this.labelIdReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIdReserva.Location = new System.Drawing.Point(121, 443);
+            this.labelIdReserva.Location = new System.Drawing.Point(93, 443);
             this.labelIdReserva.Name = "labelIdReserva";
             this.labelIdReserva.Size = new System.Drawing.Size(68, 13);
             this.labelIdReserva.TabIndex = 8;
@@ -428,28 +432,14 @@
             // 
             // Bestreta
             // 
-            this.Bestreta.Location = new System.Drawing.Point(629, 476);
+            this.Bestreta.Location = new System.Drawing.Point(642, 476);
             this.Bestreta.Name = "Bestreta";
             this.Bestreta.Size = new System.Drawing.Size(100, 20);
             this.Bestreta.TabIndex = 4;
             // 
-            // dataFinalReserva
-            // 
-            this.dataFinalReserva.Location = new System.Drawing.Point(458, 476);
-            this.dataFinalReserva.Name = "dataFinalReserva";
-            this.dataFinalReserva.Size = new System.Drawing.Size(100, 20);
-            this.dataFinalReserva.TabIndex = 3;
-            // 
-            // dataIniciReserva
-            // 
-            this.dataIniciReserva.Location = new System.Drawing.Point(276, 476);
-            this.dataIniciReserva.Name = "dataIniciReserva";
-            this.dataIniciReserva.Size = new System.Drawing.Size(100, 20);
-            this.dataIniciReserva.TabIndex = 2;
-            // 
             // idReserva
             // 
-            this.idReserva.Location = new System.Drawing.Point(101, 476);
+            this.idReserva.Location = new System.Drawing.Point(73, 476);
             this.idReserva.Name = "idReserva";
             this.idReserva.Size = new System.Drawing.Size(100, 20);
             this.idReserva.TabIndex = 1;
@@ -459,6 +449,8 @@
             this.dgvReserva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReserva.Location = new System.Drawing.Point(86, 101);
             this.dgvReserva.Name = "dgvReserva";
+            this.dgvReserva.ReadOnly = true;
+            this.dgvReserva.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReserva.Size = new System.Drawing.Size(1023, 317);
             this.dgvReserva.TabIndex = 0;
             // 
@@ -656,6 +648,39 @@
             this.tabPage17.Text = "Modificar Client";
             this.tabPage17.UseVisualStyleBackColor = true;
             // 
+            // labelpreuTotalReserva
+            // 
+            this.labelpreuTotalReserva.AutoSize = true;
+            this.labelpreuTotalReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelpreuTotalReserva.Location = new System.Drawing.Point(236, 443);
+            this.labelpreuTotalReserva.Name = "labelpreuTotalReserva";
+            this.labelpreuTotalReserva.Size = new System.Drawing.Size(37, 13);
+            this.labelpreuTotalReserva.TabIndex = 18;
+            this.labelpreuTotalReserva.Text = "Preu:";
+            // 
+            // preuTotalReserva
+            // 
+            this.preuTotalReserva.Location = new System.Drawing.Point(216, 476);
+            this.preuTotalReserva.Name = "preuTotalReserva";
+            this.preuTotalReserva.Size = new System.Drawing.Size(100, 20);
+            this.preuTotalReserva.TabIndex = 17;
+            // 
+            // dataIniciReserva
+            // 
+            this.dataIniciReserva.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataIniciReserva.Location = new System.Drawing.Point(370, 476);
+            this.dataIniciReserva.Name = "dataIniciReserva";
+            this.dataIniciReserva.Size = new System.Drawing.Size(82, 20);
+            this.dataIniciReserva.TabIndex = 19;
+            // 
+            // dataFinalReserva
+            // 
+            this.dataFinalReserva.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataFinalReserva.Location = new System.Drawing.Point(506, 473);
+            this.dataFinalReserva.Name = "dataFinalReserva";
+            this.dataFinalReserva.Size = new System.Drawing.Size(82, 20);
+            this.dataFinalReserva.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -719,8 +744,6 @@
         public System.Windows.Forms.ComboBox clientReserva;
         public System.Windows.Forms.ComboBox pensioReserva;
         public System.Windows.Forms.TextBox Bestreta;
-        public System.Windows.Forms.TextBox dataFinalReserva;
-        public System.Windows.Forms.TextBox dataIniciReserva;
         public System.Windows.Forms.TextBox idReserva;
         public System.Windows.Forms.DataGridView dgvReserva;
         public System.Windows.Forms.Label labelIdReserva;
@@ -740,7 +763,10 @@
         public System.Windows.Forms.DataGridView dgvClients;
         public System.Windows.Forms.Button ModificarClient;
         public System.Windows.Forms.Button EliminarClient;
-        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label labelpreuTotalReserva;
+        public System.Windows.Forms.TextBox preuTotalReserva;
+        public System.Windows.Forms.DateTimePicker dataFinalReserva;
+        public System.Windows.Forms.DateTimePicker dataIniciReserva;
     }
 }
 
