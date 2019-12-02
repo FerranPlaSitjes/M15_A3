@@ -45,6 +45,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.verticalMenuHostes = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.dataFinalReserva = new System.Windows.Forms.DateTimePicker();
+            this.dataIniciReserva = new System.Windows.Forms.DateTimePicker();
+            this.labelpreuTotalReserva = new System.Windows.Forms.Label();
+            this.preuTotalReserva = new System.Windows.Forms.TextBox();
             this.ModificarReserva = new System.Windows.Forms.Button();
             this.EliminarReserva = new System.Windows.Forms.Button();
             this.AfegirReserva = new System.Windows.Forms.Button();
@@ -77,10 +81,19 @@
             this.verticalMenuSer = new System.Windows.Forms.TabControl();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.labelpreuTotalReserva = new System.Windows.Forms.Label();
-            this.preuTotalReserva = new System.Windows.Forms.TextBox();
-            this.dataIniciReserva = new System.Windows.Forms.DateTimePicker();
-            this.dataFinalReserva = new System.Windows.Forms.DateTimePicker();
+            this.dgvHostes = new System.Windows.Forms.DataGridView();
+            this.nomHoste = new System.Windows.Forms.TextBox();
+            this.cognomHoste = new System.Windows.Forms.TextBox();
+            this.nacinalitatHoste = new System.Windows.Forms.TextBox();
+            this.telefonHoste = new System.Windows.Forms.TextBox();
+            this.cpHoste = new System.Windows.Forms.TextBox();
+            this.poblacioHoste = new System.Windows.Forms.TextBox();
+            this.labelNomHoste = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.Clients.SuspendLayout();
             this.verticalMenuClients.SuspendLayout();
@@ -94,10 +107,12 @@
             this.verticalMenuHab.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.verticalMenuRes.SuspendLayout();
+            this.tabPage12.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.verticalMenuOcu.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.verticalMenuSer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHostes)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -306,6 +321,39 @@
             this.tabPage8.TabIndex = 0;
             this.tabPage8.Text = "Afegir client";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // dataFinalReserva
+            // 
+            this.dataFinalReserva.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataFinalReserva.Location = new System.Drawing.Point(506, 473);
+            this.dataFinalReserva.Name = "dataFinalReserva";
+            this.dataFinalReserva.Size = new System.Drawing.Size(82, 20);
+            this.dataFinalReserva.TabIndex = 20;
+            // 
+            // dataIniciReserva
+            // 
+            this.dataIniciReserva.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataIniciReserva.Location = new System.Drawing.Point(370, 476);
+            this.dataIniciReserva.Name = "dataIniciReserva";
+            this.dataIniciReserva.Size = new System.Drawing.Size(82, 20);
+            this.dataIniciReserva.TabIndex = 19;
+            // 
+            // labelpreuTotalReserva
+            // 
+            this.labelpreuTotalReserva.AutoSize = true;
+            this.labelpreuTotalReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelpreuTotalReserva.Location = new System.Drawing.Point(236, 443);
+            this.labelpreuTotalReserva.Name = "labelpreuTotalReserva";
+            this.labelpreuTotalReserva.Size = new System.Drawing.Size(37, 13);
+            this.labelpreuTotalReserva.TabIndex = 18;
+            this.labelpreuTotalReserva.Text = "Preu:";
+            // 
+            // preuTotalReserva
+            // 
+            this.preuTotalReserva.Location = new System.Drawing.Point(216, 476);
+            this.preuTotalReserva.Name = "preuTotalReserva";
+            this.preuTotalReserva.Size = new System.Drawing.Size(100, 20);
+            this.preuTotalReserva.TabIndex = 17;
             // 
             // ModificarReserva
             // 
@@ -527,6 +575,19 @@
             // 
             // tabPage12
             // 
+            this.tabPage12.Controls.Add(this.label7);
+            this.tabPage12.Controls.Add(this.label6);
+            this.tabPage12.Controls.Add(this.label5);
+            this.tabPage12.Controls.Add(this.label4);
+            this.tabPage12.Controls.Add(this.label3);
+            this.tabPage12.Controls.Add(this.labelNomHoste);
+            this.tabPage12.Controls.Add(this.poblacioHoste);
+            this.tabPage12.Controls.Add(this.cpHoste);
+            this.tabPage12.Controls.Add(this.telefonHoste);
+            this.tabPage12.Controls.Add(this.nacinalitatHoste);
+            this.tabPage12.Controls.Add(this.cognomHoste);
+            this.tabPage12.Controls.Add(this.nomHoste);
+            this.tabPage12.Controls.Add(this.dgvHostes);
             this.tabPage12.Location = new System.Drawing.Point(104, 4);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
@@ -637,38 +698,109 @@
             this.tabPage17.Text = "Modificar Client";
             this.tabPage17.UseVisualStyleBackColor = true;
             // 
-            // labelpreuTotalReserva
+            // dgvHostes
             // 
-            this.labelpreuTotalReserva.AutoSize = true;
-            this.labelpreuTotalReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelpreuTotalReserva.Location = new System.Drawing.Point(236, 443);
-            this.labelpreuTotalReserva.Name = "labelpreuTotalReserva";
-            this.labelpreuTotalReserva.Size = new System.Drawing.Size(37, 13);
-            this.labelpreuTotalReserva.TabIndex = 18;
-            this.labelpreuTotalReserva.Text = "Preu:";
+            this.dgvHostes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHostes.Location = new System.Drawing.Point(71, 55);
+            this.dgvHostes.Name = "dgvHostes";
+            this.dgvHostes.Size = new System.Drawing.Size(861, 270);
+            this.dgvHostes.TabIndex = 0;
             // 
-            // preuTotalReserva
+            // nomHoste
             // 
-            this.preuTotalReserva.Location = new System.Drawing.Point(216, 476);
-            this.preuTotalReserva.Name = "preuTotalReserva";
-            this.preuTotalReserva.Size = new System.Drawing.Size(100, 20);
-            this.preuTotalReserva.TabIndex = 17;
+            this.nomHoste.Location = new System.Drawing.Point(71, 406);
+            this.nomHoste.Name = "nomHoste";
+            this.nomHoste.Size = new System.Drawing.Size(100, 20);
+            this.nomHoste.TabIndex = 1;
             // 
-            // dataIniciReserva
+            // cognomHoste
             // 
-            this.dataIniciReserva.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dataIniciReserva.Location = new System.Drawing.Point(370, 476);
-            this.dataIniciReserva.Name = "dataIniciReserva";
-            this.dataIniciReserva.Size = new System.Drawing.Size(82, 20);
-            this.dataIniciReserva.TabIndex = 19;
+            this.cognomHoste.Location = new System.Drawing.Point(223, 406);
+            this.cognomHoste.Name = "cognomHoste";
+            this.cognomHoste.Size = new System.Drawing.Size(100, 20);
+            this.cognomHoste.TabIndex = 2;
             // 
-            // dataFinalReserva
+            // nacinalitatHoste
             // 
-            this.dataFinalReserva.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dataFinalReserva.Location = new System.Drawing.Point(506, 473);
-            this.dataFinalReserva.Name = "dataFinalReserva";
-            this.dataFinalReserva.Size = new System.Drawing.Size(82, 20);
-            this.dataFinalReserva.TabIndex = 20;
+            this.nacinalitatHoste.Location = new System.Drawing.Point(380, 406);
+            this.nacinalitatHoste.Name = "nacinalitatHoste";
+            this.nacinalitatHoste.Size = new System.Drawing.Size(100, 20);
+            this.nacinalitatHoste.TabIndex = 3;
+            // 
+            // telefonHoste
+            // 
+            this.telefonHoste.Location = new System.Drawing.Point(535, 406);
+            this.telefonHoste.Name = "telefonHoste";
+            this.telefonHoste.Size = new System.Drawing.Size(100, 20);
+            this.telefonHoste.TabIndex = 4;
+            // 
+            // cpHoste
+            // 
+            this.cpHoste.Location = new System.Drawing.Point(682, 406);
+            this.cpHoste.Name = "cpHoste";
+            this.cpHoste.Size = new System.Drawing.Size(100, 20);
+            this.cpHoste.TabIndex = 5;
+            // 
+            // poblacioHoste
+            // 
+            this.poblacioHoste.Location = new System.Drawing.Point(832, 406);
+            this.poblacioHoste.Name = "poblacioHoste";
+            this.poblacioHoste.Size = new System.Drawing.Size(100, 20);
+            this.poblacioHoste.TabIndex = 6;
+            // 
+            // labelNomHoste
+            // 
+            this.labelNomHoste.AutoSize = true;
+            this.labelNomHoste.Location = new System.Drawing.Point(103, 377);
+            this.labelNomHoste.Name = "labelNomHoste";
+            this.labelNomHoste.Size = new System.Drawing.Size(35, 13);
+            this.labelNomHoste.TabIndex = 7;
+            this.labelNomHoste.Text = "Nom: ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(246, 377);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Cognom: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(395, 377);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Nacionalitat: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(560, 377);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Telefon:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(698, 377);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "CodiPostal: ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(852, 377);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Població:  ";
             // 
             // Form1
             // 
@@ -693,10 +825,13 @@
             this.verticalMenuHab.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.verticalMenuRes.ResumeLayout(false);
+            this.tabPage12.ResumeLayout(false);
+            this.tabPage12.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.verticalMenuOcu.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.verticalMenuSer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHostes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -756,6 +891,19 @@
         public System.Windows.Forms.TextBox preuTotalReserva;
         public System.Windows.Forms.DateTimePicker dataFinalReserva;
         public System.Windows.Forms.DateTimePicker dataIniciReserva;
+        public System.Windows.Forms.DataGridView dgvHostes;
+        public System.Windows.Forms.TextBox nomHoste;
+        public System.Windows.Forms.TextBox poblacioHoste;
+        public System.Windows.Forms.TextBox cpHoste;
+        public System.Windows.Forms.TextBox telefonHoste;
+        public System.Windows.Forms.TextBox nacinalitatHoste;
+        public System.Windows.Forms.TextBox cognomHoste;
+        private System.Windows.Forms.Label labelNomHoste;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }
 

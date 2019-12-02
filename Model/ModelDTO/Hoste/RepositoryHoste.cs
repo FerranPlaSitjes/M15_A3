@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Model.ModelDTO.Hoste
 {
@@ -11,9 +12,9 @@ namespace Model.ModelDTO.Hoste
     {
         hotelEntities context;
         RepositoryClient rc;
-        public RepositoryHoste()
+        public RepositoryHoste(hotelEntities context)
         {
-            this.context = rc.context;
+            this.context = context;
         }
 
         public void afegirHoste(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio)
@@ -38,11 +39,22 @@ namespace Model.ModelDTO.Hoste
             }
         }
 
+        public hosteDTO hosteDTOFromRow(DataGridViewCellCollection row)
+        {
+            return new hosteDTO((string)row["dni"].Value, (string)row["nom"].Value, (string)row["cognom"].Value, (string)row["nacionalitat"].Value, (string)row["telefon"].Value, (string)row["cp"].Value, (string)row["poblacio"].Value);
+        }
+
         public void eliminarHoste(string dni)
         {
             var hoste = context.hostes.Single(h => h.dni == dni);
             context.hostes.Remove(hoste);
             context.SaveChanges();
+        }
+
+        public List<hosteDTO> MostrarHoste()
+        {
+            List<hosteDTO> dades = context.hostes.ToList().Select(c => new hosteDTO(c)).ToList();
+            return dades;
         }
     }
 }
