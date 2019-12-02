@@ -110,7 +110,7 @@
     <Compile Include="ModelDTO\Reserva\RepositoryReserva.cs" />
     <Compile Include="ModelDTO\Reserva\reservaDTO.cs" />
     <Compile Include="ModelDTO\ServeiHoste\RepositoryServeiHoste.cs" />
-    <Compile Include="ModelDTO\ServeiHoste\serveiocupacioDTO.cs" />
+    <Compile Include="ModelDTO\ServeiHoste\serveihosteDTO.cs" />
     <Compile Include="ModelDTO\Servei\RepositoryServei.cs" />
     <Compile Include="ModelDTO\Servei\serveiDTO.cs" />
     <Compile Include="ModelDTO\Temporada\RepositoryTemporada.cs" />

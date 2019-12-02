@@ -12,9 +12,15 @@ namespace Model.ModelDTO.Preu
         hotelEntities context;
         RepositoryClient rc;
 
-        public RepositoryPreu()
+        public RepositoryPreu(hotelEntities context)
         {
             this.context = rc.context;
+        }
+
+        public List<preuDTO> llistar()
+        {
+            List<preuDTO> dades = context.preus.ToList().Select(p => new preuDTO(p)).ToList();
+            return dades;
         }
     }
 }

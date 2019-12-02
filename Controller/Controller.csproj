@@ -64,6 +64,7 @@
     <Compile Include="Controller1.cs" />
     <Compile Include="ControllerClient.cs" />
     <Compile Include="ControllerHabitacio.cs" />
+    <Compile Include="ControllerPreu.cs" />
     <Compile Include="ControllerReserva.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

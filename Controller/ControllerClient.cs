@@ -32,12 +32,12 @@ namespace Controller
 
         private void InitListeners()
         {
-            f.verticalMenuClients.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
-            f.verticalMenuHostes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
-            f.verticalMenuHab.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
-            f.verticalMenuRes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
-            f.verticalMenuOcu.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
-            f.verticalMenuSer.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuClients.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuHostes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuHab.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuRes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuOcu.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuSer.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
             f.dgvClients.SelectionChanged += DataGridView2_SelectionChanged;
             f.AfegirClient.Click += AddButton_Click;
             f.ModificarClient.Click += ModificarClient_Click;
@@ -103,10 +103,10 @@ namespace Controller
             Brush _textBrush;
 
             // Get the item from the collection.
-            TabPage _tabPage = f.verticalMenuClients.TabPages[e.Index];
+            //TabPage _tabPage = f.verticalMenuClients.TabPages[e.Index];
 
             // Get the real bounds for the tab rectangle.
-            Rectangle _tabBounds = f.verticalMenuClients.GetTabRect(e.Index);
+            //Rectangle _tabBounds = f.verticalMenuClients.GetTabRect(e.Index);
 
             if (e.State == DrawItemState.Selected)
             {
@@ -128,7 +128,7 @@ namespace Controller
             StringFormat _stringFlags = new StringFormat();
             _stringFlags.Alignment = StringAlignment.Center;
             _stringFlags.LineAlignment = StringAlignment.Center;
-            g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
+            //g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
     }
 }

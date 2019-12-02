@@ -14,6 +14,8 @@ namespace Model
     
     public partial class preu
     {
+
+
         public int codiTemporada { get; set; }
         public string tipusPensio { get; set; }
         public int codiTipusHabitacio { get; set; }
