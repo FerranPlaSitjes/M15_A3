@@ -34,11 +34,6 @@ namespace Controller
         private void InitListeners()
         {
             f.verticalMenuClients.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
-            f.verticalMenuHostes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
-            f.verticalMenuHab.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
-            f.verticalMenuRes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
-            f.verticalMenuOcu.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
-            f.verticalMenuSer.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
             f.dgvClients.SelectionChanged += DataGridView2_SelectionChanged;
             f.AfegirClient.Click += AddButton_Click;
             f.ModificarClient.Click += ModificarClient_Click;

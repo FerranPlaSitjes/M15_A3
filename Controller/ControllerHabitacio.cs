@@ -1,6 +1,8 @@
 ﻿using A3_CSharp_MVC;
+using Model;
 using Model.ModelDTO.Client;
 using Model.ModelDTO.Habitacio;
+using Model.ModelDTO.TipusHabitacio;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,70 +18,77 @@ namespace Controller
         Form1 f;
         RepositoryClient rc;
         RepositoryHabitacio rh;
+        RepositoryTipusHabitacio rth;
 
         public ControllerHabitacio(Form1 f, RepositoryClient rc)
         {
             this.f = f;
             this.rc = rc;
             this.rh = new RepositoryHabitacio(rc.context);
+            this.rth = new RepositoryTipusHabitacio(rc.context);
             InitListeners();
             PopulateHabitacio();
         }
 
         public void PopulateHabitacio()
         {
-            //f.dgvHabitacio.Datasource = rh.mostrarHabitacio();
+            f.dgvHabitacio.DataSource = rh.mostrarHabitacio();
+            List<tipushabitacioDTO> hab = rth.mostrarTipusHabitacio();
+            PopulateCBhabitacio(hab);
+
         }
 
+        private void PopulateCBhabitacio(List<tipushabitacioDTO> llista)
+        {
+            foreach (tipushabitacioDTO h in llista)
+            {
+                f.idTipushabHabitacio.Items.Add(h.tipus);
+            }
+        }
 
         public void InitListeners()
-        {            
-            //f.dgvReserva.SelectionChanged += dgvReserve_SelectionChanged;
-            //f.AfegirReserva.Click += AfegirReserva;
-            //f.ModificarReserva.Click += ModificarReserva;
-            //f.EliminarReserva.Click += EliminarReserva;
+        {
+            f.verticalMenuHab.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            f.dgvHabitacio.SelectionChanged += dgvHabitacio_SelectionChanged;
+            f.AfegirHabitacio.Click += AfegirHabitacio;
+            f.ModificarHabitacio.Click += ModificarHabitacio;
+            f.EliminarHabitacio.Click += EliminarHabitacio;
         }
 
-        private void dgvReserve_SelectionChanged(object sender, EventArgs e)
+        private void dgvHabitacio_SelectionChanged(object sender, EventArgs e)
         {
             if (f.dgvReserva.SelectedRows.Count > 0)
             {
                 DataGridViewCellCollection rows = f.dgvReserva.SelectedRows[0].Cells;
 
                 habitacioDTO c = rh.habitacioDTOFromRow(rows);
-                //f.idReserva.Text = c.id.ToString();
-                //f.dataIniciReserva.Value = (DateTime)c.dataInici;
-                //f.dataFinalReserva.Value = (DateTime)c.dataFinal;
-                //f.preuTotalReserva.Text = c.preuTotal.ToString();
-                //f.Bestreta.Text = c.bestreta.ToString();
-                //f.pensioReserva.SelectedIndex = f.pensioReserva.FindString(c.pensioFk);
-                //client c1 = rC.returnClientId(c.idClientFk);
-                //f.clientReserva.SelectedIndex = f.clientReserva.FindString(c1.nom);
+                f.numeroHabitacio.Text = c.numero.ToString();
+                f.metresQHabitacio.Text = c.metresQuadrats.ToString();
+                f.terrasaHabitacio.Checked = c.terrassa.Value;
+                f.utilitzableHabitacio.Checked = c.utilitzable.Value;
+                f.titolHabitacio.Text = c.titol;
+                f.caracteristiquesHabitacio.Text= c.caracteristiques;
+                tipusHabitacio t = rth.returnTipusHabitacio(c.codiTipus);
+                f.idTipushabHabitacio.SelectedIndex = f.idTipushabHabitacio.FindString(t.tipus);
 
             }
         }
+      
+        
 
-        public void PopulateReserva()
-        {
-            //f.dgvHabitacio.DataSource = rh.mostrarHabitacio();           
-            //List<clientDTO> clients = rc.llistar();
-            //OmplirClient(clients);
-            
-        }
-
-        public void AfegirReserva(object sender, EventArgs e)
+        public void AfegirHabitacio(object sender, EventArgs e)
         {            
             
         }
 
-        public void EliminarReserva(object sender, EventArgs e)
+        public void EliminarHabitacio(object sender, EventArgs e)
         {
-            int id = int.Parse(f.dgvReserva.SelectedCells[0].Value.ToString());
-            rh.eliminarHabitacio(id);
-            PopulateReserva();
+            int numero = int.Parse(f.dgvReserva.SelectedCells[0].Value.ToString());
+            rh.eliminarHabitacio(numero);
+            PopulateHabitacio();
         }
 
-        public void ModificarReserva(object sender, EventArgs e)
+        public void ModificarHabitacio(object sender, EventArgs e)
         {
             //int numero;
             //int metresQuadrats;
@@ -93,7 +102,39 @@ namespace Controller
             //PopulateHabitacio();
         }
 
+        private void verticalMenu_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Brush _textBrush;
 
+            // Get the item from the collection.
+            TabPage _tabPage = f.verticalMenuHab.TabPages[e.Index];
+
+            // Get the real bounds for the tab rectangle.
+            Rectangle _tabBounds = f.verticalMenuHab.GetTabRect(e.Index);
+
+            if (e.State == DrawItemState.Selected)
+            {
+
+                // Draw a different background color, and don't paint a focus rectangle.
+                _textBrush = new SolidBrush(Color.White);
+                g.FillRectangle(Brushes.Gray, e.Bounds);
+            }
+            else
+            {
+                _textBrush = new System.Drawing.SolidBrush(e.ForeColor);
+                e.DrawBackground();
+            }
+
+            // Use our own font.
+            Font _tabFont = new Font("Arial", 10.0f, FontStyle.Bold, GraphicsUnit.Pixel);
+
+            // Draw string. Center the text.
+            StringFormat _stringFlags = new StringFormat();
+            _stringFlags.Alignment = StringAlignment.Center;
+            _stringFlags.LineAlignment = StringAlignment.Center;
+            g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
+        }
 
     }
 

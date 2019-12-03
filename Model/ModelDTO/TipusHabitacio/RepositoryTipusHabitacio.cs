@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Model.ModelDTO.TipusHabitacio
 {
-    class RepositoryTipusHabitacio
+    public class RepositoryTipusHabitacio
     {
         hotelEntities context;
         RepositoryClient rc;
 
-        public RepositoryTipusHabitacio()
+        public RepositoryTipusHabitacio(hotelEntities context)
         {
-            this.context = rc.context;
+            this.context = context;
         }
 
         public void afegirTipusHabitacio(int codi, string tipus, int capacitat)
@@ -24,6 +24,19 @@ namespace Model.ModelDTO.TipusHabitacio
             context.SaveChanges();
         }
 
+        public tipusHabitacio returnTipusHabitacio(int? id)
+        {
+            var result = context.tipusHabitacios.Where(a => a.codi. == id).Single();
+
+            return result;
+        }
+
+        public List<tipushabitacioDTO> mostrarTipusHabitacio()
+        {
+            List<tipushabitacioDTO> dades = context.tipusHabitacios.ToList().Select(c => new tipushabitacioDTO(c)).ToList();
+            return dades;
+        }
+
         public void modificarTipusHabitacio(int codi, string tipus, int capacitat)
         {
             var result = context.tipusHabitacios.SingleOrDefault(l =>l.codi == codi);
@@ -31,7 +44,7 @@ namespace Model.ModelDTO.TipusHabitacio
             {
                 result.codi = codi;
                 result.tipus = tipus;
-                result.capacitat = capacitat;                
+                result.capacitat = capacitat;
                 context.SaveChanges();
             }
         }
