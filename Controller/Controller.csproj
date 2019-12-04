@@ -66,6 +66,7 @@
     <Compile Include="ControllerHabitacio.cs" />
     <Compile Include="ControllerHoste.cs" />
     <Compile Include="ControllerReserva.cs" />
+    <Compile Include="ControllerTipusHabitacio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

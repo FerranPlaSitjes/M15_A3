@@ -33,13 +33,14 @@ namespace Controller
         public void PopulateHabitacio()
         {
             f.dgvHabitacio.DataSource = rh.mostrarHabitacio();
-            List<tipushabitacioDTO> hab = rth.mostrarTipusHabitacio();
+            List<tipushabitacioDTO> hab = rth.mostrarTipusHabitacio();               
             PopulateCBhabitacio(hab);
 
         }
 
         private void PopulateCBhabitacio(List<tipushabitacioDTO> llista)
         {
+            f.idTipushabHabitacio.Items.Clear();
             foreach (tipushabitacioDTO h in llista)
             {
                 f.idTipushabHabitacio.Items.Add(h.tipus);
@@ -57,9 +58,9 @@ namespace Controller
 
         private void dgvHabitacio_SelectionChanged(object sender, EventArgs e)
         {
-            if (f.dgvReserva.SelectedRows.Count > 0)
+            if (f.dgvHabitacio.SelectedRows.Count > 0)
             {
-                DataGridViewCellCollection rows = f.dgvReserva.SelectedRows[0].Cells;
+                DataGridViewCellCollection rows = f.dgvHabitacio.SelectedRows[0].Cells;
 
                 habitacioDTO c = rh.habitacioDTOFromRow(rows);
                 f.numeroHabitacio.Text = c.numero.ToString();
@@ -78,28 +79,23 @@ namespace Controller
 
         public void AfegirHabitacio(object sender, EventArgs e)
         {            
-            
+            rh.afegirHabitacio(int.Parse(f.numeroHabitacio.Text), int.Parse(f.metresQHabitacio.Text), f.terrasaHabitacio.Checked, f.utilitzableHabitacio.Checked, f.titolHabitacio.Text, f.caracteristiquesHabitacio.Text, f.idTipushabHabitacio.SelectedIndex+1);
+            PopulateHabitacio();
         }
 
         public void EliminarHabitacio(object sender, EventArgs e)
         {
-            int numero = int.Parse(f.dgvReserva.SelectedCells[0].Value.ToString());
+            int numero = int.Parse(f.dgvHabitacio.SelectedCells[0].Value.ToString());
             rh.eliminarHabitacio(numero);
             PopulateHabitacio();
         }
 
         public void ModificarHabitacio(object sender, EventArgs e)
-        {
-            //int numero;
-            //int metresQuadrats;
-            //bool terrassa; bool utilitzable;
-            //string titol;
-            //string caracteristiques;
-            //int codiTipus;
+        {           
 
-
-            //rh.modificarHabitacio(numero, metresQuadrats, terrassa, utilitzable, titol, caracteristiques, codiTipus);
-            //PopulateHabitacio();
+            rh.modificarHabitacio(int.Parse(f.numeroHabitacio.Text), int.Parse(f.metresQHabitacio.Text), f.terrasaHabitacio.Checked, f.utilitzableHabitacio.Checked, f.titolHabitacio.Text, f.caracteristiquesHabitacio.Text, f.idTipushabHabitacio.SelectedIndex +1);
+            PopulateHabitacio();
+            
         }
 
         private void verticalMenu_DrawItem(object sender, DrawItemEventArgs e)

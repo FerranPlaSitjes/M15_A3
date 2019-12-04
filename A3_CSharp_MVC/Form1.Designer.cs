@@ -68,6 +68,24 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.verticalMenuHab = new System.Windows.Forms.TabControl();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.EliminarHabitacio = new System.Windows.Forms.Button();
+            this.ModificarHabitacio = new System.Windows.Forms.Button();
+            this.AfegirHabitacio = new System.Windows.Forms.Button();
+            this.labelTipusHabHabitacio = new System.Windows.Forms.Label();
+            this.labelCaractHabitacio = new System.Windows.Forms.Label();
+            this.labelTitolHabitacio = new System.Windows.Forms.Label();
+            this.labelUtilitzableHabitacio = new System.Windows.Forms.Label();
+            this.labelTerrasasHabitacio = new System.Windows.Forms.Label();
+            this.labelmetresQhabitacio = new System.Windows.Forms.Label();
+            this.labelNumeroHabitacio = new System.Windows.Forms.Label();
+            this.idTipushabHabitacio = new System.Windows.Forms.ComboBox();
+            this.utilitzableHabitacio = new System.Windows.Forms.CheckBox();
+            this.terrasaHabitacio = new System.Windows.Forms.CheckBox();
+            this.caracteristiquesHabitacio = new System.Windows.Forms.TextBox();
+            this.titolHabitacio = new System.Windows.Forms.TextBox();
+            this.metresQHabitacio = new System.Windows.Forms.TextBox();
+            this.numeroHabitacio = new System.Windows.Forms.TextBox();
+            this.dgvHabitacio = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.verticalMenuRes = new System.Windows.Forms.TabControl();
@@ -99,24 +117,16 @@
             this.verticalMenuSer = new System.Windows.Forms.TabControl();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.dgvHabitacio = new System.Windows.Forms.DataGridView();
-            this.numeroHabitacio = new System.Windows.Forms.TextBox();
-            this.metresQHabitacio = new System.Windows.Forms.TextBox();
-            this.titolHabitacio = new System.Windows.Forms.TextBox();
-            this.caracteristiquesHabitacio = new System.Windows.Forms.TextBox();
-            this.terrasaHabitacio = new System.Windows.Forms.CheckBox();
-            this.utilitzableHabitacio = new System.Windows.Forms.CheckBox();
-            this.idTipushabHabitacio = new System.Windows.Forms.ComboBox();
-            this.labelNumeroHabitacio = new System.Windows.Forms.Label();
-            this.labelmetresQhabitacio = new System.Windows.Forms.Label();
-            this.labelTerrasasHabitacio = new System.Windows.Forms.Label();
-            this.labelUtilitzableHabitacio = new System.Windows.Forms.Label();
-            this.labelTitolHabitacio = new System.Windows.Forms.Label();
-            this.labelCaractHabitacio = new System.Windows.Forms.Label();
-            this.labelTipusHabHabitacio = new System.Windows.Forms.Label();
-            this.AfegirHabitacio = new System.Windows.Forms.Button();
-            this.ModificarHabitacio = new System.Windows.Forms.Button();
-            this.EliminarHabitacio = new System.Windows.Forms.Button();
+            this.EliminarTipusHabitacio = new System.Windows.Forms.Button();
+            this.ModificarTipusHabitacio = new System.Windows.Forms.Button();
+            this.AfegirTipusHabitacio = new System.Windows.Forms.Button();
+            this.labelTipusHabitacio = new System.Windows.Forms.Label();
+            this.lableCapacitatTipusHabitacio = new System.Windows.Forms.Label();
+            this.capacitatTipusHabitacio = new System.Windows.Forms.TextBox();
+            this.dgvTipusHabitacio = new System.Windows.Forms.DataGridView();
+            this.TipusHabitacio = new System.Windows.Forms.TextBox();
+            this.CodiTipusHabitacio = new System.Windows.Forms.TextBox();
+            this.labelCodiTipusHabitacio = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.Clients.SuspendLayout();
             this.verticalMenuClients.SuspendLayout();
@@ -129,6 +139,8 @@
             this.tabPage1.SuspendLayout();
             this.verticalMenuHab.SuspendLayout();
             this.tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHabitacio)).BeginInit();
+            this.tabPage11.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.verticalMenuRes.SuspendLayout();
             this.tabPage12.SuspendLayout();
@@ -137,7 +149,7 @@
             this.verticalMenuOcu.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.verticalMenuSer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHabitacio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTipusHabitacio)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -580,8 +592,172 @@
             this.tabPage10.Text = "Habitacions";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // EliminarHabitacio
+            // 
+            this.EliminarHabitacio.Location = new System.Drawing.Point(684, 433);
+            this.EliminarHabitacio.Name = "EliminarHabitacio";
+            this.EliminarHabitacio.Size = new System.Drawing.Size(75, 23);
+            this.EliminarHabitacio.TabIndex = 20;
+            this.EliminarHabitacio.Text = "Eliminar";
+            this.EliminarHabitacio.UseVisualStyleBackColor = true;
+            // 
+            // ModificarHabitacio
+            // 
+            this.ModificarHabitacio.Location = new System.Drawing.Point(529, 433);
+            this.ModificarHabitacio.Name = "ModificarHabitacio";
+            this.ModificarHabitacio.Size = new System.Drawing.Size(75, 23);
+            this.ModificarHabitacio.TabIndex = 19;
+            this.ModificarHabitacio.Text = "Modificar";
+            this.ModificarHabitacio.UseVisualStyleBackColor = true;
+            // 
+            // AfegirHabitacio
+            // 
+            this.AfegirHabitacio.Location = new System.Drawing.Point(397, 433);
+            this.AfegirHabitacio.Name = "AfegirHabitacio";
+            this.AfegirHabitacio.Size = new System.Drawing.Size(75, 23);
+            this.AfegirHabitacio.TabIndex = 18;
+            this.AfegirHabitacio.Text = "Afegir";
+            this.AfegirHabitacio.UseVisualStyleBackColor = true;
+            // 
+            // labelTipusHabHabitacio
+            // 
+            this.labelTipusHabHabitacio.AutoSize = true;
+            this.labelTipusHabHabitacio.Location = new System.Drawing.Point(961, 346);
+            this.labelTipusHabHabitacio.Name = "labelTipusHabHabitacio";
+            this.labelTipusHabHabitacio.Size = new System.Drawing.Size(84, 13);
+            this.labelTipusHabHabitacio.TabIndex = 17;
+            this.labelTipusHabHabitacio.Text = "Tipus Habitacio:";
+            // 
+            // labelCaractHabitacio
+            // 
+            this.labelCaractHabitacio.AutoSize = true;
+            this.labelCaractHabitacio.Location = new System.Drawing.Point(802, 346);
+            this.labelCaractHabitacio.Name = "labelCaractHabitacio";
+            this.labelCaractHabitacio.Size = new System.Drawing.Size(90, 13);
+            this.labelCaractHabitacio.TabIndex = 16;
+            this.labelCaractHabitacio.Text = "Característiques: ";
+            // 
+            // labelTitolHabitacio
+            // 
+            this.labelTitolHabitacio.AutoSize = true;
+            this.labelTitolHabitacio.Location = new System.Drawing.Point(681, 346);
+            this.labelTitolHabitacio.Name = "labelTitolHabitacio";
+            this.labelTitolHabitacio.Size = new System.Drawing.Size(33, 13);
+            this.labelTitolHabitacio.TabIndex = 15;
+            this.labelTitolHabitacio.Text = "Titol: ";
+            // 
+            // labelUtilitzableHabitacio
+            // 
+            this.labelUtilitzableHabitacio.AutoSize = true;
+            this.labelUtilitzableHabitacio.Location = new System.Drawing.Point(549, 346);
+            this.labelUtilitzableHabitacio.Name = "labelUtilitzableHabitacio";
+            this.labelUtilitzableHabitacio.Size = new System.Drawing.Size(55, 13);
+            this.labelUtilitzableHabitacio.TabIndex = 14;
+            this.labelUtilitzableHabitacio.Text = "Utilitzable:";
+            // 
+            // labelTerrasasHabitacio
+            // 
+            this.labelTerrasasHabitacio.AutoSize = true;
+            this.labelTerrasasHabitacio.Location = new System.Drawing.Point(443, 346);
+            this.labelTerrasasHabitacio.Name = "labelTerrasasHabitacio";
+            this.labelTerrasasHabitacio.Size = new System.Drawing.Size(46, 13);
+            this.labelTerrasasHabitacio.TabIndex = 13;
+            this.labelTerrasasHabitacio.Text = "Terrasa:";
+            // 
+            // labelmetresQhabitacio
+            // 
+            this.labelmetresQhabitacio.AutoSize = true;
+            this.labelmetresQhabitacio.Location = new System.Drawing.Point(288, 346);
+            this.labelmetresQhabitacio.Name = "labelmetresQhabitacio";
+            this.labelmetresQhabitacio.Size = new System.Drawing.Size(88, 13);
+            this.labelmetresQhabitacio.TabIndex = 12;
+            this.labelmetresQhabitacio.Text = "Metres Quadrats:";
+            // 
+            // labelNumeroHabitacio
+            // 
+            this.labelNumeroHabitacio.AutoSize = true;
+            this.labelNumeroHabitacio.Location = new System.Drawing.Point(171, 346);
+            this.labelNumeroHabitacio.Name = "labelNumeroHabitacio";
+            this.labelNumeroHabitacio.Size = new System.Drawing.Size(47, 13);
+            this.labelNumeroHabitacio.TabIndex = 11;
+            this.labelNumeroHabitacio.Text = "Numero:";
+            // 
+            // idTipushabHabitacio
+            // 
+            this.idTipushabHabitacio.FormattingEnabled = true;
+            this.idTipushabHabitacio.Location = new System.Drawing.Point(933, 372);
+            this.idTipushabHabitacio.Name = "idTipushabHabitacio";
+            this.idTipushabHabitacio.Size = new System.Drawing.Size(121, 21);
+            this.idTipushabHabitacio.TabIndex = 10;
+            // 
+            // utilitzableHabitacio
+            // 
+            this.utilitzableHabitacio.AutoSize = true;
+            this.utilitzableHabitacio.Location = new System.Drawing.Point(568, 375);
+            this.utilitzableHabitacio.Name = "utilitzableHabitacio";
+            this.utilitzableHabitacio.Size = new System.Drawing.Size(15, 14);
+            this.utilitzableHabitacio.TabIndex = 9;
+            this.utilitzableHabitacio.UseVisualStyleBackColor = true;
+            // 
+            // terrasaHabitacio
+            // 
+            this.terrasaHabitacio.AutoSize = true;
+            this.terrasaHabitacio.Location = new System.Drawing.Point(461, 375);
+            this.terrasaHabitacio.Name = "terrasaHabitacio";
+            this.terrasaHabitacio.Size = new System.Drawing.Size(15, 14);
+            this.terrasaHabitacio.TabIndex = 8;
+            this.terrasaHabitacio.UseVisualStyleBackColor = true;
+            // 
+            // caracteristiquesHabitacio
+            // 
+            this.caracteristiquesHabitacio.Location = new System.Drawing.Point(792, 373);
+            this.caracteristiquesHabitacio.Name = "caracteristiquesHabitacio";
+            this.caracteristiquesHabitacio.Size = new System.Drawing.Size(100, 20);
+            this.caracteristiquesHabitacio.TabIndex = 6;
+            // 
+            // titolHabitacio
+            // 
+            this.titolHabitacio.Location = new System.Drawing.Point(655, 373);
+            this.titolHabitacio.Name = "titolHabitacio";
+            this.titolHabitacio.Size = new System.Drawing.Size(100, 20);
+            this.titolHabitacio.TabIndex = 5;
+            // 
+            // metresQHabitacio
+            // 
+            this.metresQHabitacio.Location = new System.Drawing.Point(276, 373);
+            this.metresQHabitacio.Name = "metresQHabitacio";
+            this.metresQHabitacio.Size = new System.Drawing.Size(100, 20);
+            this.metresQHabitacio.TabIndex = 2;
+            // 
+            // numeroHabitacio
+            // 
+            this.numeroHabitacio.Location = new System.Drawing.Point(137, 372);
+            this.numeroHabitacio.Name = "numeroHabitacio";
+            this.numeroHabitacio.Size = new System.Drawing.Size(100, 20);
+            this.numeroHabitacio.TabIndex = 1;
+            // 
+            // dgvHabitacio
+            // 
+            this.dgvHabitacio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHabitacio.Location = new System.Drawing.Point(193, 39);
+            this.dgvHabitacio.Name = "dgvHabitacio";
+            this.dgvHabitacio.ReadOnly = true;
+            this.dgvHabitacio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHabitacio.Size = new System.Drawing.Size(812, 251);
+            this.dgvHabitacio.TabIndex = 0;
+            // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.labelCodiTipusHabitacio);
+            this.tabPage11.Controls.Add(this.CodiTipusHabitacio);
+            this.tabPage11.Controls.Add(this.TipusHabitacio);
+            this.tabPage11.Controls.Add(this.EliminarTipusHabitacio);
+            this.tabPage11.Controls.Add(this.ModificarTipusHabitacio);
+            this.tabPage11.Controls.Add(this.AfegirTipusHabitacio);
+            this.tabPage11.Controls.Add(this.labelTipusHabitacio);
+            this.tabPage11.Controls.Add(this.lableCapacitatTipusHabitacio);
+            this.tabPage11.Controls.Add(this.capacitatTipusHabitacio);
+            this.tabPage11.Controls.Add(this.dgvTipusHabitacio);
             this.tabPage11.Location = new System.Drawing.Point(104, 4);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
@@ -895,159 +1071,90 @@
             this.tabPage17.Text = "Modificar Client";
             this.tabPage17.UseVisualStyleBackColor = true;
             // 
-            // dgvHabitacio
+            // EliminarTipusHabitacio
             // 
-            this.dgvHabitacio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHabitacio.Location = new System.Drawing.Point(193, 39);
-            this.dgvHabitacio.Name = "dgvHabitacio";
-            this.dgvHabitacio.ReadOnly = true;
-            this.dgvHabitacio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHabitacio.Size = new System.Drawing.Size(812, 251);
-            this.dgvHabitacio.TabIndex = 0;
+            this.EliminarTipusHabitacio.Location = new System.Drawing.Point(660, 437);
+            this.EliminarTipusHabitacio.Name = "EliminarTipusHabitacio";
+            this.EliminarTipusHabitacio.Size = new System.Drawing.Size(75, 23);
+            this.EliminarTipusHabitacio.TabIndex = 34;
+            this.EliminarTipusHabitacio.Text = "Eliminar";
+            this.EliminarTipusHabitacio.UseVisualStyleBackColor = true;
             // 
-            // numeroHabitacio
+            // ModificarTipusHabitacio
             // 
-            this.numeroHabitacio.Location = new System.Drawing.Point(137, 372);
-            this.numeroHabitacio.Name = "numeroHabitacio";
-            this.numeroHabitacio.Size = new System.Drawing.Size(100, 20);
-            this.numeroHabitacio.TabIndex = 1;
+            this.ModificarTipusHabitacio.Location = new System.Drawing.Point(505, 437);
+            this.ModificarTipusHabitacio.Name = "ModificarTipusHabitacio";
+            this.ModificarTipusHabitacio.Size = new System.Drawing.Size(75, 23);
+            this.ModificarTipusHabitacio.TabIndex = 33;
+            this.ModificarTipusHabitacio.Text = "Modificar";
+            this.ModificarTipusHabitacio.UseVisualStyleBackColor = true;
             // 
-            // metresQHabitacio
+            // AfegirTipusHabitacio
             // 
-            this.metresQHabitacio.Location = new System.Drawing.Point(276, 373);
-            this.metresQHabitacio.Name = "metresQHabitacio";
-            this.metresQHabitacio.Size = new System.Drawing.Size(100, 20);
-            this.metresQHabitacio.TabIndex = 2;
+            this.AfegirTipusHabitacio.Location = new System.Drawing.Point(373, 437);
+            this.AfegirTipusHabitacio.Name = "AfegirTipusHabitacio";
+            this.AfegirTipusHabitacio.Size = new System.Drawing.Size(75, 23);
+            this.AfegirTipusHabitacio.TabIndex = 32;
+            this.AfegirTipusHabitacio.Text = "Afegir";
+            this.AfegirTipusHabitacio.UseVisualStyleBackColor = true;
             // 
-            // titolHabitacio
+            // labelTipusHabitacio
             // 
-            this.titolHabitacio.Location = new System.Drawing.Point(655, 373);
-            this.titolHabitacio.Name = "titolHabitacio";
-            this.titolHabitacio.Size = new System.Drawing.Size(100, 20);
-            this.titolHabitacio.TabIndex = 5;
+            this.labelTipusHabitacio.AutoSize = true;
+            this.labelTipusHabitacio.Location = new System.Drawing.Point(474, 350);
+            this.labelTipusHabitacio.Name = "labelTipusHabitacio";
+            this.labelTipusHabitacio.Size = new System.Drawing.Size(84, 13);
+            this.labelTipusHabitacio.TabIndex = 31;
+            this.labelTipusHabitacio.Text = "Tipus Habitacio:";
             // 
-            // caracteristiquesHabitacio
+            // lableCapacitatTipusHabitacio
             // 
-            this.caracteristiquesHabitacio.Location = new System.Drawing.Point(792, 373);
-            this.caracteristiquesHabitacio.Name = "caracteristiquesHabitacio";
-            this.caracteristiquesHabitacio.Size = new System.Drawing.Size(100, 20);
-            this.caracteristiquesHabitacio.TabIndex = 6;
+            this.lableCapacitatTipusHabitacio.AutoSize = true;
+            this.lableCapacitatTipusHabitacio.Location = new System.Drawing.Point(657, 350);
+            this.lableCapacitatTipusHabitacio.Name = "lableCapacitatTipusHabitacio";
+            this.lableCapacitatTipusHabitacio.Size = new System.Drawing.Size(55, 13);
+            this.lableCapacitatTipusHabitacio.TabIndex = 29;
+            this.lableCapacitatTipusHabitacio.Text = "Capacitat:";
             // 
-            // terrasaHabitacio
+            // capacitatTipusHabitacio
             // 
-            this.terrasaHabitacio.AutoSize = true;
-            this.terrasaHabitacio.Location = new System.Drawing.Point(461, 375);
-            this.terrasaHabitacio.Name = "terrasaHabitacio";
-            this.terrasaHabitacio.Size = new System.Drawing.Size(15, 14);
-            this.terrasaHabitacio.TabIndex = 8;
-            this.terrasaHabitacio.UseVisualStyleBackColor = true;
+            this.capacitatTipusHabitacio.Location = new System.Drawing.Point(631, 377);
+            this.capacitatTipusHabitacio.Name = "capacitatTipusHabitacio";
+            this.capacitatTipusHabitacio.Size = new System.Drawing.Size(100, 20);
+            this.capacitatTipusHabitacio.TabIndex = 24;
             // 
-            // utilitzableHabitacio
+            // dgvTipusHabitacio
             // 
-            this.utilitzableHabitacio.AutoSize = true;
-            this.utilitzableHabitacio.Location = new System.Drawing.Point(568, 375);
-            this.utilitzableHabitacio.Name = "utilitzableHabitacio";
-            this.utilitzableHabitacio.Size = new System.Drawing.Size(15, 14);
-            this.utilitzableHabitacio.TabIndex = 9;
-            this.utilitzableHabitacio.UseVisualStyleBackColor = true;
+            this.dgvTipusHabitacio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTipusHabitacio.Location = new System.Drawing.Point(169, 43);
+            this.dgvTipusHabitacio.Name = "dgvTipusHabitacio";
+            this.dgvTipusHabitacio.ReadOnly = true;
+            this.dgvTipusHabitacio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTipusHabitacio.Size = new System.Drawing.Size(812, 251);
+            this.dgvTipusHabitacio.TabIndex = 21;
             // 
-            // idTipushabHabitacio
+            // TipusHabitacio
             // 
-            this.idTipushabHabitacio.FormattingEnabled = true;
-            this.idTipushabHabitacio.Location = new System.Drawing.Point(933, 372);
-            this.idTipushabHabitacio.Name = "idTipushabHabitacio";
-            this.idTipushabHabitacio.Size = new System.Drawing.Size(121, 21);
-            this.idTipushabHabitacio.TabIndex = 10;
+            this.TipusHabitacio.Location = new System.Drawing.Point(458, 377);
+            this.TipusHabitacio.Name = "TipusHabitacio";
+            this.TipusHabitacio.Size = new System.Drawing.Size(100, 20);
+            this.TipusHabitacio.TabIndex = 35;
             // 
-            // labelNumeroHabitacio
+            // CodiTipusHabitacio
             // 
-            this.labelNumeroHabitacio.AutoSize = true;
-            this.labelNumeroHabitacio.Location = new System.Drawing.Point(171, 346);
-            this.labelNumeroHabitacio.Name = "labelNumeroHabitacio";
-            this.labelNumeroHabitacio.Size = new System.Drawing.Size(47, 13);
-            this.labelNumeroHabitacio.TabIndex = 11;
-            this.labelNumeroHabitacio.Text = "Numero:";
+            this.CodiTipusHabitacio.Location = new System.Drawing.Point(337, 377);
+            this.CodiTipusHabitacio.Name = "CodiTipusHabitacio";
+            this.CodiTipusHabitacio.Size = new System.Drawing.Size(100, 20);
+            this.CodiTipusHabitacio.TabIndex = 36;
             // 
-            // labelmetresQhabitacio
+            // labelCodiTipusHabitacio
             // 
-            this.labelmetresQhabitacio.AutoSize = true;
-            this.labelmetresQhabitacio.Location = new System.Drawing.Point(288, 346);
-            this.labelmetresQhabitacio.Name = "labelmetresQhabitacio";
-            this.labelmetresQhabitacio.Size = new System.Drawing.Size(88, 13);
-            this.labelmetresQhabitacio.TabIndex = 12;
-            this.labelmetresQhabitacio.Text = "Metres Quadrats:";
-            // 
-            // labelTerrasasHabitacio
-            // 
-            this.labelTerrasasHabitacio.AutoSize = true;
-            this.labelTerrasasHabitacio.Location = new System.Drawing.Point(443, 346);
-            this.labelTerrasasHabitacio.Name = "labelTerrasasHabitacio";
-            this.labelTerrasasHabitacio.Size = new System.Drawing.Size(46, 13);
-            this.labelTerrasasHabitacio.TabIndex = 13;
-            this.labelTerrasasHabitacio.Text = "Terrasa:";
-            // 
-            // labelUtilitzableHabitacio
-            // 
-            this.labelUtilitzableHabitacio.AutoSize = true;
-            this.labelUtilitzableHabitacio.Location = new System.Drawing.Point(549, 346);
-            this.labelUtilitzableHabitacio.Name = "labelUtilitzableHabitacio";
-            this.labelUtilitzableHabitacio.Size = new System.Drawing.Size(55, 13);
-            this.labelUtilitzableHabitacio.TabIndex = 14;
-            this.labelUtilitzableHabitacio.Text = "Utilitzable:";
-            // 
-            // labelTitolHabitacio
-            // 
-            this.labelTitolHabitacio.AutoSize = true;
-            this.labelTitolHabitacio.Location = new System.Drawing.Point(681, 346);
-            this.labelTitolHabitacio.Name = "labelTitolHabitacio";
-            this.labelTitolHabitacio.Size = new System.Drawing.Size(33, 13);
-            this.labelTitolHabitacio.TabIndex = 15;
-            this.labelTitolHabitacio.Text = "Titol: ";
-            // 
-            // labelCaractHabitacio
-            // 
-            this.labelCaractHabitacio.AutoSize = true;
-            this.labelCaractHabitacio.Location = new System.Drawing.Point(802, 346);
-            this.labelCaractHabitacio.Name = "labelCaractHabitacio";
-            this.labelCaractHabitacio.Size = new System.Drawing.Size(90, 13);
-            this.labelCaractHabitacio.TabIndex = 16;
-            this.labelCaractHabitacio.Text = "Característiques: ";
-            // 
-            // labelTipusHabHabitacio
-            // 
-            this.labelTipusHabHabitacio.AutoSize = true;
-            this.labelTipusHabHabitacio.Location = new System.Drawing.Point(961, 346);
-            this.labelTipusHabHabitacio.Name = "labelTipusHabHabitacio";
-            this.labelTipusHabHabitacio.Size = new System.Drawing.Size(84, 13);
-            this.labelTipusHabHabitacio.TabIndex = 17;
-            this.labelTipusHabHabitacio.Text = "Tipus Habitacio:";
-            // 
-            // AfegirHabitacio
-            // 
-            this.AfegirHabitacio.Location = new System.Drawing.Point(397, 433);
-            this.AfegirHabitacio.Name = "AfegirHabitacio";
-            this.AfegirHabitacio.Size = new System.Drawing.Size(75, 23);
-            this.AfegirHabitacio.TabIndex = 18;
-            this.AfegirHabitacio.Text = "Afegir";
-            this.AfegirHabitacio.UseVisualStyleBackColor = true;
-            // 
-            // ModificarHabitacio
-            // 
-            this.ModificarHabitacio.Location = new System.Drawing.Point(529, 433);
-            this.ModificarHabitacio.Name = "ModificarHabitacio";
-            this.ModificarHabitacio.Size = new System.Drawing.Size(75, 23);
-            this.ModificarHabitacio.TabIndex = 19;
-            this.ModificarHabitacio.Text = "Modificar";
-            this.ModificarHabitacio.UseVisualStyleBackColor = true;
-            // 
-            // EliminarHabitacio
-            // 
-            this.EliminarHabitacio.Location = new System.Drawing.Point(684, 433);
-            this.EliminarHabitacio.Name = "EliminarHabitacio";
-            this.EliminarHabitacio.Size = new System.Drawing.Size(75, 23);
-            this.EliminarHabitacio.TabIndex = 20;
-            this.EliminarHabitacio.Text = "Eliminar";
-            this.EliminarHabitacio.UseVisualStyleBackColor = true;
+            this.labelCodiTipusHabitacio.AutoSize = true;
+            this.labelCodiTipusHabitacio.Location = new System.Drawing.Point(353, 350);
+            this.labelCodiTipusHabitacio.Name = "labelCodiTipusHabitacio";
+            this.labelCodiTipusHabitacio.Size = new System.Drawing.Size(31, 13);
+            this.labelCodiTipusHabitacio.TabIndex = 37;
+            this.labelCodiTipusHabitacio.Text = "Codi:";
             // 
             // Form1
             // 
@@ -1072,6 +1179,9 @@
             this.verticalMenuHab.ResumeLayout(false);
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHabitacio)).EndInit();
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.verticalMenuRes.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
@@ -1081,7 +1191,7 @@
             this.verticalMenuOcu.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.verticalMenuSer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHabitacio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTipusHabitacio)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1177,6 +1287,16 @@
         public System.Windows.Forms.Button ModificarHabitacio;
         public System.Windows.Forms.DataGridView dgvHabitacio;
         public System.Windows.Forms.CheckBox terrasaHabitacio;
+        public System.Windows.Forms.Button EliminarTipusHabitacio;
+        public System.Windows.Forms.Button ModificarTipusHabitacio;
+        public System.Windows.Forms.Button AfegirTipusHabitacio;
+        public System.Windows.Forms.Label labelTipusHabitacio;
+        public System.Windows.Forms.Label lableCapacitatTipusHabitacio;
+        public System.Windows.Forms.TextBox capacitatTipusHabitacio;
+        public System.Windows.Forms.DataGridView dgvTipusHabitacio;
+        public System.Windows.Forms.TextBox TipusHabitacio;
+        public System.Windows.Forms.Label labelCodiTipusHabitacio;
+        public System.Windows.Forms.TextBox CodiTipusHabitacio;
     }
 }
 

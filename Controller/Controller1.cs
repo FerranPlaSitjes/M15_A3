@@ -21,6 +21,7 @@ namespace Controller
         ControllerReserva cr;
         ControllerHabitacio ch;
         ControllerHoste cho;
+        ControllerTipusHabitacio cth;
         
 
         public Controller1()
@@ -31,6 +32,8 @@ namespace Controller
             cr = new ControllerReserva(f,rc);
             ch = new ControllerHabitacio(f,rc);
             cho = new ControllerHoste(f,rc);
+            cth = new ControllerTipusHabitacio(f, rc);
+
             Application.Run(f);
         }
     }

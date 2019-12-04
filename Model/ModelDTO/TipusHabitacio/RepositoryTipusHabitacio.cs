@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Model.ModelDTO.TipusHabitacio
 {
@@ -19,21 +20,21 @@ namespace Model.ModelDTO.TipusHabitacio
 
         public void afegirTipusHabitacio(int codi, string tipus, int capacitat)
         {
-            tipusHabitacio l = new tipusHabitacio( codi,  tipus,  capacitat);
+            tipusHabitacio l = new tipusHabitacio(codi ,tipus,  capacitat);
             context.tipusHabitacios.Add(l);
             context.SaveChanges();
         }
 
         public tipusHabitacio returnTipusHabitacio(int? id)
         {
-            var result = context.tipusHabitacios.Where(a => a.codi. == id).Single();
+            var result = context.tipusHabitacios.Where(a => a.codi == id).Single();
 
             return result;
         }
 
         public List<tipushabitacioDTO> mostrarTipusHabitacio()
         {
-            List<tipushabitacioDTO> dades = context.tipusHabitacios.ToList().Select(c => new tipushabitacioDTO(c)).ToList();
+            List<tipushabitacioDTO> dades = context.tipusHabitacios.ToList().Select(c => new tipushabitacioDTO(c)).ToList();           
             return dades;
         }
 
@@ -54,7 +55,11 @@ namespace Model.ModelDTO.TipusHabitacio
             var tipusHabitacio = context.tipusHabitacios.Single(c => c.codi == id);
             context.tipusHabitacios.Remove(tipusHabitacio);
             context.SaveChanges();
+        }
 
+        public tipushabitacioDTO TipushabitacioDTOFromRow(DataGridViewCellCollection rows)
+        {
+            return new tipushabitacioDTO((int)rows["codi"].Value, (string)rows["tipus"].Value, (int)rows["capacitat"].Value);
         }
     }
 
