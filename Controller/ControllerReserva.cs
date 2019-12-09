@@ -139,6 +139,7 @@ namespace Controller
             DateTime dataFinal = Convert.ToDateTime(f.dataFinalReserva.Text);
             decimal preuTotal = Decimal.Parse(f.preuTotalReserva.Text);
             decimal bestreta = Decimal.Parse(f.Bestreta.Text);
+            //hola
             string pensioFk = f.pensioReserva.SelectedItem.ToString();
             string nomClient = f.clientReserva.SelectedItem.ToString();
             client c = rC.returnClient(nomClient);
