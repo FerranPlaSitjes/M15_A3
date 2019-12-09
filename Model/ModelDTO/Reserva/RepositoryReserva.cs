@@ -24,11 +24,9 @@ namespace Model.ModelDTO.Reserva
             return new reservaDTO((int)row["Id"].Value, (DateTime)row["dataInici"].Value, (DateTime)row["dataFinal"].Value, (decimal)row["preuTotal"].Value, (decimal)row["bestreta"].Value, (string)row["pensioFk"].Value, (int)row["idClientFk"].Value, (string)row["dniHosteFk"].Value, (int)row["idTipusHabitacio"].Value);
         }
 
-        public void afegirReserva(DateTime dataInici, DateTime dataFinal, decimal preuTotal, decimal bestreta, string pensioFk, int idClientFk)
+        public void afegirReserva(DateTime dataInici, DateTime dataFinal, decimal preuTotal, decimal bestreta, string pensioFk, int idClientFk, int tipusHabitacio, string dniHoste)
         {
-            reserva r = new reserva(dataInici, dataFinal, preuTotal, bestreta, pensioFk, idClientFk);
-            r.idTipusHabitacio = 1;
-            r.dniHosteFk = "";
+            reserva r = new reserva(dataInici, dataFinal, preuTotal, bestreta, pensioFk, idClientFk, tipusHabitacio, dniHoste);            
             context.reservas.Add(r);
             context.SaveChanges();
         }
@@ -58,6 +56,20 @@ namespace Model.ModelDTO.Reserva
         public List<reservaDTO> mostrarReserva()
         {
             List<reservaDTO> dades = context.reservas.ToList().Select(c => new reservaDTO(c)).ToList();
+            return dades;
+        }
+
+        public List<reservaDTO> filtreDNIReserva(string dni)
+        {            
+            List<reservaDTO> dades = context.reservas.ToList().Where(x => x.hoste.dni.Equals(dni)).Select(c => new reservaDTO(c)).ToList();
+            return dades;
+        }
+
+        public List<reservaDTO> filtreHabitacioReserva(int numero)
+        {
+            List<ocupacio> ocupacions = context.ocupacios.Where(x => x.nHabitacioFk == numero).ToList();
+            hoste hostes = context.hostes.Where(x => x.ocupacios == ocupacions).Single();
+            List<reservaDTO> dades = context.reservas.ToList().Where(x => x.hoste == hostes).Select(c => new reservaDTO(c)).ToList();
             return dades;
         }
 

@@ -22,6 +22,19 @@ namespace Model.ModelDTO.Client
             return dades;
         }
 
+
+        public List<clientDTO> FiltreDniClient(int id)
+        {
+            List<clientDTO> dades = context.clients.ToList().Where(x => x.id == id).Select(c => new clientDTO(c)).ToList();
+            return dades;
+        }
+
+        public List<clientDTO> FiltreNomClient(string nom)
+        {
+            List<clientDTO> dades = context.clients.ToList().Where(x => x.nom.Contains(nom)).Select(c => new clientDTO(c)).ToList();
+            return dades;
+        }        
+
         public void afegirClient(string nom, string tipus)
         {
             client c = new client(nom, tipus);
@@ -65,5 +78,7 @@ namespace Model.ModelDTO.Client
 
             return result;
         }
+
+
     }
 }

@@ -20,7 +20,7 @@ namespace Model
             this.habitacios = new HashSet<habitacio>();
             this.preus = new HashSet<preu>();
             this.reservas = new HashSet<reserva>();
-        }
+        }        
 
         public tipusHabitacio(int codi, string tipus, int capacitat)
         {

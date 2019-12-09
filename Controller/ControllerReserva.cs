@@ -4,6 +4,7 @@ using Model;
 using Model.ModelDTO.Client;
 using Model.ModelDTO.Pensio;
 using Model.ModelDTO.Reserva;
+using Model.ModelDTO.TipusHabitacio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,14 @@ namespace Controller
         RepositoryReserva rs;        
         RepositoryPensio rp;
         RepositoryClient rC;
+        RepositoryTipusHabitacio rt;
         public ControllerReserva(Form1 f, RepositoryClient rc)
         {
             this.f = f;
             rC = rc;
             rs = new RepositoryReserva(rc.context);            
             rp = new RepositoryPensio(rc.context);
+            rt = new RepositoryTipusHabitacio(rc.context);
             InitListeners();
             PopulateReserva();
         }
@@ -40,6 +43,8 @@ namespace Controller
             f.AfegirReserva.Click += AfegirReserva;
             f.ModificarReserva.Click += ModificarReserva;
             f.EliminarReserva.Click += EliminarReserva;
+            f.FiltreReserva.Click += Filtreserva;
+            
         }
 
         private void dgvReserve_SelectionChanged(object sender, EventArgs e)
@@ -57,17 +62,49 @@ namespace Controller
                 f.pensioReserva.SelectedIndex = f.pensioReserva.FindString(c.pensioFk);
                 client c1 = rC.returnClientId(c.idClientFk);
                 f.clientReserva.SelectedIndex = f.clientReserva.FindString(c1.nom);
+                tipusHabitacio th = rt.returnTipusHabitacio(c.idTipusHabitacio);
+                f.CBTipusHabitacioreserva.SelectedIndex = f.CBTipusHabitacioreserva.FindString(th.tipus);
 
             }
         }
 
+        public void Filtreserva(object sender, EventArgs e)
+        {
+            string filtre = f.textFiltrereserva.Text;
+
+            if (!f.RBDniReserva.Checked)
+            {
+                f.dgvReserva.DataSource = rs.filtreDNIReserva(filtre);
+            }else if (!f.RBNumerohabitacioreserva.Checked)
+            {
+
+                try
+                {
+                    f.dgvReserva.DataSource = rs.filtreHabitacioReserva(int.Parse(filtre));
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Ha de ser un int");
+                }
+                
+            }
+            else
+            {
+                PopulateReserva();
+            }
+
+            f.textFiltrereserva.Text = "";
+        }
+
         public void PopulateReserva()
         {
-            f.dgvReserva.DataSource = rs.mostrarReserva();            
+            f.dgvReserva.DataSource = rs.mostrarReserva();
             List<pensio> pensios = rp.LlistarPensio();
             List<clientDTO> clients = rC.llistar();
+            List<tipushabitacioDTO> thabitacio = rt.mostrarTipusHabitacio();
             OmplirClient(clients);
             OmplirPensio(pensios);
+            OmplirTipusHabitacio(thabitacio);
         }
 
         public void AfegirReserva(object sender, EventArgs e)
@@ -78,11 +115,13 @@ namespace Controller
             decimal bestreta = Decimal.Parse(f.Bestreta.Text);
             string pensioFk = f.pensioReserva.SelectedItem.ToString();
             string nomClient = f.clientReserva.SelectedItem.ToString();
+            string tipushabitacio = f.CBTipusHabitacioreserva.SelectedItem.ToString();
+            tipusHabitacio idTipus = rt.returnTipusHabitacioTipus(tipushabitacio);
 
             if (!pensioFk.Equals("") && !nomClient.Equals(""))
             {
                 client c = rC.returnClient(nomClient);
-                rs.afegirReserva(dataInici, dataFinal, preuTotal, bestreta, pensioFk, c.id);
+                rs.afegirReserva(dataInici, dataFinal, preuTotal, bestreta, pensioFk, c.id, idTipus.codi, c.persona.dniHoste );
                 PopulateReserva();
             }
         }
@@ -104,6 +143,7 @@ namespace Controller
             string pensioFk = f.pensioReserva.SelectedItem.ToString();
             string nomClient = f.clientReserva.SelectedItem.ToString();
             client c = rC.returnClient(nomClient);
+            string tipushabitacio = f.CBTipusHabitacioreserva.SelectedItem.ToString();
 
             rs.modificarReserva(id, dataInici, dataFinal, preuTotal, bestreta, pensioFk, c.id);
             PopulateReserva();
@@ -122,6 +162,14 @@ namespace Controller
             foreach (clientDTO c in clients)
             {
                 f.clientReserva.Items.Add(c.nom);
+            }
+        }
+
+        public void OmplirTipusHabitacio(List<tipushabitacioDTO> thabitacio)
+        {
+            foreach (tipushabitacioDTO c in thabitacio)
+            {
+                f.CBTipusHabitacioreserva.Items.Add(c.tipus);
             }
         }
     }

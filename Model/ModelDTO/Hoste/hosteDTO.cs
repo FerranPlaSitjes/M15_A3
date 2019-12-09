@@ -8,8 +8,20 @@ namespace Model.ModelDTO.Hoste
 {
     public class hosteDTO
     {
-        
-        public hosteDTO(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio, int idReservaFk)
+        public hoste c;
+
+        public hosteDTO(hoste c)
+        {
+            this.dni = c.dni;
+            this.nom = c.nom;
+            this.cognom = c.cognom;
+            this.nacionalitat = c.nacionalitat;
+            this.telefon = c.telefon;
+            this.cp = c.cp;
+            this.poblacio = c.poblacio;
+        }
+
+        public hosteDTO(string dni, string nom, string cognom, string nacionalitat, string telefon, string cp, string poblacio)
         {
             this.dni = dni;
             this.nom = nom;
@@ -18,7 +30,6 @@ namespace Model.ModelDTO.Hoste
             this.telefon = telefon;
             this.cp = cp;
             this.poblacio = poblacio;
-            this.idReservaFk = idReservaFk;
         }
 
         public string dni { get; set; }
@@ -27,8 +38,7 @@ namespace Model.ModelDTO.Hoste
         public string nacionalitat { get; set; }
         public string telefon { get; set; }
         public string cp { get; set; }
-        public string poblacio { get; set; }
-        public int? idReservaFk { get; set; }
+        public string poblacio { get; set; }       
 
     }
 }

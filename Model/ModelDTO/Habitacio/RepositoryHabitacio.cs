@@ -1,6 +1,7 @@
 ﻿using Model.ModelDTO.Client;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +20,22 @@ namespace Model.ModelDTO.Habitacio
 
         public habitacioDTO habitacioDTOFromRow(DataGridViewCellCollection row)
         {
-            return new habitacioDTO((int)row["numero"].Value, (int)row["metresQuadrats"].Value, (bool)row["terrasa"].Value, (bool)row["utilitzable"].Value,(string)row["titol"].Value, (string)row["caractqristiques"].Value, (int)row["codiTipus"].Value);
+            return new habitacioDTO((int)row["numero"].Value, (int)row["metresQuadrats"].Value, (bool)row["Terrassa"].Value, (bool)row["utilitzable"].Value,(string)row["titol"].Value, (string)row["caracteristiques"].Value, (int)row["codiTipus"].Value);
         }
 
         public void afegirHabitacio(int numero, int metresQuadrats, bool terrassa, bool utilitzable, string titol, string caracteristiques, int codiTipus)
         {
-            habitacio h = new habitacio(numero, metresQuadrats, terrassa, utilitzable, titol, caracteristiques, codiTipus);
-            context.habitacios.Add(h);
-            context.SaveChanges();
+            try
+            {
+                habitacio h = new habitacio(numero, metresQuadrats, terrassa, utilitzable, titol, caracteristiques, codiTipus);
+                context.habitacios.Add(h);
+                context.SaveChanges();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException e)
+            {
+                MessageBox.Show("Duplicate Entry !!!");
+            }
+            
         }
 
         public void modificarHabitacio(int numero, int metresQuadrats, bool terrassa, bool utilitzable, string titol, string caracteristiques, int codiTipus)
@@ -55,6 +64,12 @@ namespace Model.ModelDTO.Habitacio
         public List<habitacioDTO> mostrarHabitacio()
         {
             List<habitacioDTO> dades = context.habitacios.ToList().Select(c => new habitacioDTO(c)).ToList();
+            return dades;
+        }
+
+        public List<habitacioDTO> FiltreHabitacio(int numero)
+        {
+            List<habitacioDTO> dades = context.habitacios.ToList().Where(x => x.numero == numero).Select(c => new habitacioDTO(c)).ToList();
             return dades;
         }
     }
