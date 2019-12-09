@@ -38,6 +38,20 @@ namespace Controller
 
         }
 
+        public void FiltreHabitacio(object sender, EventArgs e)
+        {
+            string filtre = f.textFiltreHabitacio.Text;
+
+            if (!filtre.Equals(""))
+            {
+                int numero = int.Parse(filtre);
+                f.dgvHabitacio.DataSource = rh.FiltreHabitacio(numero); ;
+            }
+            else { PopulateHabitacio(); }
+            f.textFiltreHabitacio.Text = "";                    
+
+        }
+
         private void PopulateCBhabitacio(List<tipushabitacioDTO> llista)
         {
             f.idTipushabHabitacio.Items.Clear();
@@ -54,6 +68,7 @@ namespace Controller
             f.AfegirHabitacio.Click += AfegirHabitacio;
             f.ModificarHabitacio.Click += ModificarHabitacio;
             f.EliminarHabitacio.Click += EliminarHabitacio;
+            f.FiltreHabitcio.Click += FiltreHabitacio;
         }
 
         private void dgvHabitacio_SelectionChanged(object sender, EventArgs e)

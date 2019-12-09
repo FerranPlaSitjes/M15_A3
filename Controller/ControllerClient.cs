@@ -31,6 +31,27 @@ namespace Controller
             f.tipusCB.Items.Add("Particular");
         }
 
+        private void FiltreClients(object sender, EventArgs e)
+        {
+            string filtre = f.textFiltreClient.Text;
+
+            if (f.RBidCLient.Checked)
+            {
+                int id = int.Parse(filtre);
+                f.dgvClients.DataSource = rc.FiltreDniClient(id);
+            }else if (f.RBnomClient.Checked)
+            {
+                f.dgvClients.DataSource = rc.FiltreNomClient(filtre);
+            }
+            else
+            {
+                populateClients();
+            }
+
+            f.FiltreClient.Text = "";
+                
+        }
+
         private void InitListeners()
         {
             f.verticalMenuClients.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
@@ -38,6 +59,7 @@ namespace Controller
             f.AfegirClient.Click += AddButton_Click;
             f.ModificarClient.Click += ModificarClient_Click;
             f.EliminarClient.Click += EliminarClient_Click;
+            f.FiltreClient.Click += FiltreClients;
         }
 
         private void EliminarClient_Click(object sender, EventArgs e)

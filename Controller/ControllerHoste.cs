@@ -31,6 +31,7 @@ namespace Controller
             f.AfegirHoste.Click += AfegirHoste;
             f.ModificarHoste.Click += ModificarHoste;
             f.EliminarHoste.Click += EliminarHoste;
+            f.FiltreHoste.Click += FiltreHoste;
         }
 
         private void dgvHoste_SelectionChanged(object sender, EventArgs e)
@@ -55,6 +56,31 @@ namespace Controller
         {
             f.dgvHostes.DataSource = rh.MostrarHoste();       
             
+        }
+
+        public void FiltreHoste(object sender, EventArgs e)
+        {
+            string filtre = f.textFiltrehoste.Text;
+
+            if (f.RBdniHosteFiltre.Checked)
+            {
+                f.dgvHostes.DataSource = rh.FiltreDNIHoste(filtre);
+            }
+            else if (f.RBnomHostefiltre.Checked)
+            {
+                f.dgvHostes.DataSource = rh.FiltreNomHoste(filtre);
+            }
+            else if (f.RBtipusHabitacioHosteFiltre.Checked)
+            {
+                MessageBox.Show("per fer");
+            }
+            else
+            {
+                f.dgvHostes.DataSource = rh.MostrarHoste();
+            }
+
+            f.textFiltrehoste.Text = "";
+
         }
 
         public void AfegirHoste(object sender, EventArgs e)

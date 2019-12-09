@@ -14,7 +14,7 @@ namespace Model
     
     public partial class reserva
     {
-        public reserva(DateTime dataInici, DateTime dataFinal, decimal preuTotal, decimal bestreta, string pensioFk, int idClientFk)
+        public reserva(DateTime dataInici, DateTime dataFinal, decimal preuTotal, decimal bestreta, string pensioFk, int idClientFk, int idTipusHabitacio, string dniHoste)
         {
             this.dataInici = dataInici;
             this.dataFinal = dataFinal;
@@ -22,6 +22,8 @@ namespace Model
             this.bestreta = bestreta;
             this.pensioFk = pensioFk;
             this.idClientFk = idClientFk;
+            this.idTipusHabitacio = idTipusHabitacio;
+            this.dniHosteFk = dniHoste;
         }
 
         public reserva()

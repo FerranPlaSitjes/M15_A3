@@ -56,5 +56,23 @@ namespace Model.ModelDTO.Hoste
             List<hosteDTO> dades = context.hostes.ToList().Select(c => new hosteDTO(c)).ToList();
             return dades;
         }
+
+        public List<hosteDTO> FiltreDNIHoste(string dni)
+        {
+            List<hosteDTO> dades = context.hostes.ToList().Where(x => x.dni.Contains(dni)).Select(c => new hosteDTO(c)).ToList();
+            return dades;
+        }
+
+        public List<hosteDTO> FiltreNomHoste(string nom)
+        {
+            List<hosteDTO> dades = context.hostes.ToList().Where(x => x.nom.Contains(nom) || x.cognom.Contains(nom)).Select(c => new hosteDTO(c)).ToList();
+            return dades;
+        }
+
+        //public List<hosteDTO> FiltreTipusHabitacioHoste(string nom)
+        //{
+        //    List<hosteDTO> dades = context.hostes.ToList().Where(x => x.reservas.Contains()).Select(c => new hosteDTO(c)).ToList();
+        //    return dades;
+        //}
     }
 }

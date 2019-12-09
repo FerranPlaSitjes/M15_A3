@@ -32,6 +32,10 @@
             this.Clients = new System.Windows.Forms.TabPage();
             this.verticalMenuClients = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.RBnomClient = new System.Windows.Forms.RadioButton();
+            this.RBidCLient = new System.Windows.Forms.RadioButton();
+            this.FiltreClient = new System.Windows.Forms.Button();
+            this.textFiltreClient = new System.Windows.Forms.TextBox();
             this.EliminarClient = new System.Windows.Forms.Button();
             this.ModificarClient = new System.Windows.Forms.Button();
             this.AfegirClient = new System.Windows.Forms.Button();
@@ -45,6 +49,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.verticalMenuHostes = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.textFiltrereserva = new System.Windows.Forms.TextBox();
+            this.FiltreReserva = new System.Windows.Forms.Button();
+            this.RBNumerohabitacioreserva = new System.Windows.Forms.RadioButton();
+            this.RBDniReserva = new System.Windows.Forms.RadioButton();
             this.dataFinalReserva = new System.Windows.Forms.DateTimePicker();
             this.dataIniciReserva = new System.Windows.Forms.DateTimePicker();
             this.labelpreuTotalReserva = new System.Windows.Forms.Label();
@@ -68,6 +76,9 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.verticalMenuHab = new System.Windows.Forms.TabControl();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.FiltreHabitcio = new System.Windows.Forms.Button();
+            this.labelFiltrehabitacio = new System.Windows.Forms.Label();
+            this.textFiltreHabitacio = new System.Windows.Forms.TextBox();
             this.EliminarHabitacio = new System.Windows.Forms.Button();
             this.ModificarHabitacio = new System.Windows.Forms.Button();
             this.AfegirHabitacio = new System.Windows.Forms.Button();
@@ -87,9 +98,24 @@
             this.numeroHabitacio = new System.Windows.Forms.TextBox();
             this.dgvHabitacio = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.labelCodiTipusHabitacio = new System.Windows.Forms.Label();
+            this.CodiTipusHabitacio = new System.Windows.Forms.TextBox();
+            this.TipusHabitacio = new System.Windows.Forms.TextBox();
+            this.EliminarTipusHabitacio = new System.Windows.Forms.Button();
+            this.ModificarTipusHabitacio = new System.Windows.Forms.Button();
+            this.AfegirTipusHabitacio = new System.Windows.Forms.Button();
+            this.labelTipusHabitacio = new System.Windows.Forms.Label();
+            this.lableCapacitatTipusHabitacio = new System.Windows.Forms.Label();
+            this.capacitatTipusHabitacio = new System.Windows.Forms.TextBox();
+            this.dgvTipusHabitacio = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.verticalMenuRes = new System.Windows.Forms.TabControl();
             this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.RBtipusHabitacioHosteFiltre = new System.Windows.Forms.RadioButton();
+            this.FiltreHoste = new System.Windows.Forms.Button();
+            this.textFiltrehoste = new System.Windows.Forms.TextBox();
+            this.RBnomHostefiltre = new System.Windows.Forms.RadioButton();
+            this.RBdniHosteFiltre = new System.Windows.Forms.RadioButton();
             this.labledniHoste = new System.Windows.Forms.Label();
             this.dniHoste = new System.Windows.Forms.TextBox();
             this.EliminarHoste = new System.Windows.Forms.Button();
@@ -117,16 +143,8 @@
             this.verticalMenuSer = new System.Windows.Forms.TabControl();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.EliminarTipusHabitacio = new System.Windows.Forms.Button();
-            this.ModificarTipusHabitacio = new System.Windows.Forms.Button();
-            this.AfegirTipusHabitacio = new System.Windows.Forms.Button();
-            this.labelTipusHabitacio = new System.Windows.Forms.Label();
-            this.lableCapacitatTipusHabitacio = new System.Windows.Forms.Label();
-            this.capacitatTipusHabitacio = new System.Windows.Forms.TextBox();
-            this.dgvTipusHabitacio = new System.Windows.Forms.DataGridView();
-            this.TipusHabitacio = new System.Windows.Forms.TextBox();
-            this.CodiTipusHabitacio = new System.Windows.Forms.TextBox();
-            this.labelCodiTipusHabitacio = new System.Windows.Forms.Label();
+            this.CBTipusHabitacioreserva = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.Clients.SuspendLayout();
             this.verticalMenuClients.SuspendLayout();
@@ -141,6 +159,7 @@
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitacio)).BeginInit();
             this.tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTipusHabitacio)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.verticalMenuRes.SuspendLayout();
             this.tabPage12.SuspendLayout();
@@ -149,7 +168,6 @@
             this.verticalMenuOcu.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.verticalMenuSer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTipusHabitacio)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -197,6 +215,10 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.RBnomClient);
+            this.tabPage6.Controls.Add(this.RBidCLient);
+            this.tabPage6.Controls.Add(this.FiltreClient);
+            this.tabPage6.Controls.Add(this.textFiltreClient);
             this.tabPage6.Controls.Add(this.EliminarClient);
             this.tabPage6.Controls.Add(this.ModificarClient);
             this.tabPage6.Controls.Add(this.AfegirClient);
@@ -212,6 +234,44 @@
             this.tabPage6.TabIndex = 0;
             this.tabPage6.Text = "Afegir client";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // RBnomClient
+            // 
+            this.RBnomClient.AutoSize = true;
+            this.RBnomClient.Location = new System.Drawing.Point(640, 384);
+            this.RBnomClient.Name = "RBnomClient";
+            this.RBnomClient.Size = new System.Drawing.Size(94, 17);
+            this.RBnomClient.TabIndex = 11;
+            this.RBnomClient.TabStop = true;
+            this.RBnomClient.Text = "Nom | Cognom";
+            this.RBnomClient.UseVisualStyleBackColor = true;
+            // 
+            // RBidCLient
+            // 
+            this.RBidCLient.AutoSize = true;
+            this.RBidCLient.Location = new System.Drawing.Point(562, 384);
+            this.RBidCLient.Name = "RBidCLient";
+            this.RBidCLient.Size = new System.Drawing.Size(33, 17);
+            this.RBidCLient.TabIndex = 10;
+            this.RBidCLient.TabStop = true;
+            this.RBidCLient.Text = "id";
+            this.RBidCLient.UseVisualStyleBackColor = true;
+            // 
+            // FiltreClient
+            // 
+            this.FiltreClient.Location = new System.Drawing.Point(535, 420);
+            this.FiltreClient.Name = "FiltreClient";
+            this.FiltreClient.Size = new System.Drawing.Size(75, 23);
+            this.FiltreClient.TabIndex = 9;
+            this.FiltreClient.Text = "Filtre";
+            this.FiltreClient.UseVisualStyleBackColor = true;
+            // 
+            // textFiltreClient
+            // 
+            this.textFiltreClient.Location = new System.Drawing.Point(425, 384);
+            this.textFiltreClient.Name = "textFiltreClient";
+            this.textFiltreClient.Size = new System.Drawing.Size(100, 20);
+            this.textFiltreClient.TabIndex = 8;
             // 
             // EliminarClient
             // 
@@ -332,6 +392,12 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.label8);
+            this.tabPage8.Controls.Add(this.CBTipusHabitacioreserva);
+            this.tabPage8.Controls.Add(this.textFiltrereserva);
+            this.tabPage8.Controls.Add(this.FiltreReserva);
+            this.tabPage8.Controls.Add(this.RBNumerohabitacioreserva);
+            this.tabPage8.Controls.Add(this.RBDniReserva);
             this.tabPage8.Controls.Add(this.dataFinalReserva);
             this.tabPage8.Controls.Add(this.dataIniciReserva);
             this.tabPage8.Controls.Add(this.labelpreuTotalReserva);
@@ -358,6 +424,44 @@
             this.tabPage8.TabIndex = 0;
             this.tabPage8.Text = "Afegir client";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // textFiltrereserva
+            // 
+            this.textFiltrereserva.Location = new System.Drawing.Point(839, 41);
+            this.textFiltrereserva.Name = "textFiltrereserva";
+            this.textFiltrereserva.Size = new System.Drawing.Size(100, 20);
+            this.textFiltrereserva.TabIndex = 24;
+            // 
+            // FiltreReserva
+            // 
+            this.FiltreReserva.Location = new System.Drawing.Point(1034, 61);
+            this.FiltreReserva.Name = "FiltreReserva";
+            this.FiltreReserva.Size = new System.Drawing.Size(75, 23);
+            this.FiltreReserva.TabIndex = 23;
+            this.FiltreReserva.Text = "Filtre";
+            this.FiltreReserva.UseVisualStyleBackColor = true;
+            // 
+            // RBNumerohabitacioreserva
+            // 
+            this.RBNumerohabitacioreserva.AutoSize = true;
+            this.RBNumerohabitacioreserva.Location = new System.Drawing.Point(897, 67);
+            this.RBNumerohabitacioreserva.Name = "RBNumerohabitacioreserva";
+            this.RBNumerohabitacioreserva.Size = new System.Drawing.Size(110, 17);
+            this.RBNumerohabitacioreserva.TabIndex = 22;
+            this.RBNumerohabitacioreserva.TabStop = true;
+            this.RBNumerohabitacioreserva.Text = "Numero Habitacio";
+            this.RBNumerohabitacioreserva.UseVisualStyleBackColor = true;
+            // 
+            // RBDniReserva
+            // 
+            this.RBDniReserva.AutoSize = true;
+            this.RBDniReserva.Location = new System.Drawing.Point(818, 67);
+            this.RBDniReserva.Name = "RBDniReserva";
+            this.RBDniReserva.Size = new System.Drawing.Size(73, 17);
+            this.RBDniReserva.TabIndex = 21;
+            this.RBDniReserva.TabStop = true;
+            this.RBDniReserva.Text = "DNI Client";
+            this.RBDniReserva.UseVisualStyleBackColor = true;
             // 
             // dataFinalReserva
             // 
@@ -566,6 +670,9 @@
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this.FiltreHabitcio);
+            this.tabPage10.Controls.Add(this.labelFiltrehabitacio);
+            this.tabPage10.Controls.Add(this.textFiltreHabitacio);
             this.tabPage10.Controls.Add(this.EliminarHabitacio);
             this.tabPage10.Controls.Add(this.ModificarHabitacio);
             this.tabPage10.Controls.Add(this.AfegirHabitacio);
@@ -591,6 +698,31 @@
             this.tabPage10.TabIndex = 0;
             this.tabPage10.Text = "Habitacions";
             this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // FiltreHabitcio
+            // 
+            this.FiltreHabitcio.Location = new System.Drawing.Point(655, 18);
+            this.FiltreHabitcio.Name = "FiltreHabitcio";
+            this.FiltreHabitcio.Size = new System.Drawing.Size(75, 23);
+            this.FiltreHabitcio.TabIndex = 23;
+            this.FiltreHabitcio.Text = "Filtre";
+            this.FiltreHabitcio.UseVisualStyleBackColor = true;
+            // 
+            // labelFiltrehabitacio
+            // 
+            this.labelFiltrehabitacio.AutoSize = true;
+            this.labelFiltrehabitacio.Location = new System.Drawing.Point(458, 23);
+            this.labelFiltrehabitacio.Name = "labelFiltrehabitacio";
+            this.labelFiltrehabitacio.Size = new System.Drawing.Size(70, 13);
+            this.labelFiltrehabitacio.TabIndex = 22;
+            this.labelFiltrehabitacio.Text = "Nº Habitacio:";
+            // 
+            // textFiltreHabitacio
+            // 
+            this.textFiltreHabitacio.Location = new System.Drawing.Point(534, 20);
+            this.textFiltreHabitacio.Name = "textFiltreHabitacio";
+            this.textFiltreHabitacio.Size = new System.Drawing.Size(100, 20);
+            this.textFiltreHabitacio.TabIndex = 21;
             // 
             // EliminarHabitacio
             // 
@@ -739,7 +871,7 @@
             // dgvHabitacio
             // 
             this.dgvHabitacio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHabitacio.Location = new System.Drawing.Point(193, 39);
+            this.dgvHabitacio.Location = new System.Drawing.Point(193, 62);
             this.dgvHabitacio.Name = "dgvHabitacio";
             this.dgvHabitacio.ReadOnly = true;
             this.dgvHabitacio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -765,6 +897,91 @@
             this.tabPage11.TabIndex = 1;
             this.tabPage11.Text = "Tipus Habitacio";
             this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // labelCodiTipusHabitacio
+            // 
+            this.labelCodiTipusHabitacio.AutoSize = true;
+            this.labelCodiTipusHabitacio.Location = new System.Drawing.Point(353, 350);
+            this.labelCodiTipusHabitacio.Name = "labelCodiTipusHabitacio";
+            this.labelCodiTipusHabitacio.Size = new System.Drawing.Size(31, 13);
+            this.labelCodiTipusHabitacio.TabIndex = 37;
+            this.labelCodiTipusHabitacio.Text = "Codi:";
+            // 
+            // CodiTipusHabitacio
+            // 
+            this.CodiTipusHabitacio.Location = new System.Drawing.Point(337, 377);
+            this.CodiTipusHabitacio.Name = "CodiTipusHabitacio";
+            this.CodiTipusHabitacio.Size = new System.Drawing.Size(100, 20);
+            this.CodiTipusHabitacio.TabIndex = 36;
+            // 
+            // TipusHabitacio
+            // 
+            this.TipusHabitacio.Location = new System.Drawing.Point(458, 377);
+            this.TipusHabitacio.Name = "TipusHabitacio";
+            this.TipusHabitacio.Size = new System.Drawing.Size(100, 20);
+            this.TipusHabitacio.TabIndex = 35;
+            // 
+            // EliminarTipusHabitacio
+            // 
+            this.EliminarTipusHabitacio.Location = new System.Drawing.Point(660, 437);
+            this.EliminarTipusHabitacio.Name = "EliminarTipusHabitacio";
+            this.EliminarTipusHabitacio.Size = new System.Drawing.Size(75, 23);
+            this.EliminarTipusHabitacio.TabIndex = 34;
+            this.EliminarTipusHabitacio.Text = "Eliminar";
+            this.EliminarTipusHabitacio.UseVisualStyleBackColor = true;
+            // 
+            // ModificarTipusHabitacio
+            // 
+            this.ModificarTipusHabitacio.Location = new System.Drawing.Point(505, 437);
+            this.ModificarTipusHabitacio.Name = "ModificarTipusHabitacio";
+            this.ModificarTipusHabitacio.Size = new System.Drawing.Size(75, 23);
+            this.ModificarTipusHabitacio.TabIndex = 33;
+            this.ModificarTipusHabitacio.Text = "Modificar";
+            this.ModificarTipusHabitacio.UseVisualStyleBackColor = true;
+            // 
+            // AfegirTipusHabitacio
+            // 
+            this.AfegirTipusHabitacio.Location = new System.Drawing.Point(373, 437);
+            this.AfegirTipusHabitacio.Name = "AfegirTipusHabitacio";
+            this.AfegirTipusHabitacio.Size = new System.Drawing.Size(75, 23);
+            this.AfegirTipusHabitacio.TabIndex = 32;
+            this.AfegirTipusHabitacio.Text = "Afegir";
+            this.AfegirTipusHabitacio.UseVisualStyleBackColor = true;
+            // 
+            // labelTipusHabitacio
+            // 
+            this.labelTipusHabitacio.AutoSize = true;
+            this.labelTipusHabitacio.Location = new System.Drawing.Point(474, 350);
+            this.labelTipusHabitacio.Name = "labelTipusHabitacio";
+            this.labelTipusHabitacio.Size = new System.Drawing.Size(84, 13);
+            this.labelTipusHabitacio.TabIndex = 31;
+            this.labelTipusHabitacio.Text = "Tipus Habitacio:";
+            // 
+            // lableCapacitatTipusHabitacio
+            // 
+            this.lableCapacitatTipusHabitacio.AutoSize = true;
+            this.lableCapacitatTipusHabitacio.Location = new System.Drawing.Point(657, 350);
+            this.lableCapacitatTipusHabitacio.Name = "lableCapacitatTipusHabitacio";
+            this.lableCapacitatTipusHabitacio.Size = new System.Drawing.Size(55, 13);
+            this.lableCapacitatTipusHabitacio.TabIndex = 29;
+            this.lableCapacitatTipusHabitacio.Text = "Capacitat:";
+            // 
+            // capacitatTipusHabitacio
+            // 
+            this.capacitatTipusHabitacio.Location = new System.Drawing.Point(631, 377);
+            this.capacitatTipusHabitacio.Name = "capacitatTipusHabitacio";
+            this.capacitatTipusHabitacio.Size = new System.Drawing.Size(100, 20);
+            this.capacitatTipusHabitacio.TabIndex = 24;
+            // 
+            // dgvTipusHabitacio
+            // 
+            this.dgvTipusHabitacio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTipusHabitacio.Location = new System.Drawing.Point(169, 43);
+            this.dgvTipusHabitacio.Name = "dgvTipusHabitacio";
+            this.dgvTipusHabitacio.ReadOnly = true;
+            this.dgvTipusHabitacio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTipusHabitacio.Size = new System.Drawing.Size(812, 251);
+            this.dgvTipusHabitacio.TabIndex = 21;
             // 
             // tabPage3
             // 
@@ -794,6 +1011,11 @@
             // 
             // tabPage12
             // 
+            this.tabPage12.Controls.Add(this.RBtipusHabitacioHosteFiltre);
+            this.tabPage12.Controls.Add(this.FiltreHoste);
+            this.tabPage12.Controls.Add(this.textFiltrehoste);
+            this.tabPage12.Controls.Add(this.RBnomHostefiltre);
+            this.tabPage12.Controls.Add(this.RBdniHosteFiltre);
             this.tabPage12.Controls.Add(this.labledniHoste);
             this.tabPage12.Controls.Add(this.dniHoste);
             this.tabPage12.Controls.Add(this.EliminarHoste);
@@ -819,6 +1041,55 @@
             this.tabPage12.TabIndex = 0;
             this.tabPage12.Text = "Afegir client";
             this.tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // RBtipusHabitacioHosteFiltre
+            // 
+            this.RBtipusHabitacioHosteFiltre.AutoSize = true;
+            this.RBtipusHabitacioHosteFiltre.Location = new System.Drawing.Point(600, 25);
+            this.RBtipusHabitacioHosteFiltre.Name = "RBtipusHabitacioHosteFiltre";
+            this.RBtipusHabitacioHosteFiltre.Size = new System.Drawing.Size(99, 17);
+            this.RBtipusHabitacioHosteFiltre.TabIndex = 22;
+            this.RBtipusHabitacioHosteFiltre.TabStop = true;
+            this.RBtipusHabitacioHosteFiltre.Text = "Tipus Habitacio";
+            this.RBtipusHabitacioHosteFiltre.UseVisualStyleBackColor = true;
+            // 
+            // FiltreHoste
+            // 
+            this.FiltreHoste.Location = new System.Drawing.Point(715, 26);
+            this.FiltreHoste.Name = "FiltreHoste";
+            this.FiltreHoste.Size = new System.Drawing.Size(75, 23);
+            this.FiltreHoste.TabIndex = 21;
+            this.FiltreHoste.Text = "Filtre";
+            this.FiltreHoste.UseVisualStyleBackColor = true;
+            // 
+            // textFiltrehoste
+            // 
+            this.textFiltrehoste.Location = new System.Drawing.Point(309, 24);
+            this.textFiltrehoste.Name = "textFiltrehoste";
+            this.textFiltrehoste.Size = new System.Drawing.Size(100, 20);
+            this.textFiltrehoste.TabIndex = 20;
+            // 
+            // RBnomHostefiltre
+            // 
+            this.RBnomHostefiltre.AutoSize = true;
+            this.RBnomHostefiltre.Location = new System.Drawing.Point(500, 26);
+            this.RBnomHostefiltre.Name = "RBnomHostefiltre";
+            this.RBnomHostefiltre.Size = new System.Drawing.Size(94, 17);
+            this.RBnomHostefiltre.TabIndex = 19;
+            this.RBnomHostefiltre.TabStop = true;
+            this.RBnomHostefiltre.Text = "Nom | Cognom";
+            this.RBnomHostefiltre.UseVisualStyleBackColor = true;
+            // 
+            // RBdniHosteFiltre
+            // 
+            this.RBdniHosteFiltre.AutoSize = true;
+            this.RBdniHosteFiltre.Location = new System.Drawing.Point(434, 26);
+            this.RBdniHosteFiltre.Name = "RBdniHosteFiltre";
+            this.RBdniHosteFiltre.Size = new System.Drawing.Size(44, 17);
+            this.RBdniHosteFiltre.TabIndex = 18;
+            this.RBdniHosteFiltre.TabStop = true;
+            this.RBdniHosteFiltre.Text = "DNI";
+            this.RBdniHosteFiltre.UseVisualStyleBackColor = true;
             // 
             // labledniHoste
             // 
@@ -962,7 +1233,7 @@
             // dgvHostes
             // 
             this.dgvHostes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHostes.Location = new System.Drawing.Point(71, 55);
+            this.dgvHostes.Location = new System.Drawing.Point(91, 76);
             this.dgvHostes.Name = "dgvHostes";
             this.dgvHostes.ReadOnly = true;
             this.dgvHostes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1071,90 +1342,23 @@
             this.tabPage17.Text = "Modificar Client";
             this.tabPage17.UseVisualStyleBackColor = true;
             // 
-            // EliminarTipusHabitacio
+            // CBTipusHabitacioreserva
             // 
-            this.EliminarTipusHabitacio.Location = new System.Drawing.Point(660, 437);
-            this.EliminarTipusHabitacio.Name = "EliminarTipusHabitacio";
-            this.EliminarTipusHabitacio.Size = new System.Drawing.Size(75, 23);
-            this.EliminarTipusHabitacio.TabIndex = 34;
-            this.EliminarTipusHabitacio.Text = "Eliminar";
-            this.EliminarTipusHabitacio.UseVisualStyleBackColor = true;
+            this.CBTipusHabitacioreserva.FormattingEnabled = true;
+            this.CBTipusHabitacioreserva.Location = new System.Drawing.Point(873, 557);
+            this.CBTipusHabitacioreserva.Name = "CBTipusHabitacioreserva";
+            this.CBTipusHabitacioreserva.Size = new System.Drawing.Size(121, 21);
+            this.CBTipusHabitacioreserva.TabIndex = 25;
             // 
-            // ModificarTipusHabitacio
+            // label8
             // 
-            this.ModificarTipusHabitacio.Location = new System.Drawing.Point(505, 437);
-            this.ModificarTipusHabitacio.Name = "ModificarTipusHabitacio";
-            this.ModificarTipusHabitacio.Size = new System.Drawing.Size(75, 23);
-            this.ModificarTipusHabitacio.TabIndex = 33;
-            this.ModificarTipusHabitacio.Text = "Modificar";
-            this.ModificarTipusHabitacio.UseVisualStyleBackColor = true;
-            // 
-            // AfegirTipusHabitacio
-            // 
-            this.AfegirTipusHabitacio.Location = new System.Drawing.Point(373, 437);
-            this.AfegirTipusHabitacio.Name = "AfegirTipusHabitacio";
-            this.AfegirTipusHabitacio.Size = new System.Drawing.Size(75, 23);
-            this.AfegirTipusHabitacio.TabIndex = 32;
-            this.AfegirTipusHabitacio.Text = "Afegir";
-            this.AfegirTipusHabitacio.UseVisualStyleBackColor = true;
-            // 
-            // labelTipusHabitacio
-            // 
-            this.labelTipusHabitacio.AutoSize = true;
-            this.labelTipusHabitacio.Location = new System.Drawing.Point(474, 350);
-            this.labelTipusHabitacio.Name = "labelTipusHabitacio";
-            this.labelTipusHabitacio.Size = new System.Drawing.Size(84, 13);
-            this.labelTipusHabitacio.TabIndex = 31;
-            this.labelTipusHabitacio.Text = "Tipus Habitacio:";
-            // 
-            // lableCapacitatTipusHabitacio
-            // 
-            this.lableCapacitatTipusHabitacio.AutoSize = true;
-            this.lableCapacitatTipusHabitacio.Location = new System.Drawing.Point(657, 350);
-            this.lableCapacitatTipusHabitacio.Name = "lableCapacitatTipusHabitacio";
-            this.lableCapacitatTipusHabitacio.Size = new System.Drawing.Size(55, 13);
-            this.lableCapacitatTipusHabitacio.TabIndex = 29;
-            this.lableCapacitatTipusHabitacio.Text = "Capacitat:";
-            // 
-            // capacitatTipusHabitacio
-            // 
-            this.capacitatTipusHabitacio.Location = new System.Drawing.Point(631, 377);
-            this.capacitatTipusHabitacio.Name = "capacitatTipusHabitacio";
-            this.capacitatTipusHabitacio.Size = new System.Drawing.Size(100, 20);
-            this.capacitatTipusHabitacio.TabIndex = 24;
-            // 
-            // dgvTipusHabitacio
-            // 
-            this.dgvTipusHabitacio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTipusHabitacio.Location = new System.Drawing.Point(169, 43);
-            this.dgvTipusHabitacio.Name = "dgvTipusHabitacio";
-            this.dgvTipusHabitacio.ReadOnly = true;
-            this.dgvTipusHabitacio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTipusHabitacio.Size = new System.Drawing.Size(812, 251);
-            this.dgvTipusHabitacio.TabIndex = 21;
-            // 
-            // TipusHabitacio
-            // 
-            this.TipusHabitacio.Location = new System.Drawing.Point(458, 377);
-            this.TipusHabitacio.Name = "TipusHabitacio";
-            this.TipusHabitacio.Size = new System.Drawing.Size(100, 20);
-            this.TipusHabitacio.TabIndex = 35;
-            // 
-            // CodiTipusHabitacio
-            // 
-            this.CodiTipusHabitacio.Location = new System.Drawing.Point(337, 377);
-            this.CodiTipusHabitacio.Name = "CodiTipusHabitacio";
-            this.CodiTipusHabitacio.Size = new System.Drawing.Size(100, 20);
-            this.CodiTipusHabitacio.TabIndex = 36;
-            // 
-            // labelCodiTipusHabitacio
-            // 
-            this.labelCodiTipusHabitacio.AutoSize = true;
-            this.labelCodiTipusHabitacio.Location = new System.Drawing.Point(353, 350);
-            this.labelCodiTipusHabitacio.Name = "labelCodiTipusHabitacio";
-            this.labelCodiTipusHabitacio.Size = new System.Drawing.Size(31, 13);
-            this.labelCodiTipusHabitacio.TabIndex = 37;
-            this.labelCodiTipusHabitacio.Text = "Codi:";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(884, 530);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Tipus Habitacio";
             // 
             // Form1
             // 
@@ -1182,6 +1386,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitacio)).EndInit();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTipusHabitacio)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.verticalMenuRes.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
@@ -1191,7 +1396,6 @@
             this.verticalMenuOcu.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.verticalMenuSer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTipusHabitacio)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1297,6 +1501,24 @@
         public System.Windows.Forms.TextBox TipusHabitacio;
         public System.Windows.Forms.Label labelCodiTipusHabitacio;
         public System.Windows.Forms.TextBox CodiTipusHabitacio;
+        public System.Windows.Forms.RadioButton RBnomClient;
+        public System.Windows.Forms.RadioButton RBidCLient;
+        public System.Windows.Forms.Button FiltreClient;
+        public System.Windows.Forms.TextBox textFiltreClient;
+        public System.Windows.Forms.Button FiltreHoste;
+        public System.Windows.Forms.TextBox textFiltrehoste;
+        public System.Windows.Forms.RadioButton RBtipusHabitacioHosteFiltre;
+        public System.Windows.Forms.RadioButton RBnomHostefiltre;
+        public System.Windows.Forms.RadioButton RBdniHosteFiltre;
+        public System.Windows.Forms.Button FiltreHabitcio;
+        public System.Windows.Forms.Label labelFiltrehabitacio;
+        public System.Windows.Forms.TextBox textFiltreHabitacio;
+        public System.Windows.Forms.Button FiltreReserva;
+        public System.Windows.Forms.RadioButton RBNumerohabitacioreserva;
+        public System.Windows.Forms.RadioButton RBDniReserva;
+        public System.Windows.Forms.TextBox textFiltrereserva;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.ComboBox CBTipusHabitacioreserva;
     }
 }
 

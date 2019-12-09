@@ -66,5 +66,11 @@ namespace Model.ModelDTO.Habitacio
             List<habitacioDTO> dades = context.habitacios.ToList().Select(c => new habitacioDTO(c)).ToList();
             return dades;
         }
+
+        public List<habitacioDTO> FiltreHabitacio(int numero)
+        {
+            List<habitacioDTO> dades = context.habitacios.ToList().Where(x => x.numero == numero).Select(c => new habitacioDTO(c)).ToList();
+            return dades;
+        }
     }
 }

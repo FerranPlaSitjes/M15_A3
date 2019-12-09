@@ -32,6 +32,13 @@ namespace Model.ModelDTO.TipusHabitacio
             return result;
         }
 
+        public tipusHabitacio returnTipusHabitacioTipus(string id)
+        {
+            var result = context.tipusHabitacios.Where(a => a.tipus.Equals(id)).Single();
+
+            return result;
+        }
+
         public List<tipushabitacioDTO> mostrarTipusHabitacio()
         {
             List<tipushabitacioDTO> dades = context.tipusHabitacios.ToList().Select(c => new tipushabitacioDTO(c)).ToList();           
