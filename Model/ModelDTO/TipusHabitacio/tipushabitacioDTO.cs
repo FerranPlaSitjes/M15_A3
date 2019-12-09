@@ -7,7 +7,13 @@ using System.Threading.Tasks;
 namespace Model.ModelDTO.TipusHabitacio
 {
     public class tipushabitacioDTO
-    {      
+    {
+        public tipushabitacioDTO(tipusHabitacio th)
+        {
+            this.codi = th.codi;
+            this.tipus = th.tipus;
+            this.capacitat = th.capacitat;
+        }
 
         public tipushabitacioDTO(int codi, string tipus, int capacitat)
         {

@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace Model.ModelDTO.Temporada
 {
-    class temporadaDTO
+    public class temporadaDTO
     {
+
+        public temporadaDTO(temporada t)
+        {
+            this.codi = t.codi;
+            this.nom = t.nom;
+            this.dataInici = t.dataInici;
+            this.dataFinal = t.dataFinal;
+        }
+
         public temporadaDTO(int codi, string nom, DateTime dataInici, DateTime dataFinal)
         {
             this.codi = codi;

@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Model.ModelDTO.Servei
 {
-    class serveiDTO
+    public class serveiDTO
     {
+        public serveiDTO(servei s)
+        {
+            this.id = s.id;
+            this.nom = s.nom;
+        }
+
         public serveiDTO(int id, string nom)
         {
             this.id = id;

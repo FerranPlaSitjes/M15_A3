@@ -20,6 +20,14 @@ namespace Model
             this.hostes = new HashSet<hoste>();
         }
 
+        public ocupacio(DateTime dataInici, DateTime dataFinal, int nHabitacioFk, string tipusPensioFk)
+        {
+            this.dataInici = dataInici;
+            this.dataFinal = dataFinal;
+            this.nHabitacioFk = nHabitacioFk;
+            this.tipusPensioFk = tipusPensioFk;
+        }
+
         public ocupacio(int id, DateTime dataInici, DateTime dataFinal, int nHabitacioFk, string tipusPensioFk)
         {
             this.id = id;

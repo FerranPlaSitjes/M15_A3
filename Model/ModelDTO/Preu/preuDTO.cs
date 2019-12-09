@@ -8,6 +8,8 @@ namespace Model.ModelDTO.Preu
 {
     public class preuDTO
     {
+        public string temporada { get; set; }
+        public string tipusHabitacio { get; set; }
 
         public preuDTO(preu p)
         {
@@ -22,6 +24,15 @@ namespace Model.ModelDTO.Preu
             this.codiTemporada = codiTemporada;
             this.tipusPensio = tipusPensio;
             this.codiHabitacio = codiHabitacio;
+            this.preu = preu;
+        }
+
+        
+        public preuDTO(string temporada, string tipusPensio, string tipusHabitacio, decimal? preu)
+        {
+            this.temporada = temporada;
+            this.tipusPensio = tipusPensio;
+            this.tipusHabitacio = tipusHabitacio;
             this.preu = preu;
         }
 

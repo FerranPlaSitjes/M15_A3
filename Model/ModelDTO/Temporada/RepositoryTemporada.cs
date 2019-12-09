@@ -7,13 +7,19 @@ using System.Threading.Tasks;
 
 namespace Model.ModelDTO.Temporada
 {
-    class RepositoryTemporada
+    public class RepositoryTemporada
     {
         hotelEntities context;
-        RepositoryClient rc;
-        public RepositoryTemporada()
+
+        public RepositoryTemporada(hotelEntities context)
         {
-            this.context = rc.context;
+            this.context = context;
+        }
+
+        public List<temporadaDTO> getAll()
+        {
+            List<temporadaDTO> lt = context.temporadas.ToList().Select(t => new temporadaDTO(t)).ToList();
+            return lt;
         }
 
         public void afegirTemporada(int codi, string nom, DateTime dataInici, DateTime dataFinal)
@@ -42,6 +48,18 @@ namespace Model.ModelDTO.Temporada
             context.temporadas.Remove(temporada);
             context.SaveChanges();
 
+        }
+
+        public temporada getTemporada(int id)
+        {
+            temporada t = context.temporadas.Where(x => x.codi == id).SingleOrDefault();
+            return t;
+        }
+
+        public temporada getTemporada(string nom)
+        {
+            temporada t = context.temporadas.Where(x => x.nom == nom).SingleOrDefault();
+            return t;
         }
     }
 }

@@ -20,6 +20,9 @@ namespace Controller
         ControllerClient ccl;
         ControllerReserva cr;
         ControllerHabitacio ch;
+        ControllerPreu cp;
+        ControllerOcupacio co;
+        ControllerServei cs;
 
         public Controller1()
         {
@@ -28,6 +31,9 @@ namespace Controller
             ccl = new ControllerClient(f);
             cr = new ControllerReserva(f,rc);
             ch = new ControllerHabitacio(f,rc);
+            cp = new ControllerPreu(f, rc);
+            co = new ControllerOcupacio(f, rc);
+            cs = new ControllerServei(f, rc);
             Application.Run(f);
         }
     }
