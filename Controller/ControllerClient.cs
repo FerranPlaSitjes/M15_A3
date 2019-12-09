@@ -14,7 +14,6 @@ namespace Controller
     {
         Form1 f;
         RepositoryClient rc;
-        Controller1 c1;
 
         public ControllerClient(Form1 f)
         {
@@ -31,35 +30,18 @@ namespace Controller
             f.tipusCB.Items.Add("Particular");
         }
 
-        private void FiltreClients(object sender, EventArgs e)
-        {
-            string filtre = f.textFiltreClient.Text;
-
-            if (f.RBidCLient.Checked)
-            {
-                int id = int.Parse(filtre);
-                f.dgvClients.DataSource = rc.FiltreDniClient(id);
-            }else if (f.RBnomClient.Checked)
-            {
-                f.dgvClients.DataSource = rc.FiltreNomClient(filtre);
-            }
-            else
-            {
-                populateClients();
-            }
-
-            f.FiltreClient.Text = "";
-                
-        }
-
         private void InitListeners()
         {
-            f.verticalMenuClients.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuClients.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuHostes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuHab.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuRes.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuOcu.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
+            //f.verticalMenuSer.DrawItem += new DrawItemEventHandler(verticalMenu_DrawItem);
             f.dgvClients.SelectionChanged += DataGridView2_SelectionChanged;
             f.AfegirClient.Click += AddButton_Click;
             f.ModificarClient.Click += ModificarClient_Click;
             f.EliminarClient.Click += EliminarClient_Click;
-            f.FiltreClient.Click += FiltreClients;
         }
 
         private void EliminarClient_Click(object sender, EventArgs e)
@@ -110,6 +92,8 @@ namespace Controller
             {
                 rc.afegirClient(nom, tipus);
                 populateClients();
+                int rowsN = f.dgvClients.Rows.Count;
+                f.dgvClients.Rows[rowsN - 1].Selected = true;
             }
         }
 
@@ -119,10 +103,10 @@ namespace Controller
             Brush _textBrush;
 
             // Get the item from the collection.
-            TabPage _tabPage = f.verticalMenuClients.TabPages[e.Index];
+            //TabPage _tabPage = f.verticalMenuClients.TabPages[e.Index];
 
             // Get the real bounds for the tab rectangle.
-            Rectangle _tabBounds = f.verticalMenuClients.GetTabRect(e.Index);
+            //Rectangle _tabBounds = f.verticalMenuClients.GetTabRect(e.Index);
 
             if (e.State == DrawItemState.Selected)
             {
@@ -144,7 +128,7 @@ namespace Controller
             StringFormat _stringFlags = new StringFormat();
             _stringFlags.Alignment = StringAlignment.Center;
             _stringFlags.LineAlignment = StringAlignment.Center;
-            g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
+            //g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
     }
 }

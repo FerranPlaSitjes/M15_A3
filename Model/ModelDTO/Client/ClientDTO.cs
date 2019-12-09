@@ -8,7 +8,6 @@ namespace Model.ModelDTO.Client
 {
     public class clientDTO
     {
-        private client c;
 
         public clientDTO(client c)
         {

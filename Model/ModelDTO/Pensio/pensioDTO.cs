@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model.ModelDTO.Pensio
 {
-    class pensioDTO
+    public class pensioDTO
     {
 
         public pensioDTO(string tipus, decimal preu)

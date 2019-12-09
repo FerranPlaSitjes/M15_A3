@@ -8,13 +8,11 @@ namespace Model.ModelDTO.TipusHabitacio
 {
     public class tipushabitacioDTO
     {
-        private tipusHabitacio c;
-
-        public tipushabitacioDTO(tipusHabitacio c)
+        public tipushabitacioDTO(tipusHabitacio th)
         {
-            this.codi = c.codi;
-            this.tipus = c.tipus;
-            this.capacitat = c.capacitat;
+            this.codi = th.codi;
+            this.tipus = th.tipus;
+            this.capacitat = th.capacitat;
         }
 
         public tipushabitacioDTO(int codi, string tipus, int capacitat)

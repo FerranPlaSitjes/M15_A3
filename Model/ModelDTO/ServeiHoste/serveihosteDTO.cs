@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.ModelDTO.ServeiOcupacio
+namespace Model.ModelDTO.ServeiHoste
 {
     class serveihosteDTO
     {
-
         public serveihosteDTO(string dni,int idServei, DateTime data, decimal preu)
         {
             this.dniHoste= dni;

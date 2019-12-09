@@ -4,45 +4,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Model.ModelDTO.TipusHabitacio
 {
     public class RepositoryTipusHabitacio
     {
         hotelEntities context;
-        RepositoryClient rc;
 
         public RepositoryTipusHabitacio(hotelEntities context)
         {
             this.context = context;
         }
 
+        public List<tipushabitacioDTO> getAll()
+        {
+            List<tipushabitacioDTO> lth = context.tipusHabitacios.ToList().Select(th => new tipushabitacioDTO(th)).ToList();
+            return lth;
+        }
+
         public void afegirTipusHabitacio(int codi, string tipus, int capacitat)
         {
-            tipusHabitacio l = new tipusHabitacio(codi ,tipus,  capacitat);
+            tipusHabitacio l = new tipusHabitacio( codi,  tipus,  capacitat);
             context.tipusHabitacios.Add(l);
             context.SaveChanges();
-        }
-
-        public tipusHabitacio returnTipusHabitacio(int? id)
-        {
-            var result = context.tipusHabitacios.Where(a => a.codi == id).Single();
-
-            return result;
-        }
-
-        public tipusHabitacio returnTipusHabitacioTipus(string id)
-        {
-            var result = context.tipusHabitacios.Where(a => a.tipus.Equals(id)).Single();
-
-            return result;
-        }
-
-        public List<tipushabitacioDTO> mostrarTipusHabitacio()
-        {
-            List<tipushabitacioDTO> dades = context.tipusHabitacios.ToList().Select(c => new tipushabitacioDTO(c)).ToList();           
-            return dades;
         }
 
         public void modificarTipusHabitacio(int codi, string tipus, int capacitat)
@@ -52,7 +36,7 @@ namespace Model.ModelDTO.TipusHabitacio
             {
                 result.codi = codi;
                 result.tipus = tipus;
-                result.capacitat = capacitat;
+                result.capacitat = capacitat;                
                 context.SaveChanges();
             }
         }
@@ -62,11 +46,19 @@ namespace Model.ModelDTO.TipusHabitacio
             var tipusHabitacio = context.tipusHabitacios.Single(c => c.codi == id);
             context.tipusHabitacios.Remove(tipusHabitacio);
             context.SaveChanges();
+
         }
 
-        public tipushabitacioDTO TipushabitacioDTOFromRow(DataGridViewCellCollection rows)
+        public tipusHabitacio getTipusHabitacio(int id)
         {
-            return new tipushabitacioDTO((int)rows["codi"].Value, (string)rows["tipus"].Value, (int)rows["capacitat"].Value);
+            tipusHabitacio th = context.tipusHabitacios.Where(x => x.codi == id).SingleOrDefault();
+            return th;
+        }
+
+        public tipusHabitacio getTipusHabitacioByType(string tipus)
+        {
+            tipusHabitacio th = context.tipusHabitacios.Where(x => x.tipus == tipus).SingleOrDefault();
+            return th;
         }
     }
 

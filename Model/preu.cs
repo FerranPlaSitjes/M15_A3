@@ -14,6 +14,20 @@ namespace Model
     
     public partial class preu
     {
+
+        public preu()
+        {
+
+        }
+
+        public preu (int codiTemporada, string pensio, int codiTipusHab, decimal preu)
+        {
+            this.codiTemporada = codiTemporada;
+            this.tipusPensio = pensio;
+            this.codiTipusHabitacio = codiTipusHab;
+            this.preu1 = preu;
+        }
+
         public int codiTemporada { get; set; }
         public string tipusPensio { get; set; }
         public int codiTipusHabitacio { get; set; }

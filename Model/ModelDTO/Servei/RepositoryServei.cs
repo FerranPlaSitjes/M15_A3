@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Model.ModelDTO.Servei
 {
     public class RepositoryServei
     {
         hotelEntities context;
-        RepositoryClient rc;
 
-        public RepositoryServei()
+        public RepositoryServei(hotelEntities context)
         {
-            this.context = rc.context;
+            this.context = context;
         }
 
         public void afegirServei(string nom)
@@ -39,6 +39,17 @@ namespace Model.ModelDTO.Servei
             var servei = context.serveis.Single(s => s.id == id);
             context.serveis.Remove(servei);
             context.SaveChanges();
+        }
+
+        public List<serveiDTO> mostrarServeis()
+        {
+            List<serveiDTO> dades = context.serveis.ToList().Select(s => new serveiDTO(s)).ToList();
+            return dades;
+        }
+
+        public serveiDTO serveiDTOFromRow(DataGridViewCellCollection row)
+        {
+            return new serveiDTO((int)row["id"].Value, (string)row["nom"].Value);
         }
     }
 }
